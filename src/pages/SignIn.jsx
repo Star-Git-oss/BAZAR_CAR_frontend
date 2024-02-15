@@ -38,7 +38,8 @@ const SignIn = () => {
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => {
       console.log(codeResponse)
-      const { access_token } = codeResponse;
+      const access_token = codeResponse.access_token;
+      console.log(access_token);
       dispatch(googleSignin(access_token))
         .then((res) => {
           console.log("googlein==>res.id", res.id);
@@ -49,7 +50,8 @@ const SignIn = () => {
     onError: (error) => {
       alert("Invalid gmail");
     },
-    flow: "auth-code",
+    scope:
+            "email profile "
   });
   const handlePoliticsClick = () => {
     console.log("handlePoliticsClick");
@@ -82,6 +84,7 @@ const SignIn = () => {
         <SignInput
           label="Contraseña*"
           value={password}
+          type="password"
           onChange={setPassword}
         />
         <p className="w-full text-right text-sky-800 font-bold px-4">

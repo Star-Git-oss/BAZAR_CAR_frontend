@@ -2,9 +2,11 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import SignInput from "../component/SignInput";
 import { signup } from "../action/user";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -25,14 +27,14 @@ const SignUp = () => {
           password: password,
         })
       )
-        .then((res) => {})
-        .catch((err) => {});
+        .then((res) => {console.log(res); alert(res); navigate('/');})
+        .catch((err) => {console.log(err); alert(err);});
     }
   };
 
   return (
     <div className="bg-[url('./wallpaper.png')] w-full md:h-screen bg-cover bg-no-repeat bg-center flex justify-center items-center">
-      <div className="bg-white w-5/6 max-w-[1400px] flex justify-start flex-col md:flex-row rounded-lg my-4 p-4">
+      <div className="bg-white w-5/6 max-w-[1400px] flex justify-start flex-col md:flex-row rounded-lg my-4 p-12 bg-transparent">
         <div className="w-full md:w-1/3 mr-4">
           <div className="ml-4 mb-4 md:mb-60">
             <p className="w-full text-center lg:text-left text-2xl text-sky-950 font-bold">
@@ -70,12 +72,14 @@ const SignUp = () => {
             label={"Contraseña*"}
             width={"w-full md:w-1/2"}
             value={password}
+            type="password"
             onChange={setPassword}
           />
           <SignInput
             label={"Confirma la contraseña*"}
             width={"w-full md:w-1/2"}
             value={confirmPassword}
+            type="password"
             onChange={setConfirmPassword}
           />
           <p className="text-sm text-sky-800 px-2 md:text-left text-center">

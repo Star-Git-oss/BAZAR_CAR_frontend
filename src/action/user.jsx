@@ -8,7 +8,7 @@ export const signup = (data) =>  (dispatch) => new Promise((resolve, reject) => 
       resolve("success");
     })
     .catch(err => {
-      // console.log(err);
+      console.log(err.message);
       reject("exist");
     });
 })
@@ -21,7 +21,7 @@ export const signin = (data) =>  (dispatch) => new Promise((resolve, reject) => 
       resolve(res.data);
     })
     .catch(err => {
-      // console.log(err);
+      console.log(err);
       reject("no");
     });
 })

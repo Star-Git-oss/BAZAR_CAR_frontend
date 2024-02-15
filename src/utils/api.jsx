@@ -10,5 +10,5 @@
 
 // export default api;
 
-export const BASE_URI = 'http://localhost:5005/api';
-// export const BASE_URI = 'https://jolly-curious-baboon.ngrok-free.app/api';
+// export const BASE_URI = 'http://localhost:5005/api';
+export const BASE_URI = 'https://jolly-curious-baboon.ngrok-free.app/api';

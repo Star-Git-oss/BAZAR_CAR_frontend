@@ -11,6 +11,7 @@ const SignInput = ({ label, value, onChange, width, type, x }) => {
             : "border-sky-800 rounded-md"
         } px-2`}
         value={value}
+        type={type === "password" ? "password" : "text"}
         onChange={(e) => onChange(e.target.value)}
       />
     </div>
