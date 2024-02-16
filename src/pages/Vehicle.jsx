@@ -87,7 +87,7 @@ const Sell = () => {
 
   return (
     <div className="bg-[url('./wallpaper.png')] w-full bg-cover bg-center bg-no-repeat flex justify-center items-center">
-      <div className="bg-white w-5/6 max-w-[1400px] gap-12 flex flex-col justify-around rounded-lg my-20">
+      <div className="bg-white/[0.6] w-5/6 max-w-[1400px] gap-12 flex flex-col justify-around rounded-lg my-20">
         <p className="w-full text-center lg:text-left xl:text-2xl text-xl text-sky-950 font-bold lg:ml-14 mt-2">
           ¡ Vendemos tu auto !
         </p>

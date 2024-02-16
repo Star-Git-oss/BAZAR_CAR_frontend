@@ -7,7 +7,8 @@ const SignInput = ({ label, value, onChange, width, type, x }) => {
           width === "full" || width === undefined ? "w-full" : width
         } h-9 border-[2px] ${
           type === "secondary"
-            ? "border-l-0 border-r-0 border-t-0 border-b-2 border-sky-900 focus:border-sky-500 transition-color duration-300 ease-in-out focus:outline-0"
+            // ? "border-l-0 border-r-0 border-t-0 border-b-2 border-sky-900 focus:border-sky-500 transition-color duration-300 ease-in-out focus:outline-0"
+            ? "border-sky-900 rounded-md focus:border-sky-500 transition-color duration-300 ease-in-out focus:outline-0"
             : "border-sky-800 rounded-md"
         } px-2`}
         value={value}

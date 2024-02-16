@@ -62,7 +62,7 @@ const SignIn = () => {
 
   return (
     <div className="bg-[url('./wallpaper.png')] w-full h-screen bg-no-repeat bg-cover bg-center flex justify-center items-center">
-      <div className="bg-white w-11/12 max-w-[450px] h-5/6 max-h-[700px] px-4 flex flex-col justify-around items-center absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 rounded-lg">
+      <div className="bg-white/[0.6] w-11/12 lg:w-[450px] lg:h-[700px] h-3/4 px-4 flex flex-col justify-around items-center rounded-lg">
         {/* <img src="./logo1.png" className="w-4/5 h-auto mt-2" alt="logo" /> */}
         {/* <img src="./Logo.png" className="w-4/5 h-auto mt-2" alt="logo" /> */}
         <img src="./logo2.png" className="w-4/5 h-auto mt-2" alt="logo" />
@@ -70,7 +70,7 @@ const SignIn = () => {
           {/* <span className="hidden sm:contents">Ingresa a tu cuenta <br /> oh{" "}</span> */}
           <span className="">Ingresa a tu cuenta <br /> oh{" "}</span>
           <span
-            className="text-sky-500 font-bold cursor-pointer"
+            className="text-sky-500 font-bold cursor-pointer text-xl lg:text-lg"
             onClick={handleCreaClick}
           >
             crea una cuenta nueva

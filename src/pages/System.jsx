@@ -3,7 +3,7 @@ import Cell from "../component/Cell";
 const System = () => {
   return (
     <div className="bg-[url('./wallpaper.png')] w-full h-screen bg-cover bg-no-repeat bg-center flex justify-center items-center">
-      <div className="bg-white w-contents md:w-[600px] lg:w-[800px] scale-90 md:scale-100 h-contents p-2 max-h-[850px] flex items-center justify-center absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 rounded-lg">
+      <div className="bg-white/[0.6] w-5/6 lg:w-[800px] scale-90 md:scale-100 h-4/5 p-2 max-h-[850px] flex items-center justify-center absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 rounded-lg">
         <table className="w-full h-full">
           <thead className="h-12">
             <tr>
