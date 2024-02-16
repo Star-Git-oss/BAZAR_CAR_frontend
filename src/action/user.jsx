@@ -15,7 +15,11 @@ export const signup = (data) =>  (dispatch) => new Promise((resolve, reject) => 
 
 export const signin = (data) =>  (dispatch) => new Promise((resolve, reject) => {
   console.log("data", data);
-  axios.post(`${BASE_URI}/user/signin`, data)
+  axios.post(`${BASE_URI}/user/signin`, data, {
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    }
+  })
     .then(res => {
       console.log("success", res.data);
       resolve(res.data);
