@@ -9,7 +9,7 @@ const SignInput = ({ label, value, onChange, width, type, x }) => {
           type === "secondary"
             // ? "border-l-0 border-r-0 border-t-0 border-b-2 border-sky-900 focus:border-sky-500 transition-color duration-300 ease-in-out focus:outline-0"
             ? "border-sky-900 rounded-md focus:border-sky-500 transition-color duration-300 ease-in-out focus:outline-0"
-            : "border-sky-800 rounded-md"
+            : "border-sky-800 rounded-md focus:border-sky-600 focus:outline-0"
         } px-2`}
         value={value}
         type={type === "password" ? "password" : "text"}
