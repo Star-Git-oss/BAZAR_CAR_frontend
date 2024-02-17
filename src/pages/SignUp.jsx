@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import SignInput from "../component/SignInput";
+import SignInput from "../components/SignInput";
 import { signup } from "../action/user";
 import { useNavigate } from "react-router-dom";
 
@@ -33,22 +33,22 @@ const SignUp = () => {
   };
 
   return (
-    <div className="bg-[url('./wallpaper.png')] w-full h-screen lg:h-screen bg-cover bg-no-repeat bg-center flex justify-center items-center">
-      <div className="bg-white/[0.6] w-5/6 h-fit flex justify-start flex-col lg:flex-row rounded-lg my-4 p-12">
+    <div className="bg-[url('./wallpaper.png')] w-full h-full lg:h-screen bg-cover bg-no-repeat bg-center flex justify-center items-center">
+      <div className="bg-white/[0.6] w-5/6 h-fit flex justify-start flex-col lg:flex-row rounded-lg my-4 md:p-12 p-4">
         <div className="w-full lg:w-1/3 mr-4">
           <div className="ml-4 mb-4 lg:mb-60">
-            <p className="w-full text-center lg:text-left text-2xl text-sky-950 font-bold">
+            <p className="w-full text-center lg:text-left text-lg md:text-xl lg:text-2xl text-sky-900 font-bold">
               INFORMACIÓN PERSONAL.
             </p>
-            <p className="w-full text-center lg:text-left text-lg text-sky-800">
+            <p className="w-full text-center lg:text-left text-sm md:text-md lg:text-lg text-sky-800">
               Ingresa tus datos y whatsapp para que el cliente te localize
             </p>
           </div>
           <div className="ml-4 mb-4">
-            <p className="w-full text-center lg:text-left text-2xl text-sky-950 font-bold">
+            <p className="w-full text-center lg:text-left text-lg md:text-xl lg:text-2xl text-sky-900 font-bold">
               Crea tu contraseña
             </p>
-            <p className="w-full text-center lg:text-left text-lg text-sky-800">
+            <p className="w-full text-center lg:text-left text-sm md:text-md lg:text-lg text-sky-800">
               Regusta tu contraseña con la que ingresaras atu cuenta
             </p>
           </div>

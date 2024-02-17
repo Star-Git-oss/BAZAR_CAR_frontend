@@ -1,10 +1,10 @@
-import Cell from "../component/Cell";
+import Cell from "../components/Cell";
 
 const System = () => {
   return (
     <div className="bg-[url('./wallpaper.png')] w-full h-screen bg-cover bg-no-repeat bg-center flex justify-center items-center">
-      <div className="bg-white/[0.6] w-5/6 lg:w-[800px] scale-90 md:scale-100 h-4/5 p-2 max-h-[850px] flex items-center justify-center absolute -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 rounded-lg">
-        <table className="w-full h-full">
+      <div className="bg-white/[0.6] w-11/12 md:w-[800px] scale-90 md:scale-100 h-[400px] xs2:h-[500px] xs:h-2/3 p-2 flex items-center justify-center rounded-lg">
+        <table className="scale-[0.7] xs2:scale-[0.9] xs:scale-100 xs2:w-full h-full">
           <thead className="h-12">
             <tr>
               <th>TIPO DE ANUNCIO</th>
@@ -83,7 +83,7 @@ const System = () => {
                 </button>
               </td>
               <td>
-                <button className="w-[100px] lg:w-4/5 lg:max-w-[180px] p-2 lg:h-[40px] bg-sky-950 rounded-md text-white">
+                <button className="w-[100px] lg:w-4/5 lg:max-w-[180px] p-2 lg:h-[40px] bg-sky-900 rounded-md text-white">
                   $3,600.00 al mes
                 </button>
               </td>

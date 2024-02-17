@@ -1,6 +1,6 @@
-const SignInput = ({ label, value, onChange, width, type, x }) => {
+const SignInput = ({ label, value, onChange, width, type, x, style }) => {
   return (
-    <div className="flex-col item-left w-full lg:px-4 mb-6 lg:mb-0">
+    <div className={`flex-col item-left w-full lg:px-4 mb-6 lg:mb-0 ${style}`}>
       <p className={`text-sm text-sky-800 w-max ${type === "secondary" ? "": "font-bold"}`}>{x === true ? <span className="font-bold">X </span> : ""}{label}</p>
       <input
         className={`${
