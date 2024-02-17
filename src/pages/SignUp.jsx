@@ -33,8 +33,8 @@ const SignUp = () => {
   };
 
   return (
-    <div className="bg-[url('./wallpaper.png')] w-full h-full lg:h-screen bg-cover bg-no-repeat bg-center flex justify-center items-center">
-      <div className="bg-white/[0.6] w-5/6 h-fit flex justify-start flex-col lg:flex-row rounded-lg my-4 md:p-12 p-4">
+    <div className="bg-[url('./wallpaper.png')] w-full min-h-screen bg-fixed bg-cover bg-no-repeat bg-center flex justify-center py-4">
+      <div className="bg-white/[0.6] w-5/6 h-fit flex justify-start flex-col lg:flex-row rounded-lg my-auto md:p-12 p-4">
         <div className="w-full lg:w-1/3 mr-4">
           <div className="ml-4 mb-4 lg:mb-60">
             <p className="w-full text-center lg:text-left text-lg md:text-xl lg:text-2xl text-sky-900 font-bold">

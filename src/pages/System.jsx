@@ -2,7 +2,7 @@ import Cell from "../components/Cell";
 
 const System = () => {
   return (
-    <div className="bg-[url('./wallpaper.png')] w-full h-screen bg-cover bg-no-repeat bg-center flex justify-center items-center">
+    <div className="bg-[url('./wallpaper.png')] w-full min-h-screen py-4 bg-cover bg-no-repeat bg-center flex justify-center items-center">
       <div className="bg-white/[0.6] w-11/12 md:w-[800px] scale-90 md:scale-100 h-[400px] xs2:h-[500px] xs:h-2/3 p-2 flex items-center justify-center rounded-lg">
         <table className="scale-[0.7] xs2:scale-[0.9] xs:scale-100 xs2:w-full h-full">
           <thead className="h-12">

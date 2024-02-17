@@ -60,7 +60,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="bg-[url('./wallpaper.png')] w-full h-screen bg-no-repeat bg-cover bg-center flex justify-center items-center">
+    <div className="bg-[url('./wallpaper.png')] w-full min-h-screen py-4 bg-no-repeat bg-cover bg-center flex justify-center items-center">
       <div className="bg-white/[0.6] w-11/12 h-3/4 max-w-[400px] max-h-[650px] px-4 flex flex-col justify-around items-center rounded-lg">
         {/* <img src="./logo1.png" className="w-4/5 h-auto mt-2" alt="logo" /> */}
         {/* <img src="./Logo.png" className="w-4/5 h-auto mt-2" alt="logo" /> */}
