@@ -36,8 +36,14 @@ const ViewPort = () => {
       slidesToSlide: 1, // optional, default to 1.
     },
   };
-  const handleSolictaClick = () => {
-    console.log("handleSolictaClick");
+  const handleContactarClick = () => {
+    console.log("handleContactarClick");
+  };
+  const handleCotizadorClick = () => {
+    console.log("handleCotizadorClick");
+  };
+  const handleRentaClick = () => {
+    console.log("handleRentaClick");
   };
   return (
     <>
@@ -104,19 +110,19 @@ const ViewPort = () => {
             <div className="w-2/3 flex flex-col justify-between pr-4">
               <button
                 className="w-full h-[50px] ml-[6px] bg-blue-900 rounded-md text-white"
-                onClick={handleSolictaClick}
+                onClick={handleContactarClick}
               >
                 Contactar a vendedor
               </button>
               <button
                 className="w-full h-[50px] ml-[6px] bg-blue-900 rounded-md text-white"
-                onClick={handleSolictaClick}
+                onClick={handleCotizadorClick}
               >
                 Cotizador crédito buen buro
               </button>
               <button
                 className="w-full h-[50px] ml-[6px] bg-blue-900 rounded-md text-white"
-                onClick={handleSolictaClick}
+                onClick={handleRentaClick}
               >
                 Cotizador renta con opcion a compra
               </button>
