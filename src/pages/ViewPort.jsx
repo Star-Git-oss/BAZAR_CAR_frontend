@@ -36,6 +36,9 @@ const ViewPort = () => {
       slidesToSlide: 1, // optional, default to 1.
     },
   };
+  const handleSolictaClick = () => {
+    console.log("handleSolictaClick");
+  }
   return (
     <>
       <NavSmall />
@@ -78,7 +81,12 @@ const ViewPort = () => {
               <div>789</div>
             </div>
             <div>
-                
+              <button
+                className="w-[200px] h-[50px] ml-[6px] bg-blue-900 rounded-md text-white"
+                onClick={handleSolictaClick}
+              >
+                SOLICTA TU CRÉDITO
+              </button>
             </div>
           </div>
           <textarea />
