@@ -9,9 +9,11 @@ import FeaturePromotionSlick from "../components/FeaturePromotionSlick";
 import "../components/slick/styles.css";
 import Footer from "../components/Footer";
 import NavSmall from "../components/NavSmall";
+import { useState } from "react";
 
 const ViewPort = () => {
   const src = ["./inicio1.png", "./inicio2.png", "./inicio3.png"];
+  const [description, setDescriptionInfo] = useState('');
   const selldata = [
     "ejemplo de banner1.png",
     "ejemplo de banner1.png",
@@ -79,8 +81,8 @@ const ViewPort = () => {
             </Carousel>
           </div>
         </div>
-        <div className="w-1/2 border-[1px] border-black">
-          <div className="flex flex-row h-52 gap-8 p-2">
+        <div className="flex flex-col items-center w-1/2 border-[1px] border-black pb-4">
+          <div className="flex flex-row w-full h-52 gap-8 p-2">
             <div className="w-1/3 h-full justify-between flex flex-col">
               <div className="">
                 <p className="w-full text-left text-sm text-sky-900">
@@ -128,7 +130,13 @@ const ViewPort = () => {
               </button>
             </div>
           </div>
-          <textarea />
+          <textarea
+            className="col-span-4 w-5/6 p-4 h-5/6 max-h-[500px] bg-gray-300 mt-4 lg:ml-4 rounded-2xl"
+            maxLength={"5000"}
+            value={description}
+            placeholder="DESCRIPCÍON   (Caracteristicas DEL VENDEDOR)"
+            onChange={(e) => setDescriptionInfo(e.target.value)}
+          />
         </div>
       </div>
 
