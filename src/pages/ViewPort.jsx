@@ -38,7 +38,7 @@ const ViewPort = () => {
   };
   const handleSolictaClick = () => {
     console.log("handleSolictaClick");
-  }
+  };
   return (
     <>
       <NavSmall />
@@ -74,18 +74,51 @@ const ViewPort = () => {
           </div>
         </div>
         <div className="w-1/2 border-[1px] border-black">
-          <div>
-            <div>
-              <div>123</div>
-              <div>456</div>
-              <div>789</div>
+          <div className="flex flex-row h-52 gap-8 p-2">
+            <div className="w-1/3 h-full justify-between flex flex-col">
+              <div className="">
+                <p className="w-full text-left text-sm text-sky-900">
+                  Precio de Contado
+                </p>
+                <p className="w-full text-left text-md md:text-lg font-bold">
+                  $220,000.00
+                </p>
+              </div>
+              <div className="">
+                <p className="w-full text-left text-sm md:text-md">
+                  Kilometraje:
+                </p>
+                <p className="w-full text-left text-sm md:text-md font-bold">
+                  56000
+                </p>
+              </div>
+              <div className="">
+                <p className="w-full text-left text-sm md:text-md">
+                  Transmisíon
+                </p>
+                <p className="w-full text-left text-sm md:text-md font-bold">
+                  Estandar
+                </p>
+              </div>
             </div>
-            <div>
+            <div className="w-2/3 flex flex-col justify-between pr-4">
               <button
-                className="w-[200px] h-[50px] ml-[6px] bg-blue-900 rounded-md text-white"
+                className="w-full h-[50px] ml-[6px] bg-blue-900 rounded-md text-white"
                 onClick={handleSolictaClick}
               >
-                SOLICTA TU CRÉDITO
+                Contactar a vendedor
+              </button>
+              <button
+                className="w-full h-[50px] ml-[6px] bg-blue-900 rounded-md text-white"
+                onClick={handleSolictaClick}
+              >
+                Cotizador crédito buen buro
+              </button>
+              <button
+                className="w-full h-[50px] ml-[6px] bg-blue-900 rounded-md text-white"
+                onClick={handleSolictaClick}
+              >
+                Cotizador renta con opcion a compra
               </button>
             </div>
           </div>
