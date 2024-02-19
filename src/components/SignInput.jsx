@@ -1,4 +1,4 @@
-const SignInput = ({ label, value, onChange, width, type, x, style }) => {
+const SignInput = ({ label, value, onChange, width, type, x, style, placeholder }) => {
   return (
     <div className={`flex-col item-left w-full lg:px-4 mb-6 lg:mb-0 ${style}`}>
       <p className={`text-sm text-sky-800 w-max ${type === "secondary" ? "": "font-bold"}`}>{x === true ? <span className="font-bold">X </span> : ""}{label}</p>
@@ -12,6 +12,7 @@ const SignInput = ({ label, value, onChange, width, type, x, style }) => {
             : "border-sky-800 rounded-md focus:border-sky-600 focus:outline-0"
         } px-2`}
         value={value}
+        placeholder={placeholder}
         type={type === "password" ? "password" : "text"}
         onChange={(e) => onChange(e.target.value)}
       />

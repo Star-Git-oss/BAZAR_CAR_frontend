@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+*,
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+}
+
+html {
+    background-color: #222;
+}
+
+body {
+    background-color: white;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.main-container {
+    width: 90vw;
+    max-width: 85%;
+    /* min-height: 100vh; */
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+.feature-container {
+    width: 130vw;
+    max-width: 100%;
+    /* min-height: 100vh; */
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.container {
+    width: 100%;
+    min-width: 96%;
+    margin-left: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.prev {
+    position: absolute;
+    top: 250px;
+    left: -30px;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+}
+
+.next {
+    position: absolute;
+    top: 250px;
+    right: -30px;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+}
+
+.slick-slide {
+    padding: 0 10px;
+}
+
+.slick-dots li {
+    margin: -20px 0 !important;
+}
+
+/* full width image */
+.bg-image-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-image-container:hover {
+    filter: grayscale(100%);
+}
+
+.gradient {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.25) 50%,
+            rgba(0, 0, 0, 0.5) 100%);
+}
+
+.text-container {
+    max-width: 75%;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    font-size: 20px;
+    color: white;
+}
+
+.label {
+    font-size: 10px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    color: #ccc;
+}

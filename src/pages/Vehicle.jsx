@@ -195,7 +195,7 @@ const Sell = () => {
               </p>
             </div>
             <textarea
-              className="col-span-4 w-full h-80 p-4 bg-slate-200 mt-4 lg:ml-4"
+              className="col-span-4 w-full h-80 p-4 bg-gray-300 mt-4 lg:ml-4"
               maxLength={"5000"}
               value={vehicleInfo}
               onChange={(e) => setVehicleInfo(e.target.value)}
@@ -210,7 +210,7 @@ const Sell = () => {
                   venderlo
                 </p>
               </div>
-              <div className="w-full h-96 overflow-auto bg-slate-200 border-slate-600 border-[1px] border-dotted mt-4 relative z-0">
+              <div className="w-full h-96 overflow-auto bg-gray-300 border-slate-600 border-[1px] border-dotted mt-4 relative z-0">
                 <input
                   className="hidden w-2 h-2 left-0 top-0 cursor-pointer bg-transparent z-20"
                   type="file"

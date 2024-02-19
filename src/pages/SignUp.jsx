@@ -89,7 +89,7 @@ const SignUp = () => {
           </p>
           <div className="w-full flex justify-end px-4 lg:px-0">
             <button
-              className="w-full lg:w-1/2 h-[40px] bg-sky-700 rounded-md text-white"
+              className="w-full lg:w-1/2 h-[40px] bg-blue-700 rounded-md text-white"
               onClick={handleCreaCuentaClick}
             >
               Crea Cuenta

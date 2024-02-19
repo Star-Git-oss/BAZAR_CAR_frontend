@@ -78,12 +78,12 @@ const System = () => {
             <tr>
               <td></td>
               <td>
-                <button className="w-[100px] lg:w-4/5 lg:max-w-[180px] p-2 lg:h-[40px] bg-sky-500 rounded-md text-white">
+                <button className="w-[100px] lg:w-4/5 lg:max-w-[180px] p-2 lg:h-[40px] bg-blue-500 rounded-md text-white">
                   $600.00 al mes
                 </button>
               </td>
               <td>
-                <button className="w-[100px] lg:w-4/5 lg:max-w-[180px] p-2 lg:h-[40px] bg-sky-900 rounded-md text-white">
+                <button className="w-[100px] lg:w-4/5 lg:max-w-[180px] p-2 lg:h-[40px] bg-blue-900 rounded-md text-white">
                   $3,600.00 al mes
                 </button>
               </td>

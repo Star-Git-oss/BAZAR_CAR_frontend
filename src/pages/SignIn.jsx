@@ -64,7 +64,7 @@ const SignIn = () => {
       <div className="bg-white/[0.6] w-full h-[650px] max-w-[400px] max-h-[650px] px-4 flex flex-col justify-around items-center rounded-lg">
         {/* <img src="./logo1.png" className="w-4/5 h-auto mt-2" alt="logo" /> */}
         {/* <img src="./Logo.png" className="w-4/5 h-auto mt-2" alt="logo" /> */}
-        <img src="./logo2.png" className="w-4/5 h-auto mt-2" alt="logo" />
+        <img src="./Logo bazar 1.png" className="w-4/5 h-auto mt-2" alt="logo" />
         <p className="text-center -mt-2 sm:-mt-6">
           <span className="hidden sm:contents">Ingresa a tu cuenta <br /> oh{" "}</span>
           <span
@@ -90,7 +90,7 @@ const SignIn = () => {
           Olvide mi contraseña
         </p>
         <button
-          className="w-4/5 h-[40px] bg-sky-700 rounded-md text-white"
+          className="w-4/5 h-[40px] bg-blue-700 rounded-md text-white"
           onClick={handleIniciarClick}
         >
           Iniciar sesión
