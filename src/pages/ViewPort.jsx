@@ -109,19 +109,19 @@ const ViewPort = () => {
             </div>
             <div className="w-2/3 flex flex-col justify-between pr-4">
               <button
-                className="w-full h-[50px] ml-[6px] bg-blue-900 rounded-md text-white"
+                className="w-full h-[50px] ml-[6px] bg-green-700 rounded-md text-white"
                 onClick={handleContactarClick}
               >
                 Contactar a vendedor
               </button>
               <button
-                className="w-full h-[50px] ml-[6px] bg-blue-900 rounded-md text-white"
+                className="w-full h-[50px] ml-[6px] bg-red-700 rounded-md text-white"
                 onClick={handleCotizadorClick}
               >
                 Cotizador crédito buen buro
               </button>
               <button
-                className="w-full h-[50px] ml-[6px] bg-blue-900 rounded-md text-white"
+                className="w-full h-[50px] ml-[6px] bg-blue-300 rounded-md text-white"
                 onClick={handleRentaClick}
               >
                 Cotizador renta con opcion a compra
