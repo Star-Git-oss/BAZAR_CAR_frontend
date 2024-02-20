@@ -9,6 +9,8 @@ import Finance from '../pages/Finance';
 import Garantia from '../pages/Garantia';
 import Landing from '../pages/Landing';
 import ViewPort from '../pages/ViewPort';
+import Credito from '../pages/Credito';
+import Renta from '../pages/Renta';
 
 const Routers = () => {
   return ( 
@@ -22,6 +24,8 @@ const Routers = () => {
         <Route path="/finance" element={<Finance />} />
         <Route path="/garantia" element={<Garantia />} />
         <Route path="/view" element={<ViewPort />} />
+        <Route path="/credito" element={<Credito />} />
+        <Route path="/renta" element={<Renta />} />
       </Routes>
   );
 };

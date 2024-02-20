@@ -5,7 +5,7 @@ export default function SellCard({ src, title, price }) {
   const navigate = useNavigate();
   const handleCardClick = () => {
     console.log("handleCardClick -------->>>>>>>> " + src);
-    navigate("/view?" + src);
+    navigate("/view?" + " " + src);
   }
   return (
       <div className="flex flex-col h-full relative overflow-hidden" onClick={handleCardClick}>

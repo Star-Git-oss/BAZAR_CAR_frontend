@@ -9,11 +9,14 @@ import FeaturePromotionSlick from "../components/FeaturePromotionSlick";
 import "../components/slick/styles.css";
 import Footer from "../components/Footer";
 import NavSmall from "../components/NavSmall";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ViewPort = () => {
   const src = ["./inicio1.png", "./inicio2.png", "./inicio3.png"];
-  const [description, setDescriptionInfo] = useState('');
+  const navigate = useNavigate();
+  const [filename, setFilename] = useState('');
+  const [description, setDescriptionInfo] = useState("");
   const selldata = [
     "ejemplo de banner1.png",
     "ejemplo de banner1.png",
@@ -38,14 +41,34 @@ const ViewPort = () => {
       slidesToSlide: 1, // optional, default to 1.
     },
   };
+
+  useEffect(() => {
+    const currentURL = window.location.href;
+    const urlParams = new URLSearchParams(currentURL);
+
+    // Get the value of a specific query parameter
+    const queryParamValue = urlParams.get("query");
+    console.log("Query parameter value:", queryParamValue);
+
+    // Get all query parameters
+    for (const param of urlParams) {
+      console.log("params\n", "---------------\nparam-0", param[0], "\nparam-1", param[1], "\n---------------");
+      let index = param[0].indexOf('?');
+      const str = param[0].slice(index+2, param[0].length);
+      setFilename(str);
+      console.log("str", str);
+    }
+  }, []);
   const handleContactarClick = () => {
     console.log("handleContactarClick");
   };
   const handleCotizadorClick = () => {
     console.log("handleCotizadorClick");
+    navigate("/credito");
   };
   const handleRentaClick = () => {
     console.log("handleRentaClick");
+    navigate("/renta");
   };
   return (
     <>
