@@ -23,19 +23,19 @@ function PreownedCarousel({src}) {
         <img
           src={src[0]}
           alt="inicio 1"
-          className="w-full object-cover"
+          className="w-auto md:w-full object-cover"
           style={{height: "89vh"}}
         />
         <img
           src={src[1]}
           alt="inicio 2"
-          className="w-full object-cover"
+          className="w-auto md:w-full object-cover"
           style={{height: "89vh"}}
         />
         <img
           src={src[2]}
           alt="inicio 3"
-          className="w-full object-cover"
+          className="w-auto md:w-full object-cover"
           style={{height: "89vh"}}
         />
       </Carousel>
