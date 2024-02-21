@@ -48,7 +48,7 @@ const FeaturedCarCarousel = () => {
             console.log(item);
             return (
               <SellCard
-                src={"http://localhost:5005/uploads/" + item.uploads}
+                src={"https://jolly-curious-baboon.ngrok-free.app/uploads/" + item.uploads}
                 key={item.uploads + item.title + item.price}
                 title={item.title}
                 price={item.price}

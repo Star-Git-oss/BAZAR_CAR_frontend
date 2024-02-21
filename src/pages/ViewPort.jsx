@@ -92,7 +92,7 @@ const ViewPort = () => {
             <p className="text-md md:text-lg">Se plus Sedan Estandar</p>
           </div>
           <img
-            src={"http://localhost:5005/uploads/" + mainImg}
+            src={"https://jolly-curious-baboon.ngrok-free.app/uploads/" + mainImg}
             className="right-2 h-auto w-full lg:mr-4"
             alt="arrendamiento3"
           />
@@ -109,7 +109,7 @@ const ViewPort = () => {
             >
               {selldata.map((item) => (
                 <img
-                  src={"http://localhost:5005/uploads/" + item}
+                  src={"https://jolly-curious-baboon.ngrok-free.app/uploads/" + item}
                   onClick={() => handleImgClick(item)}
                   key={item.src}
                   className="w-full h-full object-cover"

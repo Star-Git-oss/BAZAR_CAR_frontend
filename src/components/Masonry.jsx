@@ -141,7 +141,7 @@ function MasonrySection() {
                 >
                   {data.map((item) => (
                     <SellCard
-                      src={"http://localhost:5005/uploads/" + item.uploads}
+                      src={"https://jolly-curious-baboon.ngrok-free.app/uploads/" + item.uploads}
                       key={item.src + item.title + item.price}
                       title={item.title}
                       price={item.price}
