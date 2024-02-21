@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import SignInput from "../components/SignInput";
@@ -94,6 +94,11 @@ const Finance = () => {
   const handleSolictaClick = () => {
     console.log("handleSolictaClick");
   };
+  const navigate = useNavigate();
+  useEffect(() => {
+    let isLogged = localStorage.getItem("isLogged");
+    if (isLogged !== "true") navigate("/signin");
+  }, []);
   return (
     <>
       <Navbar />

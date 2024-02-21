@@ -10,6 +10,8 @@ import Footer from "../components/Footer";
 import NavSmall from "../components/NavSmall";
 import PromotionCarCarousel from "../components/PromotionCarCarousel";
 import FeaturedCarCarousel from "../components/FeaturedCarCarousel";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Landing = () => {
   const src = ["./inicio1.png", "./inicio2.png", "./inicio3.png"];

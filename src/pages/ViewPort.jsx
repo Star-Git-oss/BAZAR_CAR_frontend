@@ -75,6 +75,10 @@ const ViewPort = () => {
   const handleImgClick = (item) => {
     setMainImg(item);
   }
+  useEffect(() => {
+    let isLogged = localStorage.getItem("isLogged");
+    if (isLogged !== "true") navigate("/signin");
+  }, []);
   return (
     <>
       <NavSmall />

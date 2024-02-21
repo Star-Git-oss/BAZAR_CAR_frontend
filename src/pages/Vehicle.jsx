@@ -63,7 +63,7 @@ const Sell = () => {
 
       try {
         dispatch(vehicleUpload(formData))
-          .then((res) => navigate("/system"))
+          .then((res) => navigate("/"))
           .catch((err) => console.log(err));
       } catch (error) {
         console.error("Error uploading file", error);

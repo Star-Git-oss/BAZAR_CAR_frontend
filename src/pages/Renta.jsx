@@ -2,7 +2,8 @@ import SignInput from "../components/SignInput";
 import "react-multi-carousel/lib/styles.css";
 import "../components/slick/styles.css";
 import NavSmall from "../components/NavSmall";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Renta = () => {
   const src = ["./inicio1.png", "./inicio2.png", "./inicio3.png"];
@@ -11,6 +12,11 @@ const Renta = () => {
   const handleSolcitudClick = () => {
     console.log("handleSolcitudClick");
   };
+  const navigate = useNavigate();
+  useEffect(() => {
+    let isLogged = localStorage.getItem("isLogged");
+    if (isLogged !== "true") navigate("/signin");
+  }, []);
   return (
     <>
       <NavSmall />
