@@ -2,7 +2,6 @@ import { BASE_URI } from "../utils/api";
 import axios from "axios";
 
 export const signup = (data) =>  (dispatch) => new Promise((resolve, reject) => {
-  console.log(data)
   axios.post(`${BASE_URI}/user/signup`, data)
     .then(res => {
       // console.log(res.data);
@@ -18,8 +17,8 @@ export const signin = (data) =>  (dispatch) => new Promise((resolve, reject) => 
   console.log("data", data);
   axios.post(`${BASE_URI}/user/signin`, data, {
     headers: {
-      "Content-Type": "application/json",
-    },
+      "Access-Control-Allow-Origin": "*"
+    }
   })
     .then(res => {
       console.log("success", res.data);
