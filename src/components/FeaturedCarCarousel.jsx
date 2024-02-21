@@ -27,7 +27,7 @@ const FeaturedCarCarousel = () => {
   };
   const [data, setData] = useState([]);
   useEffect(() => {
-    dispatch(vehicleOpen())
+    dispatch(vehicleOpen({num:12}))
       .then((res) => setData([...res]))
       .catch((err) => console.log(err));
   }, []);

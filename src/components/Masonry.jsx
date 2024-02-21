@@ -1,13 +1,13 @@
-import * as React from "react";
+import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import SellCard from "../components/SellCard";
 import "react-multi-carousel/lib/styles.css";
 import "../components/slick/styles.css";
-import PromotionSlick from "./slick/PromotionSlick";
-import PromotionSlick1 from "./slick/PromotionSlick1";
-import PromotionSlick2 from "./slick/PromotionSlick2";
+import { useDispatch } from "react-redux";
+import { vehicleOpen } from "../action/vehicle";
 
 function MasonrySection() {
+  const dispatch = useDispatch();
   const selldata = [
     {
       src: "./ejemplo de banner1.png",
@@ -116,6 +116,12 @@ function MasonrySection() {
       slidesToSlide: 1, // optional, default to 1.
     },
   };
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    dispatch(vehicleOpen({num:12}))
+      .then((res) => setData([...res]))
+      .catch((err) => console.log(err));
+  }, []); 
   return (
     <>
       <div className="w-full px-2">
@@ -133,9 +139,9 @@ function MasonrySection() {
                   dotListClass="custom-dot-list-style"
                   slidesToSlide={1}
                 >
-                  {selldata.map((item) => (
+                  {data.map((item) => (
                     <SellCard
-                      src={item.src}
+                      src={"http://localhost:5005/uploads/" + item.uploads}
                       key={item.src + item.title + item.price}
                       title={item.title}
                       price={item.price}
