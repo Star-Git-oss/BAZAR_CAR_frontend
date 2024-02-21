@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div className="w-full md:h-60 flex flex-col md:flex-row bg-blue-900 justify-between items-center">
-      <div className="w-3/4 md:w-1/3 pl-2 flex flex-col md:items-start items-center p-10">
+      <div className="w-3/4 md:w-1/3 pl-2 flex flex-col items-center p-10">
         <img
           src="./logo pie de p1.png"
           className="w-[300px] h-[75px]"
@@ -24,12 +24,12 @@ const Footer = () => {
         <p className="text-white text-center">Preguntas Frecuentes</p>
       </div>
       <div className="w-3/4 md:w-1/3 flex flex-col items-center justify-center border-t-[1px] md:border-l-[1px] md:border-t-0 border-white md:h-2/3 p-10 gap-4 md:gap-0">
-        <p className="w-full text-white text-center md:text-left">Contacto:</p>
-        <p className="w-full text-white text-center md:text-left">Ventas: 5516181864</p>
-        <p className="w-full text-white text-center md:text-left">Garantía: 5592198800</p>
-        <p className="w-full text-white text-center md:text-left">Direccion oficinas:</p>
-        <p className="w-full text-white text-center md:text-left">reforma 406 piso 4, Col.Juarez</p>
-        <p className="w-full text-white text-center md:text-left">Alcaldía Cuahutemoc CDMX</p>
+        <p className="w-full text-white text-center md:text-center">Contacto:</p>
+        <p className="w-full text-white text-center md:text-center">Ventas: 5516181864</p>
+        <p className="w-full text-white text-center md:text-center">Garantía: 5592198800</p>
+        <p className="w-full text-white text-center md:text-center">Direccion oficinas:</p>
+        <p className="w-full text-white text-center md:text-center">reforma 406 piso 4, Col.Juarez</p>
+        <p className="w-full text-white text-center md:text-center">Alcaldía Cuahutemoc CDMX</p>
       </div>
     </div>
   );

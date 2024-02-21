@@ -8,9 +8,13 @@ import "react-multi-carousel/lib/styles.css";
 import "../components/slick/styles.css";
 import Footer from "./Footer";
 import NavSmall from "./NavSmall";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { vehicleOpen } from "../action/vehicle";
 
 const PromotionCarCarousel = () => {
   const src = ["./inicio1.png", "./inicio2.png", "./inicio3.png"];
+  const dispatch = useDispatch();
   const selldata = [
     {
       src: "ejemplo de banner1.png",
@@ -85,6 +89,9 @@ const PromotionCarCarousel = () => {
       slidesToSlide: 1, // optional, default to 1.
     },
   };
+  useEffect(() => {
+    dispatch(vehicleOpen());
+  }, []);
   return (
     <>
       <div className="w-full px-6 mb-8 rounded-lg border-gray-400 border-[1px]">
