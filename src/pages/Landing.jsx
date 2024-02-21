@@ -5,10 +5,11 @@ import PreownedCarousel from "../components/PreownedCarousel";
 import Carousel from "react-multi-carousel";
 import SellCard from "../components/SellCard";
 import "react-multi-carousel/lib/styles.css";
-import FeaturePromotionSlick from "../components/FeaturePromotionSlick";
 import "../components/slick/styles.css";
 import Footer from "../components/Footer";
 import NavSmall from "../components/NavSmall";
+import PromotionCarCarousel from "../components/PromotionCarCarousel";
+import FeaturedCarCarousel from "../components/FeaturedCarCarousel";
 
 const Landing = () => {
   const src = ["./inicio1.png", "./inicio2.png", "./inicio3.png"];
@@ -109,50 +110,14 @@ const Landing = () => {
           />
         </div>
       </div>
-      <div className="w-full px-6">
-        <Carousel
-          className="pb-6 h-96"
-          responsive={responsive}
-          showDots={true}
-          infinite={true}
-          autoPlay={true}
-          autoPlaySpeed={2000}
-          dotListClass="custom-dot-list-style"
-          slidesToSlide={1}
-        >
-          {selldata.map((item) => (
-            <SellCard
-              src={item.src}
-              key={item.src + item.title + item.price}
-              title={item.title}
-              price={item.price}
-            />
-          ))}
-        </Carousel>
+      <div className="w-full px-8">
+        <PromotionCarCarousel />
       </div>
       <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4">
         <p className="text-blue-800 font-bold">AUTOS DESTACADOS</p>
       </div>
-      <div className="w-full px-6 mb-8">
-        <Carousel
-          className="pb-6 h-96"
-          responsive={responsive}
-          showDots={true}
-          infinite={true}
-          autoPlay={true}
-          autoPlaySpeed={2000}
-          dotListClass="custom-dot-list-style"
-          slidesToSlide={1}
-        >
-          {selldata.map((item) => (
-            <SellCard
-              src={item.src}
-              key={item.src + item.title + item.price}
-              title={item.title}
-              price={item.price}
-            />
-          ))}
-        </Carousel>
+      <div className="w-full px-8">
+        <FeaturedCarCarousel />
       </div>
       <Footer />
     </>

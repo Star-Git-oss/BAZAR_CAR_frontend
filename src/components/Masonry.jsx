@@ -73,12 +73,12 @@ function MasonrySection() {
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2,
+      items: 3,
       slidesToSlide: 1, // optional, default to 1.
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 1,
+      items: 2,
       slidesToSlide: 1, // optional, default to 1.
     },
   };
@@ -119,48 +119,14 @@ function MasonrySection() {
   return (
     <>
       <div className="w-full px-2">
-        <div className="w-full h-auto lg:flex">
-          <div className="w-full lg:w-2/3 border bg-gray-300 border-blue-500 rounded-lg mt-1">
-            <div className="w-full h-[980px]">
-              <Carousel
-                className="mb-6 h-1/2"
-                responsive={responsive1}
-                showDots={true}
-                infinite={true}
-                autoPlay={true}
-                autoPlaySpeed={2000}
-                dotListClass="custom-dot-list-style"
-                slidesToSlide={1}
-              >
-                {selldata.map((item) => (
-                  <SellCard
-                    src={item.src}
-                    key={item.src + item.title + item.price}
-                    title={item.title}
-                    price={item.price}
-                  />
-                  // <div className="h-full py-48 bg-red-300">fehgsrgsdfg</div>
-                ))}
-              </Carousel>
-              <div className="h-1/2 flex flex-col justify-evenly">
+        <div className="w-full h-auto md:h-[800px] md:flex gap-4 pr-4">
+          <div className="w-full md:w-2/3 border bg-gray-300 border-blue-500 rounded-lg mt-1">
+            <div className="w-full h-full p-4">
+              <div className="w-full h-1/2 p-4 rounded-lg border-gray-400 border-[1px]">
                 <Carousel
-                  className="pb-6"
-                  responsive={responsive2}
-                  showDots={false}
-                  infinite={true}
-                  autoPlay={true}
-                  autoPlaySpeed={200000}
-                  dotListClass="custom-dot-list-style"
-                  slidesToSlide={1}
-                >
-                  {selldata.map((item) => (
-                    <img src={"./tomas1.png"} key={item.src} />
-                  ))}
-                </Carousel>
-                <Carousel
-                  className=""
-                  responsive={responsive2}
-                  showDots={false}
+                  className="mb-6 h-full"
+                  responsive={responsive1}
+                  showDots={true}
                   infinite={true}
                   autoPlay={true}
                   autoPlaySpeed={2000}
@@ -168,16 +134,56 @@ function MasonrySection() {
                   slidesToSlide={1}
                 >
                   {selldata.map((item) => (
-                    <img src={"./tomas2.png"} key={item.src} />
+                    <SellCard
+                      src={item.src}
+                      key={item.src + item.title + item.price}
+                      title={item.title}
+                      price={item.price}
+                    />
+                    // <div className="h-full py-48 bg-red-300">fehgsrgsdfg</div>
                   ))}
                 </Carousel>
               </div>
+              <div className="h-1/2 flex flex-col justify-evenly ">
+                <div className="rounded-lg border-gray-400 border-[1px]">
+                  <Carousel
+                    // className="pb-6"
+                    responsive={responsive2}
+                    showDots={false}
+                    infinite={true}
+                    autoPlay={true}
+                    autoPlaySpeed={200000}
+                    dotListClass="custom-dot-list-style"
+                    slidesToSlide={1}
+                  >
+                    {selldata.map((item) => (
+                      <img src={"./tomas1.png"} key={item.src} />
+                    ))}
+                  </Carousel>
+                </div>
+                <div className="rounded-lg border-gray-400 border-[1px]">
+                  <Carousel
+                    className=""
+                    responsive={responsive2}
+                    showDots={false}
+                    infinite={true}
+                    autoPlay={true}
+                    autoPlaySpeed={2000}
+                    dotListClass="custom-dot-list-style"
+                    slidesToSlide={1}
+                  >
+                    {selldata.map((item) => (
+                      <img src={"./tomas2.png"} key={item.src} />
+                    ))}
+                  </Carousel>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="w-full h-[980px] lg:w-1/3 bg-gray-100 border border-blue-500 rounded-lg mt-1 lg:ml-1">
+          <div className="w-full h-full md:w-1/3 bg-gray-100 border border-blue-500 rounded-lg mt-1 lg:ml-1">
             <div className="w-full mb-10">
               <Carousel
-                className="pb-6"
+                className="pb-6 h-full"
                 responsive={responsive3}
                 showDots={true}
                 infinite={true}
@@ -188,7 +194,7 @@ function MasonrySection() {
               >
                 {selldata.map((item) => (
                   <img
-                    className="w-full h-[950px] rounded-lg"
+                    className="w-full md:h-[750px] rounded-lg"
                     src={item.src}
                     key={item.src}
                   />

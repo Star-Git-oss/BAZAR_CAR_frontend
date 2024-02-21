@@ -5,7 +5,7 @@ function PreownedCarousel({src}) {
   return (
     <>
       <Carousel
-        className="rounded-xl"
+        className="rounded-b-xl"
         navigation={({ setActiveIndex, activeIndex, length }) => (
           <div className="absolute bottom-4 left-2/4 z-40 flex -translate-x-2/4 gap-2">
             {new Array(length).fill("").map((_, i) => (
@@ -24,19 +24,19 @@ function PreownedCarousel({src}) {
           src={src[0]}
           alt="inicio 1"
           className="w-auto md:w-full object-cover"
-          style={{height: "89vh"}}
+          style={{height: "500px"}}
         />
         <img
           src={src[1]}
           alt="inicio 2"
           className="w-auto md:w-full object-cover"
-          style={{height: "89vh"}}
+          style={{height: "500px"}}
         />
         <img
           src={src[2]}
           alt="inicio 3"
           className="w-auto md:w-full object-cover"
-          style={{height: "89vh"}}
+          style={{height: "500px"}}
         />
       </Carousel>
     </>

@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import Carousel from "react-multi-carousel";
 import SellCard from "../components/SellCard";
 import "react-multi-carousel/lib/styles.css";
+import FooterSmall from "../components/FooterSmall";
 
 const Semi = () => {
   const responsive = {
@@ -85,8 +86,8 @@ const Semi = () => {
   return (
     <>
       <Navbar />
-      <div className="bg-white w-5/6 h-28"></div>
-      <img src="./seminuevos.png" className="w-full" alt="seminuevos" style={{height: "90vh"}}></img>
+      <div className="bg-white w-5/6 h-20 sm:h-24 md:h-28" />
+      <img src="./seminuevos.png" className="w-full" alt="seminuevos" />
       {/* <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4 shadow-xl shadow-slate-200"> */}
       <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4">
         <p className="text-blue-800 font-bold">AUTOS EN PROMOCION</p>
@@ -144,9 +145,7 @@ const Semi = () => {
         </Carousel>
       </div>
       </div>
-      <div className="w-full h-60 bg-blue-900 flex justify-between items-center">
-        <img src="./logo pie de p1.png" className="w-[600px] h-[150px]" alt="123"></img>
-      </div>
+      <FooterSmall />
     </>
   );
 };
