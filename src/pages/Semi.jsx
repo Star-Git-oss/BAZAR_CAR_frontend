@@ -7,11 +7,14 @@ import Carousel from "react-multi-carousel";
 import SellCard from "../components/SellCard";
 import "react-multi-carousel/lib/styles.css";
 import FooterSmall from "../components/FooterSmall";
+import PromotionCarCarousel from "../components/PromotionCarCarousel";
+import FeaturePromotionSlick from "../components/FeaturePromotionSlick";
+import FeaturedCarCarousel from "../components/FeaturedCarCarousel";
 
 const Semi = () => {
   const responsive = {
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+      breakpoint: { max: 3000, min: 2024 },
       items: 6,
       slidesToSlide: 1, // optional, default to 1.
     },
@@ -90,14 +93,14 @@ const Semi = () => {
       <img src="./seminuevos.png" className="w-full" alt="seminuevos" />
       {/* <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4 shadow-xl shadow-slate-200"> */}
       <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4">
-        <p className="text-blue-800 font-bold">AUTOS EN PROMOCION</p>
+        <p className="text-blue-800 font-bold text-md md:text-xl">AUTOS EN PROMOCION</p>
         <div className="flex items-center relative w-fit">
           <SignInput style={"mb-0"} placeholder={"BUSCA TU AUTO..."} width={"w-[250px]"}/>
           <img src="./buscar-lupa.png" className="absolute right-2 w-6 h-6 lg:mr-4" alt="buscar-lupa"></img>
         </div>
       </div>
       <div className="flex justify-between items-center mx-8">
-      <div className="w-full px-6">
+      {/* <div className="w-full px-6">
         <Carousel
           className="pb-6"
           responsive={responsive}
@@ -117,13 +120,14 @@ const Semi = () => {
             />
           ))}
         </Carousel>
-      </div>
+      </div> */}
+      <PromotionCarCarousel />
       </div>
       <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4">
-        <p className="text-blue-800 font-bold">AUTOS DESTACADOS</p>
+        <p className="text-blue-800 font-bold text-md md:text-xl">AUTOS DESTACADOS</p>
       </div>
       <div className="flex justify-between items-center mx-8 mb-4">
-      <div className="w-full px-6">
+      {/* <div className="w-full px-6">
         <Carousel
           className="pb-6"
           responsive={responsive}
@@ -143,7 +147,8 @@ const Semi = () => {
             />
           ))}
         </Carousel>
-      </div>
+      </div> */}
+      <FeaturedCarCarousel />
       </div>
       <FooterSmall />
     </>

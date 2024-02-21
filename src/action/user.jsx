@@ -18,8 +18,8 @@ export const signin = (data) =>  (dispatch) => new Promise((resolve, reject) => 
   console.log("data", data);
   axios.post(`${BASE_URI}/user/signin`, data, {
     headers: {
-      "Access-Control-Allow-Origin": "*"
-    }
+      "Content-Type": "application/json",
+    },
   })
     .then(res => {
       console.log("success", res.data);

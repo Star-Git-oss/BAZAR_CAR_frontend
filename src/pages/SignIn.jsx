@@ -68,7 +68,7 @@ const SignIn = () => {
         <p className="text-center -mt-2 sm:-mt-6">
           <span className="hidden sm:contents">Ingresa a tu cuenta <br /> oh{" "}</span>
           <span
-            className="text-sky-500 font-bold cursor-pointer lg:text-lg"
+            className="text-blue-500 font-bold cursor-pointer lg:text-lg"
             onClick={handleCreaClick}
           >
             crea una cuenta nueva
@@ -86,7 +86,7 @@ const SignIn = () => {
           style={"-mt-6 sm:mt-0"}
           onChange={setPassword}
         />
-        <p className="w-full text-right text-sky-800 font-bold px-4 -mt-4 xs:mt-0">
+        <p className="w-full text-right text-blue-800 font-bold px-4 -mt-4 xs:mt-0">
           Olvide mi contraseña
         </p>
         <button
@@ -95,7 +95,7 @@ const SignIn = () => {
         >
           Iniciar sesión
         </button>
-        <p className="w-full text-center text-sky-900 hidden sm:block">
+        <p className="w-full text-center text-blue-900 hidden sm:block">
           --------------o iniciar con -------------
         </p>
         <button onClick={() => login()}>
@@ -110,7 +110,7 @@ const SignIn = () => {
             Al usar tu cuenta o registrarte, aceptas la{" "}
           </span>
           <span
-            className="text-sky-500 font-bold underline underline-offset-2 cursor-pointer text-sm sm:text-md"
+            className="text-blue-500 font-bold underline underline-offset-2 cursor-pointer text-sm sm:text-md"
             onClick={handlePoliticsClick}
           >
             Política de privacidad o los términos
@@ -120,7 +120,7 @@ const SignIn = () => {
             <br />
           </span>
           <span
-            className="text-sky-500 font-bold underline underline-offset-2 cursor-pointer text-sm sm:text-md"
+            className="text-blue-500 font-bold underline underline-offset-2 cursor-pointer text-sm sm:text-md"
             onClick={handleTerminosClick}
           >
             Terminos y condiciones del sitio

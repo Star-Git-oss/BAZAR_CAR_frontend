@@ -1,16 +1,9 @@
-import SignInput from "./SignInput";
-import Navbar from "./Navbar";
-import MasonrySection from "./Masonry";
-import PreownedCarousel from "./PreownedCarousel";
 import Carousel from "react-multi-carousel";
 import SellCard from "./SellCard";
 import "react-multi-carousel/lib/styles.css";
-import FeaturePromotionSlick from "./FeaturePromotionSlick";
 import "../components/slick/styles.css";
-import Footer from "./Footer";
-import NavSmall from "./NavSmall";
 
-const PromotionCarCarousel = () => {
+const FeaturedCarCarousel = () => {
   const src = ["./inicio1.png", "./inicio2.png", "./inicio3.png"];
   const selldata = [
     {
@@ -76,13 +69,13 @@ const PromotionCarCarousel = () => {
       slidesToSlide: 1, // optional, default to 1.
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 1024, min: 664 },
       items: 3,
       slidesToSlide: 1, // optional, default to 1.
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
+      breakpoint: { max: 664, min: 0 },
+      items: 2,
       slidesToSlide: 1, // optional, default to 1.
     },
   };
@@ -112,4 +105,4 @@ const PromotionCarCarousel = () => {
     </>
   );
 };
-export default PromotionCarCarousel;
+export default FeaturedCarCarousel;

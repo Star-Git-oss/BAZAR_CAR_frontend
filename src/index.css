@@ -25,6 +25,7 @@ td {
 
 tr td:first-child {
   border: none;
+  padding: 2px;
 }
 
 * {

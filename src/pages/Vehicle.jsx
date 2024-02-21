@@ -88,20 +88,20 @@ const Sell = () => {
   return (
     <div className="bg-[url('./wallpaper.png')] w-full min-h-screen bg-cover bg-center bg-no-repeat flex justify-center items-center">
       <div className="bg-white/[0.6] w-5/6 max-w-[1400px] gap-12 flex flex-col justify-around rounded-lg my-20">
-        <p className="w-full text-center lg:text-left xl:text-2xl text-xl text-sky-900 font-bold lg:ml-14 mt-2">
+        <p className="w-full text-center lg:text-left xl:text-2xl text-xl text-blue-900 font-bold lg:ml-14 mt-2">
           ¡ Vendemos tu auto !
         </p>
         <div className="ml-4">
-          <p className="w-full text-center lg:text-left xl:text-2xl lg:text-xl text-sky-900 font-bold">
+          <p className="w-full text-center lg:text-left xl:text-2xl lg:text-xl text-blue-900 font-bold">
             Informaciondel vehículo
           </p>
-          <p className="w-full text-center lg:text-left text-md text-sky-800">
+          <p className="w-full text-center lg:text-left text-md text-blue-800">
             Completa todos los datos.
           </p>
         </div>
         <div className="flex justify-evenly mb-8">
           <img src="avatar.png" alt="avatar" className="w-[50px] h-[50px] ml-8 lg:ml-0 hidden lg:block" />
-          <div className="md:grid md:grid-cols-4 gap-4 w-10/12 lg:mr-14">
+          <div className="md:grid md:grid-cols-4 gap-12 w-10/12 lg:mr-14">
             <SignInput
               label={"Marca de auto"}
               type={"secondary"}
@@ -150,11 +150,11 @@ const Sell = () => {
               value={price}
               onChange={setPrice}
             />
-            <div className="flex flex-col w-full md:w-[300px] mb-4 h-fit md:h-20 md:mb-0">
-              <p className="text-sm text-sky-800 h-10">
+            <div className="flex flex-col w-full md:w-[300px] mb-4 h-fit md:h-20 md:mb-0 lg:ml-4">
+              <p className="text-sm w-full text-blue-800 h-10">
                 <span className="font-bold">X</span> Forma de pago
               </p>
-              <label className="container">
+              <label className="w-full flex justify-start container">
                 <input
                   type="radio"
                   name="radio"
@@ -165,7 +165,7 @@ const Sell = () => {
                 />
                 <span className="font-bold ml-2">X</span> Contado
               </label>
-              <label className="container">
+              <label className="w-full flex justify-start container">
                 <input
                   type="radio"
                   name="radio"
@@ -175,10 +175,10 @@ const Sell = () => {
                 />
                 <span className="font-bold ml-2">X</span> Financiamiento
               </label>
-              <p className="text-sky-900 font-bold mt-4 z-0 w-full md:w-2/3 lg:w-3/4 text-center lg:text-left">
+              <p className="text-blue-900 font-bold mt-4 z-0 w-full md:w-2/3 lg:w-3/4 text-center lg:text-left">
                 Al selecionar venta en sistema de financiamiento aceptas
                 <span
-                  className="text-sky-500 cursor-pointer z-10"
+                  className="text-blue-500 cursor-pointer z-10"
                   onClick={handleTerminosClick}
                 >
                   {" "}
@@ -187,10 +187,10 @@ const Sell = () => {
               </p>
             </div>
             <div className="lg:ml-4 col-span-4 md:mt-2">
-              <p className="w-full text-left xl:text-2xl lg:text-xl text-sky-900 font-bold">
+              <p className="w-full text-left xl:text-2xl lg:text-xl text-blue-900 font-bold">
                 Informaciondel vehículo
               </p>
-              <p className="w-full text-left text-md text-sky-800">
+              <p className="w-full text-left text-md text-blue-800">
                 Completa todos los datos.
               </p>
             </div>
@@ -202,10 +202,10 @@ const Sell = () => {
             />
             <div className="col-span-3 border-slate-600 border-[1px] p-4 lg:ml-4 md:mr-0">
               <div className="ml-4 col-span-4">
-                <p className="w-full text-left xl:text-2xl lg:text-xl text-sky-900 font-bold">
+                <p className="w-full text-left xl:text-2xl lg:text-xl text-blue-900 font-bold">
                   Imágenes
                 </p>
-                <p className="w-full text-left text-sm text-sky-900">
+                <p className="w-full text-left text-sm text-blue-900">
                   Tus fotos son muy importantes para aumnetar la posibilidad de
                   venderlo
                 </p>
@@ -242,7 +242,7 @@ const Sell = () => {
               </div>
             </div>
             <div className="border-slate-600 border-[1px] lg:-mr-4 flex flex-col items-center lg:mt-0 lg:ml-0">
-              <p className="w-full text-left xl:text-2xl lg:text-xl text-sky-900 font-bold ml-2">
+              <p className="w-full text-left xl:text-2xl lg:text-xl text-blue-900 font-bold ml-2">
                 Recomendaciones:
               </p>
               <img
@@ -250,7 +250,7 @@ const Sell = () => {
                 src="tomas1.png"
                 alt="tomas1"
               />
-              <p className="text-center text-sm text-sky-900">
+              <p className="text-center text-sm text-blue-900">
                 Tomas las fotos Horizontales 4:3 de preferencia y menos de 3mb
               </p>
               <div className="flex justify-evenly w-full">
@@ -265,7 +265,7 @@ const Sell = () => {
                   alt="tomas3"
                 />
               </div>
-              <p className="text-center text-sm text-sky-900">
+              <p className="text-center text-sm text-blue-900">
                 Toma las mejores fotos a tu auto frente, laterales, parte
                 tarsera
               </p>
@@ -281,7 +281,7 @@ const Sell = () => {
                   alt="tomas5"
                 />
               </div>
-              <p className="text-center text-sm text-sky-900">
+              <p className="text-center text-sm text-blue-900">
                 Te recomendamos fotos del interior asientos Kilometraje, llantas
               </p>
             </div>

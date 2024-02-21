@@ -3,7 +3,7 @@ import Cell from "../components/Cell";
 const System = () => {
   return (
     <div className="bg-[url('./wallpaper.png')] w-full min-h-screen py-4 bg-cover bg-no-repeat bg-center flex justify-center items-center">
-      <div className="bg-white/[0.6] w-11/12 md:w-[600px] scale-90 md:scale-100 h-[400px] xs2:h-[500px] xs:h-2/3 p-2 flex items-center justify-center rounded-lg">
+      <div className="bg-white/[0.6] w-11/12 md:w-[750px] lg:w-[1000px] scale-90 md:scale-100 h-[400px] xs2:h-[500px] xs:h-2/3 p-2 flex items-center justify-center rounded-lg">
         <table className="scale-[0.7] xs2:scale-[0.9] xs:scale-100 xs2:w-full h-full">
           <thead className="h-12">
             <tr>
@@ -78,12 +78,12 @@ const System = () => {
             <tr>
               <td></td>
               <td>
-                <button className="w-[100px] lg:w-4/5 lg:max-w-[180px] p-2 lg:h-[40px] bg-blue-500 rounded-md text-white">
+                <button className="w-[100px] lg:w-4/5 p-2 lg:h-[40px] bg-blue-500 rounded-md text-white">
                   $600.00 al mes
                 </button>
               </td>
               <td>
-                <button className="w-[100px] lg:w-4/5 lg:max-w-[180px] p-2 lg:h-[40px] bg-blue-900 rounded-md text-white">
+                <button className="w-[100px] lg:w-4/5 p-2 lg:h-[40px] bg-blue-900 rounded-md text-white">
                   $3,600.00 al mes
                 </button>
               </td>

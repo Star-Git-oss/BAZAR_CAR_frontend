@@ -11,6 +11,7 @@ import Footer from "../components/Footer";
 import NavSmall from "../components/NavSmall";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import FooterSmall from "../components/FooterSmall";
 
 const ViewPort = () => {
   const src = ["./inicio1.png", "./inicio2.png", "./inicio3.png"];
@@ -32,12 +33,12 @@ const ViewPort = () => {
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2,
+      items: 3,
       slidesToSlide: 1, // optional, default to 1.
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 1,
+      items: 2,
       slidesToSlide: 1, // optional, default to 1.
     },
   };
@@ -74,8 +75,8 @@ const ViewPort = () => {
     <>
       <NavSmall />
       <div className="bg-white w-5/6 h-32"></div>
-      <div className="flex md:flex-row flex-col justify-between w-full gap-8 p-8">
-        <div className="w-1/2">
+      <div className="flex md:flex-row flex-col justify-between h-full+ w-full gap-8 p-8">
+        <div className="w-full md:w-1/2">
           <p>Inicio/Autos de Renta/ Marca /Version</p>
           <div className="flex flex-col md:flex-row p-10">
             <p className="font-bold text-lg md:text-xl">Kia Sporte 2020</p>
@@ -84,7 +85,7 @@ const ViewPort = () => {
           </div>
           <img
             src="./arrendamiento3.png"
-            className="right-2 w-full h-80 lg:mr-4"
+            className="right-2 w-full lg:mr-4"
             alt="arrendamiento3"
           />
           <div className="w-full mt-10">
@@ -104,7 +105,7 @@ const ViewPort = () => {
             </Carousel>
           </div>
         </div>
-        <div className="flex flex-col items-center w-1/2 border-[1px] border-black pb-4">
+        <div className="flex flex-col items-center w-full md: border-[1px] border-black pb-4">
           <div className="flex flex-row w-full h-52 gap-8 p-2">
             <div className="w-1/3 h-full justify-between flex flex-col">
               <div className="">
@@ -163,13 +164,7 @@ const ViewPort = () => {
         </div>
       </div>
 
-      <div className="w-full h-60 bg-blue-900 flex justify-between items-center">
-        <img
-          src="./logo pie de p1.png"
-          className="w-[600px] h-[150px]"
-          alt="123"
-        />
-      </div>
+      <FooterSmall />
     </>
   );
 };
