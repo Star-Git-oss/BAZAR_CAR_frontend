@@ -43,6 +43,7 @@ const SignIn = () => {
       dispatch(googleSignin(access_token))
         .then((res) => {
           console.log("googlein==>res.id", res.id);
+          localStorage.setItem("isLogged", "true");
           navigate("/vehicle");
         })
         .catch((err) => console.log(err));
