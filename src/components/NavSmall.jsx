@@ -19,7 +19,7 @@ const NavSmall = () => {
           onClick={handleLogoClick}
         />
         <div className="flex items-center relative w-fit">
-          <SignInput style={"mb-0"} placeholder={"Buscar por marca o modelo..."} width={"xs:w-[200px] sm:w-[300px] md:w-[500px]"}/>
+          <SignInput style={"mb-0"} placeholder={"Buscar por marca o modelo..."} width={"w-[300px] md:w-[500px]"}/>
           <img src="./buscar-lupa.png" className="absolute right-2 w-6 h-6 lg:mr-4 focus:border-blue-800" alt="buscar-lupa"></img>
         </div>
       </div>

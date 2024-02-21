@@ -11,19 +11,16 @@ import NavSmall from "../components/NavSmall";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FooterSmall from "../components/FooterSmall";
+import { useDispatch } from "react-redux";
+import { vehicleGroupOpen } from "../action/vehicle";
 
 const ViewPort = () => {
   const src = ["./inicio1.png", "./inicio2.png", "./inicio3.png"];
   const navigate = useNavigate();
-  const [filename, setFilename] = useState('');
+  const dispatch = useDispatch();
   const [description, setDescriptionInfo] = useState("");
-  const selldata = [
-    "ejemplo de banner1.png",
-    "ejemplo de banner1.png",
-    "ejemplo de banner1.png",
-    "ejemplo de banner1.png",
-    "ejemplo de banner1.png",
-  ];
+  const [mainImg, setMainImg] = useState("");
+  const [selldata, setSellData] = useState([]);
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -50,14 +47,19 @@ const ViewPort = () => {
     const queryParamValue = urlParams.get("query");
     console.log("Query parameter value:", queryParamValue);
 
+    let str = "";
+
     // Get all query parameters
     for (const param of urlParams) {
-      console.log("params\n", "---------------\nparam-0", param[0], "\nparam-1", param[1], "\n---------------");
-      let index = param[0].indexOf('?');
-      const str = param[0].slice(index+2, param[0].length);
-      setFilename(str);
-      console.log("str", str);
+      let index = param[0].indexOf("?");
+      str = param[0].slice(index + 2, param[0].length);
     }
+    dispatch(vehicleGroupOpen({ str }))
+      .then((res) => {
+        setSellData(prev => res);
+        setMainImg(res[res.length-1]);
+      })
+      .catch((err) => console.log(err));
   }, []);
   const handleContactarClick = () => {
     console.log("handleContactarClick");
@@ -70,6 +72,9 @@ const ViewPort = () => {
     console.log("handleRentaClick");
     navigate("/renta");
   };
+  const handleImgClick = (item) => {
+    setMainImg(item);
+  }
   return (
     <>
       <NavSmall />
@@ -83,8 +88,8 @@ const ViewPort = () => {
             <p className="text-md md:text-lg">Se plus Sedan Estandar</p>
           </div>
           <img
-            src="./arrendamiento3.png"
-            className="right-2 w-full lg:mr-4"
+            src={"http://localhost:5005/uploads/" + mainImg}
+            className="right-2 h-auto w-full lg:mr-4"
             alt="arrendamiento3"
           />
           <div className="w-full mt-10">
@@ -99,13 +104,18 @@ const ViewPort = () => {
               slidesToSlide={1}
             >
               {selldata.map((item) => (
-                <img src={item} key={item.src} />
+                <img
+                  src={"http://localhost:5005/uploads/" + item}
+                  onClick={() => handleImgClick(item)}
+                  key={item.src}
+                  className="w-full h-full object-cover"
+                />
               ))}
             </Carousel>
           </div>
         </div>
         <div className="flex flex-col items-center w-full md: border-[1px] border-black pb-4">
-          <div className="flex flex-row w-full h-52 gap-8 p-2">
+          <div className="flex flex-row w-full h-52 gap-4 p-4 md:p-6 lg:px-12 lg:py-6">
             <div className="w-1/3 h-full justify-between flex flex-col">
               <div className="">
                 <p className="w-full text-left text-sm text-sky-900">
@@ -132,21 +142,21 @@ const ViewPort = () => {
                 </p>
               </div>
             </div>
-            <div className="w-2/3 flex flex-col justify-between pr-4">
+            <div className="w-2/3 flex flex-col justify-between items-end pr-4 gap-4">
               <button
-                className="w-full h-[50px] ml-[6px] bg-green-700 rounded-md text-white"
+                className="w-full h-[50px] ml-[6px] bg-green-700 rounded-md text-white max-w-[400px]"
                 onClick={handleContactarClick}
               >
                 Contactar a vendedor
               </button>
               <button
-                className="w-full h-[50px] ml-[6px] bg-red-700 rounded-md text-white"
+                className="w-full h-[50px] ml-[6px] bg-red-700 rounded-md text-white max-w-[400px]"
                 onClick={handleCotizadorClick}
               >
                 Cotizador crédito buen buro
               </button>
               <button
-                className="w-full h-[50px] ml-[6px] bg-blue-300 rounded-md text-white"
+                className="w-full h-[50px] ml-[6px] bg-blue-300 rounded-md text-white max-w-[400px]"
                 onClick={handleRentaClick}
               >
                 Cotizador renta con opcion a compra

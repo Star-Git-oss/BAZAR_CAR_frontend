@@ -8,70 +8,12 @@ import "react-multi-carousel/lib/styles.css";
 import "../components/slick/styles.css";
 import Footer from "./Footer";
 import NavSmall from "./NavSmall";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { vehicleOpen } from "../action/vehicle";
 
 const PromotionCarCarousel = () => {
-  const src = ["./inicio1.png", "./inicio2.png", "./inicio3.png"];
   const dispatch = useDispatch();
-  const selldata = [
-    {
-      src: "ejemplo de banner1.png",
-      title: "1",
-      price: "$200",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "2",
-      price: "$300",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "3",
-      price: "$400",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "4",
-      price: "$500",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "5",
-      price: "$600",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "6",
-      price: "$700",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "7",
-      price: "$800",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "8",
-      price: "$900",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "9",
-      price: "$1000",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "10",
-      price: "$1100",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "11",
-      price: "$1200",
-    },
-  ];
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -89,8 +31,11 @@ const PromotionCarCarousel = () => {
       slidesToSlide: 1, // optional, default to 1.
     },
   };
+  const [data, setData] = useState([]);
   useEffect(() => {
-    dispatch(vehicleOpen());
+    dispatch(vehicleOpen())
+      .then((res) => setData([...res]))
+      .catch((err) => console.log(err));
   }, []);
   return (
     <>
@@ -105,14 +50,17 @@ const PromotionCarCarousel = () => {
           dotListClass="custom-dot-list-style"
           slidesToSlide={1}
         >
-          {selldata.map((item) => (
-            <SellCard
-              src={item.src}
-              key={item.src + item.title + item.price}
-              title={item.title}
-              price={item.price}
-            />
-          ))}
+          {data.map((item) => {
+            console.log(item);
+            return (
+              <SellCard
+                src={"http://localhost:5005/uploads/" + item.uploads}
+                key={item.uploads + item.title + item.price}
+                title={item.title}
+                price={item.price}
+              />
+            );
+          })}
         </Carousel>
       </div>
     </>
