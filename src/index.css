@@ -32,7 +32,7 @@ tr td:first-child {
 }
 
 .react-multi-carousel-list{
-  padding-bottom: 25px;
+  /* padding-bottom: 25px; */
 }
 
 .react-multi-carousel-item {
@@ -47,7 +47,7 @@ tr td:first-child {
 }
 
 .react-multi-carousel-dot-list {
-  bottom: 6px;
+  bottom: 0px;
 }
 
 .text-gradient {
