@@ -2,6 +2,7 @@ import { BASE_URI } from "../utils/api";
 import axios from "axios";
 
 export const signup = (data) =>  (dispatch) => new Promise((resolve, reject) => {
+  console.log(data)
   axios.post(`${BASE_URI}/user/signup`, data)
     .then(res => {
       // console.log(res.data);
