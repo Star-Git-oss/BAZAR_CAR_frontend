@@ -12,3 +12,15 @@ export const vehicleUpload = (formData) =>  (dispatch) => new Promise((resolve, 
       reject("exist");
     });
 })
+
+export const vehicleOpen = () =>  (dispatch) => new Promise((resolve, reject) => {
+  console.log("action ---> FeaturedCarCarousel Axios");
+  axios.post(`${BASE_URI}/vehicle/upload`, formData)
+    .then(res => {
+      console.log(res.data);
+      resolve("success");
+    })
+    .catch(err => {
+      reject("exist");
+    });
+})

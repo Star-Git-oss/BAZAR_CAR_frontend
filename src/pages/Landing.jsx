@@ -13,80 +13,80 @@ import FeaturedCarCarousel from "../components/FeaturedCarCarousel";
 
 const Landing = () => {
   const src = ["./inicio1.png", "./inicio2.png", "./inicio3.png"];
-  const selldata = [
-    {
-      src: "ejemplo de banner1.png",
-      title: "1",
-      price: "$200",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "2",
-      price: "$300",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "3",
-      price: "$400",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "4",
-      price: "$500",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "5",
-      price: "$600",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "6",
-      price: "$700",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "7",
-      price: "$800",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "8",
-      price: "$900",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "9",
-      price: "$1000",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "10",
-      price: "$1100",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "11",
-      price: "$1200",
-    },
-  ];
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 6,
-      slidesToSlide: 1, // optional, default to 1.
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 3,
-      slidesToSlide: 1, // optional, default to 1.
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-      slidesToSlide: 1, // optional, default to 1.
-    },
-  };
+  // const selldata = [
+  //   {
+  //     src: "ejemplo de banner1.png",
+  //     title: "1",
+  //     price: "$200",
+  //   },
+  //   {
+  //     src: "ejemplo de banner1.png",
+  //     title: "2",
+  //     price: "$300",
+  //   },
+  //   {
+  //     src: "ejemplo de banner1.png",
+  //     title: "3",
+  //     price: "$400",
+  //   },
+  //   {
+  //     src: "ejemplo de banner1.png",
+  //     title: "4",
+  //     price: "$500",
+  //   },
+  //   {
+  //     src: "ejemplo de banner1.png",
+  //     title: "5",
+  //     price: "$600",
+  //   },
+  //   {
+  //     src: "ejemplo de banner1.png",
+  //     title: "6",
+  //     price: "$700",
+  //   },
+  //   {
+  //     src: "ejemplo de banner1.png",
+  //     title: "7",
+  //     price: "$800",
+  //   },
+  //   {
+  //     src: "ejemplo de banner1.png",
+  //     title: "8",
+  //     price: "$900",
+  //   },
+  //   {
+  //     src: "ejemplo de banner1.png",
+  //     title: "9",
+  //     price: "$1000",
+  //   },
+  //   {
+  //     src: "ejemplo de banner1.png",
+  //     title: "10",
+  //     price: "$1100",
+  //   },
+  //   {
+  //     src: "ejemplo de banner1.png",
+  //     title: "11",
+  //     price: "$1200",
+  //   },
+  // ];
+  // const responsive = {
+  //   desktop: {
+  //     breakpoint: { max: 3000, min: 1024 },
+  //     items: 6,
+  //     slidesToSlide: 1, // optional, default to 1.
+  //   },
+  //   tablet: {
+  //     breakpoint: { max: 1024, min: 464 },
+  //     items: 3,
+  //     slidesToSlide: 1, // optional, default to 1.
+  //   },
+  //   mobile: {
+  //     breakpoint: { max: 464, min: 0 },
+  //     items: 1,
+  //     slidesToSlide: 1, // optional, default to 1.
+  //   },
+  // };
   return (
     <>
       <Navbar />

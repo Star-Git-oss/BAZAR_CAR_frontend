@@ -5,7 +5,6 @@ import PreownedCarousel from "./PreownedCarousel";
 import Carousel from "react-multi-carousel";
 import SellCard from "./SellCard";
 import "react-multi-carousel/lib/styles.css";
-import FeaturePromotionSlick from "./FeaturePromotionSlick";
 import "../components/slick/styles.css";
 import Footer from "./Footer";
 import NavSmall from "./NavSmall";

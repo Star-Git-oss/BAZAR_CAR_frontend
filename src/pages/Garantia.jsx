@@ -7,6 +7,8 @@ import Carousel from "react-multi-carousel";
 import SellCard from "../components/SellCard";
 import "react-multi-carousel/lib/styles.css";
 import FooterSmall from "../components/FooterSmall";
+import PromotionCarCarousel from "../components/PromotionCarCarousel";
+import FeaturedCarCarousel from "../components/FeaturedCarCarousel";
 
 const Garantia = () => {
   const responsive = {
@@ -106,25 +108,7 @@ const Garantia = () => {
       </div>
       <div className="flex justify-between items-center mx-8">
         <div className="w-full px-6">
-          <Carousel
-            className="pb-6"
-            responsive={responsive}
-            showDots={true}
-            infinite={true}
-            autoPlay={true}
-            autoPlaySpeed={2000}
-            dotListClass="custom-dot-list-style"
-            slidesToSlide={1}
-          >
-            {selldata.map((item) => (
-              <SellCard
-                src={item.src}
-                key={item.src + item.title + item.price}
-                title={item.title}
-                price={item.price}
-              />
-            ))}
-          </Carousel>
+          <PromotionCarCarousel />
         </div>
       </div>
       <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4">
@@ -132,25 +116,7 @@ const Garantia = () => {
       </div>
       <div className="flex justify-between items-center mx-8 mb-4">
         <div className="w-full px-6">
-          <Carousel
-            className="pb-6"
-            responsive={responsive}
-            showDots={true}
-            infinite={true}
-            autoPlay={true}
-            autoPlaySpeed={2000}
-            dotListClass="custom-dot-list-style"
-            slidesToSlide={1}
-          >
-            {selldata.map((item) => (
-              <SellCard
-                src={item.src}
-                key={item.src + item.title + item.price}
-                title={item.title}
-                price={item.price}
-              />
-            ))}
-          </Carousel>
+          <FeaturedCarCarousel />
         </div>
       </div>
       <FooterSmall />

@@ -1,20 +1,12 @@
 import SignInput from "../components/SignInput";
-import Navbar from "../components/Navbar";
-import MasonrySection from "../components/Masonry";
-import PreownedCarousel from "../components/PreownedCarousel";
-import Carousel from "react-multi-carousel";
-import SellCard from "../components/SellCard";
 import "react-multi-carousel/lib/styles.css";
-import FeaturePromotionSlick from "../components/FeaturePromotionSlick";
 import "../components/slick/styles.css";
-import Footer from "../components/Footer";
 import NavSmall from "../components/NavSmall";
 import { useState } from "react";
 
 const Credito = () => {
   const src = ["./inicio1.png", "./inicio2.png", "./inicio3.png"];
   const [price, setPrice] = useState("");
-  const [description, setDescriptionInfo] = useState("");
   const [mensualidad, setMensualidad] = useState("");
   const [plazo, setPlazo] = useState("");
   const [enganche, setEnganche] = useState("");

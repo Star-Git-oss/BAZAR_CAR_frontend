@@ -124,7 +124,7 @@ function MasonrySection() {
             <div className="w-full h-full p-4">
               <div className="w-full h-1/2 p-4 rounded-lg border-gray-400 border-[1px]">
                 <Carousel
-                  className="mb-6 h-full"
+                  className="mb-6 pb-4 h-full"
                   responsive={responsive1}
                   showDots={true}
                   infinite={true}

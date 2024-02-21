@@ -8,7 +8,6 @@ import SellCard from "../components/SellCard";
 import "react-multi-carousel/lib/styles.css";
 import FooterSmall from "../components/FooterSmall";
 import PromotionCarCarousel from "../components/PromotionCarCarousel";
-import FeaturePromotionSlick from "../components/FeaturePromotionSlick";
 import FeaturedCarCarousel from "../components/FeaturedCarCarousel";
 
 const Semi = () => {

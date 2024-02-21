@@ -2,9 +2,17 @@ import Carousel from "react-multi-carousel";
 import SellCard from "./SellCard";
 import "react-multi-carousel/lib/styles.css";
 import "../components/slick/styles.css";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { vehicleOpen } from "../action/vehicle";
 
 const FeaturedCarCarousel = () => {
   const src = ["./inicio1.png", "./inicio2.png", "./inicio3.png"];
+  const dispatch = useDispatch();
+  const [data, setData] = useState ([]);
+  useState(() => {
+    dispatch(vehicleOpen())
+  }, []);
   const selldata = [
     {
       src: "ejemplo de banner1.png",
