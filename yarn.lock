@@ -1820,10 +1820,10 @@ react-slick@^0.30.2:
     lodash.debounce "^4.0.8"
     resize-observer-polyfill "^1.5.0"
 
-react-toastify@^9.0.3:
-  version "9.0.3"
-  resolved "https://registry.npmjs.org/react-toastify/-/react-toastify-9.0.3.tgz"
-  integrity sha512-0QZJk0SqYBxouRBGCFU3ymvjlwimRRhVH7SzqGRiVrQ001KSoUNbGKx9Yq42aoPv18n45yJzEFG82zqv3HnASg==
+react-toastify@^8.0.3:
+  version "8.0.3"
+  resolved "https://registry.npmjs.org/react-toastify/-/react-toastify-8.0.3.tgz"
+  integrity sha512-rv3koC7f9lKKSkdpYgo/TGzgWlrB/aaiUInF1DyV7BpiM4kyTs+uhu6/r8XDMtBY2FOIHK+FlK3Iv7OzpA/tCA==
   dependencies:
     clsx "^1.1.1"
 
