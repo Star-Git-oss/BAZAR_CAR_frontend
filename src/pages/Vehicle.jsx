@@ -249,7 +249,7 @@ const Sell = () => {
                   htmlFor="upload"
                   className="w-full h-full flex items-center justify-center z-10"
                 >
-                  {selectedImage.length === 0 ? "Choose the pictures" : ""}
+                  {selectedImage.length === 0 ? "Selecciona una foto." : ""}
                 </label>
                 <div className="absolute w-0 flex flex-col top-0 left-0 z-0">
                   {selectedImage.map((item, index) => {
