@@ -5,6 +5,7 @@ import "react-multi-carousel/lib/styles.css";
 import "../components/slick/styles.css";
 import { useDispatch } from "react-redux";
 import { vehicleOpen } from "../action/vehicle";
+import { UPLOAD_URI } from "../utils/api";
 
 function MasonrySection() {
   const dispatch = useDispatch();
@@ -67,12 +68,17 @@ function MasonrySection() {
   ];
   const responsive1 = {
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+      breakpoint: { max: 3000, min: 1368 },
       items: 3,
       slidesToSlide: 1, // optional, default to 1.
     },
+    itablet: {
+      breakpoint: { max: 1368, min: 1060 },
+      items: 2,
+      slidesToSlide: 1, // optional, default to 1.
+    },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 1060, min: 464 },
       items: 3,
       slidesToSlide: 1, // optional, default to 1.
     },
@@ -128,22 +134,22 @@ function MasonrySection() {
         <div className="w-full h-auto md:h-[800px] md:flex gap-4 pr-4">
           <div className="w-full md:w-2/3 border bg-gray-300 border-blue-500 rounded-lg mt-1">
             <div className="w-full h-full p-4">
-              <div className="w-full h-1/2 p-4 rounded-lg border-gray-400 border-[1px]">
+              <div className="w-full h-1/2 p-4 rounded-lg border-gray-400 border-[1px] mb-4 md:mb-0">
                 <Carousel
                   className="mb-6 pb-4 h-full"
                   responsive={responsive1}
                   showDots={true}
                   infinite={true}
                   autoPlay={true}
-                  autoPlaySpeed={2000}
+                  autoPlaySpeed={2500}
                   dotListClass="custom-dot-list-style"
                   slidesToSlide={1}
                 >
                   {data.map((item) => (
                     <SellCard
-                      src={"https://jolly-curious-baboon.ngrok-free.app/uploads/" + item.uploads}
+                      src={UPLOAD_URI + item.uploads}
                       key={item.src + item.title + item.price}
-                      title={item.title}
+                      title={item.brand}
                       price={item.price}
                     />
                     // <div className="h-full py-48 bg-red-300">fehgsrgsdfg</div>
@@ -151,14 +157,14 @@ function MasonrySection() {
                 </Carousel>
               </div>
               <div className="h-1/2 flex flex-col justify-evenly ">
-                <div className="rounded-lg border-gray-400 border-[1px]">
+                <div className="rounded-lg border-gray-400 border-[1px] md:mb-0 mb-4">
                   <Carousel
                     // className="pb-6"
                     responsive={responsive2}
                     showDots={false}
                     infinite={true}
                     autoPlay={true}
-                    autoPlaySpeed={200000}
+                    autoPlaySpeed={3000}
                     dotListClass="custom-dot-list-style"
                     slidesToSlide={1}
                   >

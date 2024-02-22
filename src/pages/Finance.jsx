@@ -108,7 +108,7 @@ const Finance = () => {
         className="w-full"
         alt="financiamiento"
       ></img> */}
-      {/* <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4 shadow-xl shadow-slate-200"> */}
+      {/* <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4 shadow-xl shadow-gray-200"> */}
       <PreownedCarousel src={src} />
       <div className="flex flex-wrap  justify-between items-center m-8 px-4 gap-4">
         <p className="text-blue-800 font-bold flex-auto sm:flex-grow-0 w-full md:w-auto order-3 sm:order-1 mt-4 sm:mt-0">
@@ -157,9 +157,9 @@ const Finance = () => {
         <p className="text-blue-800 font-bold">AUTOS DESTACADOS</p>
       </div>
       <div className="flex justify-between items-center mx-8 mb-4">
-        <div className="w-full px-6">
+        {/* <div className="w-full px-6"> */}
           <FeaturedCarCarousel />
-        </div>
+        {/* </div> */}
       </div>
       <FooterSmall />
     </>

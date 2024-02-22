@@ -94,10 +94,10 @@ const Garantia = () => {
     <>
       <Navbar />
       <div className="bg-white w-5/6 h-20 sm:h-24 md:h-28" />
-      <img src="./garantia1.png" className="w-full h-auto" alt="garantia1"></img>
-      {/* <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4 shadow-xl shadow-slate-200"> */}
-      <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4">
-        <p className="text-blue-800 font-bold">AUTOS EN PROMOCION</p>
+      <img src="./garantia1.png" className="w-full h-auto min-h-[300px]" alt="garantia1"></img>
+      {/* <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4 shadow-xl shadow-gray-200"> */}
+      <div className="flex flex-col-reverse min-h-16 h-fit sm:flex-row justify-between items-center mx-8 mb-8 sm:mb-0 mt-8 sm:mt-2 px-4">
+        <p className="text-blue-800 font-bold mt-8 sm:mt-0">AUTOS EN PROMOCION</p>
         <div className="flex items-center relative w-fit">
           <SignInput
             style={"mb-0"}

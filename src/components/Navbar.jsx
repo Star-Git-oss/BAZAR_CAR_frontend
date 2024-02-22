@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     // <div className="w-full fixed">
-    <div className="bg-white fixed w-full h-24 sm:h-28 md:h-32 mx-auto flex flex-row justify-between md:justify-evenly px-8 sm:px-20 md:px-4 pt-6 items-center border-sky-950  border-t-0 rounded-b-2xl shadow-2xl shadow-slate-400" style={{zIndex: 9999}}>
+    <div className="bg-white fixed w-full h-24 sm:h-28 md:h-32 mx-auto flex flex-row justify-between md:justify-evenly px-8 sm:px-20 md:px-4 pt-6 items-center border-sky-950  border-t-0 rounded-b-2xl shadow-2xl shadow-gray-400" style={{zIndex: 9999}}>
       <img
         src="./Logo bazar 1.png"
         className="w-[230px] h-[55px] cursor-pointer sm:mb-4"

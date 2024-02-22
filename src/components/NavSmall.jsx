@@ -11,7 +11,7 @@ const NavSmall = () => {
 
   return (
     // <div className="w-full fixed">
-      <div className="bg-white fixed w-full h-32 mx-auto flex flex-row justify-between px-4 items-center border-sky-950  border-t-0 rounded-b-2xl shadow-2xl shadow-slate-400 z-20">
+      <div className="bg-white fixed w-full h-32 mx-auto flex md:flex-row justify-between px-4 items-center border-sky-950  border-t-0 rounded-b-2xl shadow-2xl shadow-gray-400 z-20">
         <img
           src="./Logo bazar 1.png"
           className="w-[230px] h-[55px] cursor-pointer"

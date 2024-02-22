@@ -8,11 +8,11 @@ export default function SellCard({ src, title, price }) {
     navigate("/view?" + " " + src);
   }
   return (
-      <div className="flex flex-col h-full relative overflow-hidden" onClick={handleCardClick}>
+      <div className="flex flex-col w-auto h-full relative overflow-hidden" onClick={handleCardClick}>
         <img className="h-full mb-14 rounded-t-lg object-cover" draggable={false} src={src} />
         <div className="flex w-full h-14 flex-col bg-white justify-center items-center absolute bottom-0">
-          <p className="text-xl">{title}</p>
-          <p className="text-md">{price}</p>
+          <p className="text-sm sm:text-md md:text-lg">{title}</p>
+          <p className="text-xs sm:text-sm md:text-md">{price}</p>
         </div>
       </div>
   );

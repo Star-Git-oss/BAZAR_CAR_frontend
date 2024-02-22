@@ -14,7 +14,6 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const Landing = () => {
-  const src = ["./inicio1.png", "./inicio2.png", "./inicio3.png"];
   // const selldata = [
   //   {
   //     src: "ejemplo de banner1.png",
@@ -94,12 +93,12 @@ const Landing = () => {
       <Navbar />
       <div className="bg-white w-5/6 h-24"></div>
       {/* <img src="./inicio 1.png" className="w-full" alt="inicio 1"></img> */}
-      <PreownedCarousel src={src} />
+      <PreownedCarousel />
       <MasonrySection />
-      {/* <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4 shadow-xl shadow-slate-200"> */}
-      <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4">
-        <p className="text-blue-800 font-bold">AUTOS EN PROMOCION</p>
-        <div className="flex items-center relative w-fit -z-10">
+      {/* <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4 shadow-xl shadow-gray-200"> */}
+      <div className="h-16 flex flex-col-reverse md:flex-row justify-between items-center mx-8 mt-16 mb-4 gap-2 md:gap-0 md:mb-0 md:mt-2 px-4">
+        <p className="text-blue-800 font-bold md:mb-0">AUTOS EN PROMOCION</p>
+        <div className="flex items-center relative w-fit">
           <SignInput
             style={"mb-0"}
             placeholder={"BUSCA TU AUTO..."}

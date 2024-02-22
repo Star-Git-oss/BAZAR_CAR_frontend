@@ -3,6 +3,19 @@ import SignInput from "../components/SignInput";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { vehicleUpload } from "../action/vehicle";
+import { styled } from "@mui/material/styles";
+
+const VisuallyHiddenInput = styled("input")({
+  clip: "rect(0 0 0 0)",
+  clipPath: "inset(50%)",
+  height: 1,
+  overflow: "hidden",
+  position: "absolute",
+  bottom: 0,
+  left: 0,
+  whiteSpace: "nowrap",
+  width: 1,
+});
 
 const Sell = () => {
   const navigate = useNavigate();
@@ -100,8 +113,12 @@ const Sell = () => {
           </p>
         </div>
         <div className="flex justify-evenly mb-8">
-          <img src="avatar.png" alt="avatar" className="w-[50px] h-[50px] ml-8 lg:ml-0 hidden lg:block" />
-          <div className="md:grid md:grid-cols-4 gap-12 w-10/12 lg:mr-14">
+          <img
+            src="avatar.png"
+            alt="avatar"
+            className="w-[50px] h-[50px] ml-8 lg:ml-0 hidden lg:block"
+          />
+          <div className="md:grid md:grid-cols-4 gap-4 w-10/12 lg:mr-14">
             <SignInput
               label={"Marca de auto"}
               type={"secondary"}
@@ -200,7 +217,7 @@ const Sell = () => {
               value={vehicleInfo}
               onChange={(e) => setVehicleInfo(e.target.value)}
             />
-            <div className="col-span-3 border-slate-600 border-[1px] p-4 lg:ml-4 md:mr-0">
+            <div className="col-span-3 border-gray-600 border-[1px] p-4 lg:ml-4 md:mr-0 mb-4">
               <div className="ml-4 col-span-4">
                 <p className="w-full text-left xl:text-2xl lg:text-xl text-blue-900 font-bold">
                   Imágenes
@@ -210,7 +227,7 @@ const Sell = () => {
                   venderlo
                 </p>
               </div>
-              <div className="w-full h-96 overflow-auto bg-gray-300 border-slate-600 border-[1px] border-dotted mt-4 relative z-0">
+              <div className="w-full h-96 overflow-auto bg-gray-300 border-gray-600 border-[1px] border-dotted mt-4 relative z-0">
                 <input
                   className="hidden w-2 h-2 left-0 top-0 cursor-pointer bg-transparent z-20"
                   type="file"
@@ -241,7 +258,7 @@ const Sell = () => {
                 </div>
               </div>
             </div>
-            <div className="border-slate-600 border-[1px] lg:-mr-4 flex flex-col items-center lg:mt-0 lg:ml-0">
+            <div className="border-gray-600 border-[1px] lg:-mr-4 flex flex-col items-center lg:mt-0 lg:ml-0 mb-4">
               <p className="w-full text-left xl:text-2xl lg:text-xl text-blue-900 font-bold ml-2">
                 Recomendaciones:
               </p>

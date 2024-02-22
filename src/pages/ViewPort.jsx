@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import FooterSmall from "../components/FooterSmall";
 import { useDispatch } from "react-redux";
 import { vehicleGroupOpen } from "../action/vehicle";
+import { UPLOAD_URI } from "../utils/api";
 
 const ViewPort = () => {
   const src = ["./inicio1.png", "./inicio2.png", "./inicio3.png"];
@@ -86,13 +87,13 @@ const ViewPort = () => {
       <div className="flex md:flex-row flex-col justify-between h-full+ w-full gap-8 p-8">
         <div className="w-full md:w-1/2">
           <p>Inicio/Autos de Renta/ Marca /Version</p>
-          <div className="flex flex-col md:flex-row p-10">
+          <div className="flex flex-col lg:flex-row lg:px-10 py-10">
             <p className="font-bold text-lg md:text-xl">Kia Sporte 2020</p>
             &nbsp;
             <p className="text-md md:text-lg">Se plus Sedan Estandar</p>
           </div>
           <img
-            src={"https://jolly-curious-baboon.ngrok-free.app/uploads/" + mainImg}
+            src={UPLOAD_URI + mainImg}
             className="right-2 h-auto w-full lg:mr-4"
             alt="arrendamiento3"
           />
@@ -109,7 +110,7 @@ const ViewPort = () => {
             >
               {selldata.map((item) => (
                 <img
-                  src={"https://jolly-curious-baboon.ngrok-free.app/uploads/" + item}
+                  src={UPLOAD_URI + item}
                   onClick={() => handleImgClick(item)}
                   key={item.src}
                   className="w-full h-full object-cover"

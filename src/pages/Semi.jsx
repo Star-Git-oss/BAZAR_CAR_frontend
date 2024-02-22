@@ -94,13 +94,21 @@ const Semi = () => {
     <>
       <Navbar />
       <div className="bg-white w-5/6 h-20 sm:h-24 md:h-28" />
-      <img src="./seminuevos.png" className="w-full" alt="seminuevos" />
-      {/* <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4 shadow-xl shadow-slate-200"> */}
-      <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4">
-        <p className="text-blue-800 font-bold text-md md:text-xl">AUTOS EN PROMOCION</p>
+      <img src="./seminuevos.png" className="w-full min-h-[400px] object-cover" alt="seminuevos" />
+      {/* <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4 shadow-xl shadow-gray-200"> */}
+      <div className="flex flex-col-reverse min-h-16 h-fit sm:flex-row justify-between items-center mx-8 mb-8 sm:mb-0 mt-8 sm:mt-2 px-4">
+        <p className="text-blue-800 font-bold mt-8 sm:mt-0">AUTOS EN PROMOCION</p>
         <div className="flex items-center relative w-fit">
-          <SignInput style={"mb-0"} placeholder={"BUSCA TU AUTO..."} width={"w-[250px]"}/>
-          <img src="./buscar-lupa.png" className="absolute right-2 w-6 h-6 lg:mr-4" alt="buscar-lupa"></img>
+          <SignInput
+            style={"mb-0"}
+            placeholder={"BUSCA TU AUTO..."}
+            width={"w-[250px]"}
+          />
+          <img
+            src="./buscar-lupa.png"
+            className="absolute right-2 w-6 h-6 lg:mr-4"
+            alt="buscar-lupa"
+          ></img>
         </div>
       </div>
       <div className="flex justify-between items-center mx-8">
