@@ -7,6 +7,7 @@ const SignInput = ({
   x,
   style,
   placeholder,
+  onKeyDown,
 }) => {
   return (
     <div
@@ -37,6 +38,7 @@ const SignInput = ({
         placeholder={placeholder}
         type={type === "password" ? "password" : "text"}
         onChange={(e) => onChange(e.target.value)}
+        onKeyDown={(e) => onKeyDown(e)}
       />
     </div>
   );

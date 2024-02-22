@@ -2,97 +2,73 @@ import SignInput from "../components/SignInput";
 import Navbar from "../components/Navbar";
 import MasonrySection from "../components/Masonry";
 import PreownedCarousel from "../components/PreownedCarousel";
-import Carousel from "react-multi-carousel";
-import SellCard from "../components/SellCard";
 import "react-multi-carousel/lib/styles.css";
 import "../components/slick/styles.css";
 import Footer from "../components/Footer";
-import NavSmall from "../components/NavSmall";
 import PromotionCarCarousel from "../components/PromotionCarCarousel";
 import FeaturedCarCarousel from "../components/FeaturedCarCarousel";
-import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Landing = () => {
-  // const selldata = [
-  //   {
-  //     src: "ejemplo de banner1.png",
-  //     title: "1",
-  //     price: "$200",
-  //   },
-  //   {
-  //     src: "ejemplo de banner1.png",
-  //     title: "2",
-  //     price: "$300",
-  //   },
-  //   {
-  //     src: "ejemplo de banner1.png",
-  //     title: "3",
-  //     price: "$400",
-  //   },
-  //   {
-  //     src: "ejemplo de banner1.png",
-  //     title: "4",
-  //     price: "$500",
-  //   },
-  //   {
-  //     src: "ejemplo de banner1.png",
-  //     title: "5",
-  //     price: "$600",
-  //   },
-  //   {
-  //     src: "ejemplo de banner1.png",
-  //     title: "6",
-  //     price: "$700",
-  //   },
-  //   {
-  //     src: "ejemplo de banner1.png",
-  //     title: "7",
-  //     price: "$800",
-  //   },
-  //   {
-  //     src: "ejemplo de banner1.png",
-  //     title: "8",
-  //     price: "$900",
-  //   },
-  //   {
-  //     src: "ejemplo de banner1.png",
-  //     title: "9",
-  //     price: "$1000",
-  //   },
-  //   {
-  //     src: "ejemplo de banner1.png",
-  //     title: "10",
-  //     price: "$1100",
-  //   },
-  //   {
-  //     src: "ejemplo de banner1.png",
-  //     title: "11",
-  //     price: "$1200",
-  //   },
-  // ];
-  // const responsive = {
-  //   desktop: {
-  //     breakpoint: { max: 3000, min: 1024 },
-  //     items: 6,
-  //     slidesToSlide: 1, // optional, default to 1.
-  //   },
-  //   tablet: {
-  //     breakpoint: { max: 1024, min: 464 },
-  //     items: 3,
-  //     slidesToSlide: 1, // optional, default to 1.
-  //   },
-  //   mobile: {
-  //     breakpoint: { max: 464, min: 0 },
-  //     items: 1,
-  //     slidesToSlide: 1, // optional, default to 1.
-  //   },
-  // };
+
+  useEffect(() => {
+    let isLogged = localStorage.getItem("isLogged");
+    if (isLogged !== "true") {
+      toast.warning("Inicia sesión para obtener más información.", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: "colored",
+        draggable: true,
+      });
+    };
+
+    const currentURL = window.location.href;
+    const urlParams = new URLSearchParams(currentURL);
+
+    // Get the value of a specific query parameter
+    const queryParamValue = urlParams.get("query");
+    console.log("Query parameter value:", queryParamValue);
+
+    let str = "";
+
+    // Get all query parameters
+    for (const param of urlParams) {
+      let index = param[0].indexOf("?");
+      str = param[0].slice(index + 1, param[0].length);
+    }
+    if(str === "uploadsuccess") {
+      toast.success("Enhorabuena. Ha cargado correctamente la información de su vehículo.", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: "colored",
+        draggable: true,
+      });
+    }
+  }, []);
   return (
     <>
       <Navbar />
       <div className="bg-white w-5/6 h-24"></div>
-      {/* <img src="./inicio 1.png" className="w-full" alt="inicio 1"></img> */}
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        theme="colored"
+      />
       <PreownedCarousel />
       <MasonrySection />
       {/* <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4 shadow-xl shadow-gray-200"> */}

@@ -28,63 +28,6 @@ const Garantia = () => {
       slidesToSlide: 1, // optional, default to 1.
     },
   };
-  const selldata = [
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "1",
-      price: "$200",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "2",
-      price: "$300",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "3",
-      price: "$400",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "4",
-      price: "$500",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "5",
-      price: "$600",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "6",
-      price: "$700",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "7",
-      price: "$800",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "8",
-      price: "$900",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "9",
-      price: "$1000",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "10",
-      price: "$1100",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "11",
-      price: "$1200",
-    },
-  ];
   const navigate = useNavigate();
   useEffect(() => {
     let isLogged = localStorage.getItem("isLogged");

@@ -23,17 +23,17 @@ function PreownedCarousel() {
         <img
           src={src[0]}
           alt="inicio 1"
-          className="w-auto md:w-full h-auto min-h-[400px] object-cover"
+          className="w-auto md:w-full min-h-[400px] object-cover"
         />
         <img
           src={src[1]}
           alt="inicio 2"
-          className="w-auto md:w-full h-auto min-h-[400px] object-cover"
+          className="w-auto md:w-full min-h-[400px] object-cover"
         />
         <img
           src={src[2]}
           alt="inicio 3"
-          className="w-auto md:w-full h-auto min-h-[400px] object-cover"
+          className="w-auto md:w-full min-h-[400px] object-cover"
         />
       </Carousel>
     </>

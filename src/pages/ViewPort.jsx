@@ -16,7 +16,6 @@ import { vehicleGroupOpen } from "../action/vehicle";
 import { UPLOAD_URI } from "../utils/api";
 
 const ViewPort = () => {
-  const src = ["./inicio1.png", "./inicio2.png", "./inicio3.png"];
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [description, setDescriptionInfo] = useState("");
@@ -104,7 +103,7 @@ const ViewPort = () => {
               showDots={false}
               infinite={true}
               autoPlay={true}
-              autoPlaySpeed={200000}
+              autoPlaySpeed={2000}
               dotListClass="custom-dot-list-style"
               slidesToSlide={1}
             >

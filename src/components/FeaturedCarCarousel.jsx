@@ -66,8 +66,8 @@ const FeaturedCarCarousel = () => {
               <SellCard
                 src={UPLOAD_URI + item.uploads}
                 key={item.uploads + item.title + item.price}
-                title={item.title}
-                price={item.price}
+                title={item.brand}
+                price={"$"+item.price}
               />
             );
           })}

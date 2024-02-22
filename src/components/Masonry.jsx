@@ -78,13 +78,18 @@ function MasonrySection() {
       slidesToSlide: 1, // optional, default to 1.
     },
     tablet: {
-      breakpoint: { max: 1060, min: 464 },
+      breakpoint: { max: 1060, min: 864 },
       items: 3,
       slidesToSlide: 1, // optional, default to 1.
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
+      breakpoint: { max: 864, min: 664 },
       items: 2,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    imobile: {
+      breakpoint: { max: 664, min: 0 },
+      items: 1,
       slidesToSlide: 1, // optional, default to 1.
     },
   };
@@ -136,7 +141,7 @@ function MasonrySection() {
             <div className="w-full h-full p-4">
               <div className="w-full h-1/2 p-4 rounded-lg border-gray-400 border-[1px] mb-4 md:mb-0">
                 <Carousel
-                  className="mb-6 pb-4 h-full"
+                  className="mb-6 pb-4 h-96 md:h-full"
                   responsive={responsive1}
                   showDots={true}
                   infinite={true}

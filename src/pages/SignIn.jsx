@@ -4,16 +4,20 @@ import { useNavigate } from "react-router-dom";
 import { googleSignin, signin } from "../action/user";
 import SignInput from "../components/SignInput";
 import { useGoogleLogin } from "@react-oauth/google";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const handleCreaClick = () => {
     console.log("handleCreaClick");
     navigate("/signup");
+  };
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") handleIniciarClick();
   };
   const handleIniciarClick = () => {
     console.log("handleIniciarClick", email, password);
@@ -33,7 +37,17 @@ const SignIn = () => {
         localStorage.setItem("whatsApp", res.whatsApp);
         navigate("/vehicle");
       })
-      .catch((err) => console.log("signin failed"));
+      .catch((err) => {
+        toast.error("Error. Confirme su correo electrónico o contraseña.", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          theme: "colored",
+          draggable: true,
+        });
+      });
   };
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => {
@@ -62,12 +76,30 @@ const SignIn = () => {
 
   return (
     <div className="bg-[url('./wallpaper.png')] w-full min-h-screen py-4 bg-no-repeat bg-cover bg-center flex justify-center items-center">
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        theme="colored"
+      />
       <div className="bg-white/[0.6] w-full h-[650px] max-w-[400px] max-h-[650px] px-4 flex flex-col justify-around items-center rounded-lg">
         {/* <img src="./logo1.png" className="w-4/5 h-auto mt-2" alt="logo" /> */}
         {/* <img src="./Logo.png" className="w-4/5 h-auto mt-2" alt="logo" /> */}
-        <img src="./Logo bazar 1.png" className="w-4/5 h-auto mt-2" alt="logo" />
+        <img
+          src="./Logo bazar 1.png"
+          className="w-4/5 h-auto mt-2"
+          alt="logo"
+        />
         <p className="text-center -mt-2 sm:-mt-6">
-          <span className="hidden sm:contents">Ingresa a tu cuenta <br /> oh{" "}</span>
+          <span className="hidden sm:contents">
+            Ingresa a tu cuenta <br /> oh{" "}
+          </span>
           <span
             className="text-blue-500 font-bold cursor-pointer lg:text-lg"
             onClick={handleCreaClick}
@@ -86,12 +118,13 @@ const SignIn = () => {
           type="password"
           style={"-mt-6 sm:mt-0"}
           onChange={setPassword}
+          onKeyDown={handleKeyDown}
         />
         <p className="w-full text-right text-blue-800 font-bold px-4 -mt-4 xs:mt-0">
           Olvide mi contraseña
         </p>
         <button
-          className="w-4/5 h-[40px] bg-blue-700 rounded-md text-white"
+          className="w-4/5 h-[40px] bg-blue-700 hover:bg-blue-500 transition-colors duration-300 ease-in-out rounded-md text-white"
           onClick={handleIniciarClick}
         >
           Iniciar sesión

@@ -1,26 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SignInput from "../components/SignInput";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { vehicleUpload } from "../action/vehicle";
-import { styled } from "@mui/material/styles";
-
-const VisuallyHiddenInput = styled("input")({
-  clip: "rect(0 0 0 0)",
-  clipPath: "inset(50%)",
-  height: 1,
-  overflow: "hidden",
-  position: "absolute",
-  bottom: 0,
-  left: 0,
-  whiteSpace: "nowrap",
-  width: 1,
-});
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Sell = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const [brand, setBrand] = useState("");
   const [year, setYear] = useState("");
   const [version, setVirsion] = useState("");
@@ -33,18 +21,6 @@ const Sell = () => {
   const [selectedImage, setSelectedImage] = useState([]);
 
   const handleTerminosClick = () => {
-    console.log(
-      brand,
-      year,
-      version,
-      mileage,
-      transmission,
-      whatsApp,
-      price,
-      payMethod,
-      vehicleInfo,
-      selectedImage
-    );
     if (
       brand !== "" &&
       year !== "" &&
@@ -76,15 +52,38 @@ const Sell = () => {
 
       try {
         dispatch(vehicleUpload(formData))
-          .then((res) => navigate("/"))
+          .then((res) => navigate("/" + "?" + "uploadsuccess"))
           .catch((err) => console.log(err));
       } catch (error) {
         console.error("Error uploading file", error);
       }
     } else {
-      alert("Please fill all infos");
+      toast.error("Rellene todos los datos.", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: "colored",
+        draggable: true,
+      });
     }
   };
+  useEffect(() => {
+    let isLogged = localStorage.getItem("isLogged");
+    if (isLogged !== "true") navigate("/signin");
+    else {
+      toast.success("Se ha conectado con éxito.", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: "colored",
+        draggable: true,
+      });
+    }
+  }, []);
   const handleMethodChange = (event) => {
     setPayMethod(event.target.value);
   };
@@ -100,6 +99,18 @@ const Sell = () => {
 
   return (
     <div className="bg-[url('./wallpaper.png')] w-full min-h-screen bg-cover bg-center bg-no-repeat flex justify-center items-center">
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        theme="colored"
+      />
       <div className="bg-white/[0.6] w-5/6 max-w-[1400px] gap-12 flex flex-col justify-around rounded-lg my-20">
         <p className="w-full text-center lg:text-left xl:text-2xl text-xl text-blue-900 font-bold lg:ml-14 mt-2">
           ¡ Vendemos tu auto !
@@ -194,10 +205,7 @@ const Sell = () => {
               </label>
               <p className="text-blue-900 font-bold mt-4 z-0 w-full md:w-2/3 lg:w-3/4 text-center lg:text-left">
                 Al selecionar venta en sistema de financiamiento aceptas
-                <span
-                  className="text-blue-500 cursor-pointer z-10"
-                  onClick={handleTerminosClick}
-                >
+                <span className="text-blue-500 cursor-pointer z-10">
                   {" "}
                   Terminos y Condiciones
                 </span>
@@ -301,6 +309,14 @@ const Sell = () => {
               <p className="text-center text-sm text-blue-900">
                 Te recomendamos fotos del interior asientos Kilometraje, llantas
               </p>
+            </div>
+            <div className="w-full col-span-4 flex justify-center pt-4 md:pt-0 md:justify-end mb-12 lg:ml-4">
+              <button
+                className="w-[250px] h-[40px] bg-blue-700 hover:bg-blue-500 transition-colors duration-300 ease-in-out click:animate-ping rounded-md text-white"
+                onClick={handleTerminosClick}
+              >
+                Crea Cuenta
+              </button>
             </div>
           </div>
         </div>
