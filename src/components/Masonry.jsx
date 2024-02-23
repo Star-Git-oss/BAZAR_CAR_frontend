@@ -129,7 +129,7 @@ function MasonrySection() {
   };
   const [data, setData] = useState([]);
   useEffect(() => {
-    dispatch(vehicleOpen({num:12}))
+    dispatch(vehicleOpen({search:"", num:12}))
       .then((res) => setData([...res]))
       .catch((err) => console.log(err));
   }, []); 
@@ -155,7 +155,7 @@ function MasonrySection() {
                       src={UPLOAD_URI + item.uploads}
                       key={item.src + item.title + item.price}
                       title={item.brand}
-                      price={item.price}
+                      price={"$" + item.price}
                     />
                     // <div className="h-full py-48 bg-red-300">fehgsrgsdfg</div>
                   ))}

@@ -37,7 +37,12 @@ const SignInput = ({
         value={value}
         placeholder={placeholder}
         type={type === "password" ? "password" : "text"}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => {
+          if (onChange) {
+            console.log("onChange", onChange);
+            onChange(e.target.value);
+          }
+        }}
         onKeyDown={(e) => onKeyDown(e)}
       />
     </div>

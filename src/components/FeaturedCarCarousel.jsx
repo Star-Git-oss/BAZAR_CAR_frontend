@@ -7,7 +7,8 @@ import { useDispatch } from "react-redux";
 import { vehicleOpen } from "../action/vehicle";
 import { UPLOAD_URI } from "../utils/api";
 
-const FeaturedCarCarousel = () => {
+const FeaturedCarCarousel = ({search}) => {
+  console.log(search);
   const dispatch = useDispatch();
   const responsive = {
     desktop: {
@@ -43,10 +44,10 @@ const FeaturedCarCarousel = () => {
   };
   const [data, setData] = useState([]);
   useEffect(() => {
-    dispatch(vehicleOpen({num:12}))
+    dispatch(vehicleOpen({search:search, num:12}))
       .then((res) => setData([...res]))
       .catch((err) => console.log(err));
-  }, []);
+  }, [search]);
   return (
     <>
       <div className="w-full px-6 mb-8 rounded-lg border-gray-400 border-[1px]">
