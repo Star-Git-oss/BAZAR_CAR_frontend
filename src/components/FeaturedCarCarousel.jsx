@@ -52,15 +52,22 @@ const FeaturedCarCarousel = ({ search }) => {
       .then((res) => {
         setData([...res.data]);
         if (search.length > 0)
-          toast.info("AUTOS DESTACADOS: Totales: 100, Resultado: 23", {
-            position: "bottom-right",
-            autoClose: 5000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            theme: "colored",
-            draggable: true,
-          });
+          toast.info(
+            <>
+              <p>AUTOS DESTACADOS:</p>
+              <p>&nbsp;&nbsp;&nbsp;Totales: {res.result.total}</p>
+              <p>&nbsp;&nbsp;&nbsp;Resultado: {res.result.count}</p>
+            </>,
+            {
+              position: "bottom-right",
+              autoClose: 5000,
+              hideProgressBar: true,
+              closeOnClick: true,
+              pauseOnHover: true,
+              theme: "colored",
+              draggable: true,
+            }
+          );
       })
       .catch((err) => {
         console.log(err);
@@ -80,7 +87,7 @@ const FeaturedCarCarousel = ({ search }) => {
   }, [search]);
   return (
     <>
-    <ToastContainer
+      <ToastContainer
         position="bottom-right"
         autoClose={5000}
         hideProgressBar

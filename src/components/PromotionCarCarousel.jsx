@@ -51,32 +51,43 @@ const PromotionCarCarousel = ({ search }) => {
     )
       .then((res) => {
         setData([...res.data]);
-        if(search.length > 0) toast.info("AUTOS EN PROMOCION: Totales: 100, Resultado: 23", {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          theme: "colored",
-          draggable: true,
-        });
+        if (search.length > 0)
+          toast.info(
+            <>
+              <p>AUTOS EN PROMOCION:</p>
+              <p>&nbsp;&nbsp;&nbsp;Totales: {res.result.total}</p>
+              <p>&nbsp;&nbsp;&nbsp;Resultado: {res.result.count}</p>
+            </>,
+            {
+              position: "bottom-right",
+              autoClose: 5000,
+              hideProgressBar: true,
+              closeOnClick: true,
+              pauseOnHover: true,
+              theme: "colored",
+              draggable: true,
+            }
+          );
       })
       .catch((err) => {
         console.log(err);
-        toast.error("No se puede comunicar con el servidor. Por favor, compruebe su conexión.", {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          theme: "colored",
-          draggable: true,
-        });
+        toast.error(
+          "No se puede comunicar con el servidor. Por favor, compruebe su conexión.",
+          {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            theme: "colored",
+            draggable: true,
+          }
+        );
       });
   }, [search]);
   return (
     <>
-    <ToastContainer
+      <ToastContainer
         position="bottom-right"
         autoClose={5000}
         hideProgressBar

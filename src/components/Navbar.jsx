@@ -68,7 +68,7 @@ const Navbar = () => {
     else {
       localStorage.setItem("isLogged", "false");
       setIsLoggedIn(false);
-      toast.info("Ha cerrado la sesión correctamente.", {
+      toast.error("Ha cerrado la sesión correctamente.", {
         position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: true,
