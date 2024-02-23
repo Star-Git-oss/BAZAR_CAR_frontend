@@ -322,7 +322,7 @@ const Sell = () => {
                 Cancelar
               </button>
               <button
-                className="w-[250px] h-[40px] bg-blue-700 hover:bg-blue-500 transition-colors duration-300 ease-in-out click:animate-ping rounded-md text-white"
+                className="pushbutton w-[250px] h-[40px] bg-blue-700 hover:bg-blue-500 transition-colors duration-300 ease-in-out click:animate-ping rounded-md text-white"
                 onClick={handleGuardarClick}
               >
                 Guardar

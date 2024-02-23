@@ -124,7 +124,7 @@ const Navbar = () => {
             menu ? "" : "translate-x-96"
           } top-20 sm:top-24 transition transform ease-in-out delay-200 bg-white p-8 rounded-b-xl md:rounded-none md:p-0 md:bg-inherit md:relative flex flex-col md:flex-row md:w-4/5 w-fit md:justify-evenly items-center md:contents`}
         >
-          <div className="w-[100px] h-[100px] cursor-pointer navbutton flex justify-center items-center">
+          <div className="nav-btn w-[100px] h-[100px] cursor-pointer navbutton flex justify-center items-center">
             <img
               src="./icono2 usados.png"
               className="w-[90px] h-[90px] cursor-pointer"
@@ -132,7 +132,7 @@ const Navbar = () => {
               onClick={handleUsadosClick}
             />
           </div>
-          <div className="w-[100px] h-[100px] cursor-pointer navbutton flex justify-center items-center">
+          <div className="nav-btn w-[100px] h-[100px] cursor-pointer navbutton flex justify-center items-center">
             <img
               src="./financiamiento1.png"
               className="w-[110px] h-[90px] cursor-pointer mt-2"
@@ -140,7 +140,7 @@ const Navbar = () => {
               onClick={handleFinanceClick}
             />
           </div>
-          <div className="w-[100px] h-[100px] cursor-pointer navbutton flex justify-center items-center">
+          <div className="nav-btn w-[100px] h-[100px] cursor-pointer navbutton flex justify-center items-center">
             <img
               src="./icono1 Garantia.png"
               className="w-[97px] h-[90px] cursor-pointer"
