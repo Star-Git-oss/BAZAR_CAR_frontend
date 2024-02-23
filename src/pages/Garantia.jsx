@@ -29,6 +29,11 @@ const Garantia = () => {
     },
   };
   const navigate = useNavigate();
+  const [search, setSearch] = useState("");
+  const handleKeyDown = (e) => {
+    console.log(e.target.value);
+    if (e.key === "Enter") setSearch(e.target.value);
+  };
   useEffect(() => {
     let isLogged = localStorage.getItem("isLogged");
     if (isLogged !== "true") navigate("/signin");
@@ -46,6 +51,7 @@ const Garantia = () => {
             style={"mb-0"}
             placeholder={"BUSCA TU AUTO..."}
             width={"w-[250px]"}
+            onKeyDown={(e) => handleKeyDown(e)}
           />
           <img
             src="./buscar-lupa.png"
@@ -56,7 +62,7 @@ const Garantia = () => {
       </div>
       <div className="flex justify-between items-center mx-8">
         <div className="w-full px-6">
-          <PromotionCarCarousel />
+          <PromotionCarCarousel search={search} />
         </div>
       </div>
       <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4">
@@ -64,7 +70,7 @@ const Garantia = () => {
       </div>
       <div className="flex justify-between items-center mx-8 mb-4">
         <div className="w-full px-6">
-          <FeaturedCarCarousel />
+          <FeaturedCarCarousel search={search} />
         </div>
       </div>
       <FooterSmall />

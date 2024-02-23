@@ -80,7 +80,7 @@ const Landing = () => {
       {/* <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4 shadow-xl shadow-gray-200"> */}
       <div className="h-16 flex flex-col-reverse md:flex-row justify-between items-center mx-8 mt-16 mb-4 gap-2 md:gap-0 md:mb-0 md:mt-2 px-4">
         <p className="text-blue-800 font-bold md:mb-0">AUTOS EN PROMOCION</p>
-        <div className="flex items-center relative w-fit">
+        {/* <div className="flex items-center relative w-fit">
           <SignInput
             style={"mb-0"}
             placeholder={"BUSCA TU AUTO..."}
@@ -92,17 +92,17 @@ const Landing = () => {
             className="absolute right-2 w-6 h-6 lg:mr-4"
             alt="buscar-lupa"
           />
-        </div>
+        </div> */}
       </div>
-      <div className="w-full px-8">
+      <div className="w-full px-8 mt-8">
         <PromotionCarCarousel search={search} />
       </div>
-      <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4">
+      {/* <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4">
         <p className="text-blue-800 font-bold">AUTOS DESTACADOS</p>
       </div>
       <div className="w-full px-8">
         <FeaturedCarCarousel search={search} />
-      </div>
+      </div> */}
       <Footer />
     </>
   );

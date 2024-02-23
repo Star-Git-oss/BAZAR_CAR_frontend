@@ -44,7 +44,7 @@ const FeaturedCarCarousel = ({search}) => {
   };
   const [data, setData] = useState([]);
   useEffect(() => {
-    dispatch(vehicleOpen({search:search, num:12}))
+    dispatch(vehicleOpen({search: search !== undefined ? search : "", num:12}))
       .then((res) => setData([...res]))
       .catch((err) => console.log(err));
   }, [search]);

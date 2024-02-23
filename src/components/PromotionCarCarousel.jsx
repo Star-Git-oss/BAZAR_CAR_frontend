@@ -50,7 +50,7 @@ const PromotionCarCarousel = ({search}) => {
   };
   const [data, setData] = useState([]);
   useEffect(() => {
-    dispatch(vehicleOpen({search:search, num:12}))
+    dispatch(vehicleOpen({search: search !== undefined ? search : "", num:12}))
       .then((res) => setData([...res]))
       .catch((err) => console.log(err));
   }, [search]);
@@ -71,7 +71,7 @@ const PromotionCarCarousel = ({search}) => {
             console.log(item);
             return (
               <SellCard
-                src={UPLOAD_URI + item.uploads}
+                src={UPLOAD_URI + item.uploads+"?v=1"}
                 key={item.uploads + item.title + item.price}
                 title={item.brand}
                 price={"$"+item.price}

@@ -28,64 +28,69 @@ const Semi = () => {
       slidesToSlide: 1, // optional, default to 1.
     },
   };
-  const selldata = [
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "1",
-      price: "$200",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "2",
-      price: "$300",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "3",
-      price: "$400",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "4",
-      price: "$500",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "5",
-      price: "$600",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "6",
-      price: "$700",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "7",
-      price: "$800",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "8",
-      price: "$900",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "9",
-      price: "$1000",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "10",
-      price: "$1100",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
-      title: "11",
-      price: "$1200",
-    },
-  ];
+  // const selldata = [
+  //   {
+  //     src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
+  //     title: "1",
+  //     price: "$200",
+  //   },
+  //   {
+  //     src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
+  //     title: "2",
+  //     price: "$300",
+  //   },
+  //   {
+  //     src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
+  //     title: "3",
+  //     price: "$400",
+  //   },
+  //   {
+  //     src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
+  //     title: "4",
+  //     price: "$500",
+  //   },
+  //   {
+  //     src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
+  //     title: "5",
+  //     price: "$600",
+  //   },
+  //   {
+  //     src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
+  //     title: "6",
+  //     price: "$700",
+  //   },
+  //   {
+  //     src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
+  //     title: "7",
+  //     price: "$800",
+  //   },
+  //   {
+  //     src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
+  //     title: "8",
+  //     price: "$900",
+  //   },
+  //   {
+  //     src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
+  //     title: "9",
+  //     price: "$1000",
+  //   },
+  //   {
+  //     src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
+  //     title: "10",
+  //     price: "$1100",
+  //   },
+  //   {
+  //     src: "https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318",
+  //     title: "11",
+  //     price: "$1200",
+  //   },
+  // ];
   const navigate = useNavigate();
+  const [search, setSearch] = useState('');
+  const handleKeyDown = (e) => {
+    console.log(e.target.value);
+    if (e.key === "Enter") setSearch(e.target.value);
+  }
   useEffect(() => {
     let isLogged = localStorage.getItem("isLogged");
     if (isLogged !== "true") navigate("/signin");
@@ -103,6 +108,7 @@ const Semi = () => {
             style={"mb-0"}
             placeholder={"BUSCA TU AUTO..."}
             width={"w-[250px]"}
+            onKeyDown={(e) => handleKeyDown(e)}
           />
           <img
             src="./buscar-lupa.png"
@@ -112,55 +118,13 @@ const Semi = () => {
         </div>
       </div>
       <div className="flex justify-between items-center mx-8">
-      {/* <div className="w-full px-6">
-        <Carousel
-          className="pb-6"
-          responsive={responsive}
-          showDots={true}
-          infinite={true}
-          autoPlay={true}
-          autoPlaySpeed={2000}
-          dotListClass="custom-dot-list-style"
-          slidesToSlide={1}
-        >
-          {selldata.map((item) => (
-            <SellCard
-              src={item.src}
-              key={item.src + item.title + item.price}
-              title={item.title}
-              price={item.price}
-            />
-          ))}
-        </Carousel>
-      </div> */}
-      <PromotionCarCarousel />
+      <PromotionCarCarousel search={search} />
       </div>
       <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4">
         <p className="text-blue-800 font-bold text-md md:text-xl">AUTOS DESTACADOS</p>
       </div>
       <div className="flex justify-between items-center mx-8 mb-4">
-      {/* <div className="w-full px-6">
-        <Carousel
-          className="pb-6"
-          responsive={responsive}
-          showDots={true}
-          infinite={true}
-          autoPlay={true}
-          autoPlaySpeed={2000}
-          dotListClass="custom-dot-list-style"
-          slidesToSlide={1}
-        >
-          {selldata.map((item) => (
-            <SellCard
-              src={item.src}
-              key={item.src + item.title + item.price}
-              title={item.title}
-              price={item.price}
-            />
-          ))}
-        </Carousel>
-      </div> */}
-      <FeaturedCarCarousel />
+      <FeaturedCarCarousel search={search} />
       </div>
       <FooterSmall />
     </>
