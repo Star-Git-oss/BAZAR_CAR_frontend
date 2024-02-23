@@ -101,7 +101,7 @@ const Navbar = () => {
       >
         <img
           src="./Logo bazar 1.png"
-          className="w-[230px] h-[55px] cursor-pointer sm:mb-4"
+          className="w-[230px] h-[55px] cursor-pointer sm:mb-4 hover:scale-105 transition-all duration-300 hover:brightness-150"
           alt="logo"
           onClick={handleLogoClick}
         />
