@@ -4,6 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@use 'styles/_colors.scss';
+@use '~nprogress/nprogress';
+
 :root {
   --black-gradient: linear-gradient(
     144.39deg,
@@ -191,3 +194,4 @@ tr td:first-child {
 ::-webkit-scrollbar-thumb:hover {
   background: #20252b;
 }
+

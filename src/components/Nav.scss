@@ -1,0 +1,112 @@
+@property --color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #EEEEEE;
+}
+
+@property --color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #EEEEEE;
+}
+
+.navbutton > img {
+  scale: 0.9;
+}
+
+.navbutton {
+  position: relative;
+  z-index: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, var(--color-1), var(--color-2));
+  transition: --color-1 0.5s ease, --color-2 1s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  font-weight: bold;
+
+  &::before {
+    --border-width: 1px;
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: var(--border-width);
+    top: var(--border-width);
+    width: calc(100% - (var(--border-width) * 2));
+    height: calc(100% - (var(--border-width) * 2));
+    border-radius: 50%;
+    background: white;
+  }
+
+  &:hover {
+    --color-1: #e91e63;
+    --color-2: #9c27b0;
+  }
+}
+
+// @property --color-1 {
+//   syntax: "<color>";
+//   inherits: false;
+//   initial-value: #009688;
+// }
+
+// @property --color-2 {
+//   syntax: "<color>";
+//   inherits: false;
+//   initial-value: #00bcd4;
+// }
+
+// .navbutton > img {
+//   scale: 0.9;
+// }
+
+// @keyframes rotate {
+//   from {
+//     transform: rotate(20deg);
+//   }
+
+//   to {
+//     transform: rotate(380deg);
+//   }
+// }
+
+// .navbutton {
+//   --color-1: #FFFFFF;
+//   --color-2: #FFFFFF;
+//   position: relative;
+//   z-index: 0;
+//   width: 100px;
+//   height: 100px;
+//   border-radius: 100%;
+//   background: linear-gradient(to bottom right, var(--color-1), var(--color-2));
+//   transition: --color-1 0.5s ease, --color-2 1s ease;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   font-family: sans-serif;
+//   font-weight: bold;
+//   border-bottom: 1px solid rgb(3, 170, 170);
+//   animation: rotate 2s linear infinite;
+
+//   &::before {
+//     --border-width: 1px;
+//     content: "";
+//     position: absolute;
+//     z-index: -1;
+//     left: var(--border-width);
+//     top: var(--border-width);
+//     width: calc(100% - (var(--border-width) * 2));
+//     height: calc(100% - (var(--border-width) * 2));
+//     border-radius: 100%;
+//     background: white;
+//   }
+
+//   &:hover {
+//     --color-1: #e91e63;
+//     --color-2: #9c27b0;
+//   }
+// }
+

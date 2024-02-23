@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import SellCard from "../components/SellCard";
-import "react-multi-carousel/lib/styles.css";
-import "../components/slick/styles.css";
 import { useDispatch } from "react-redux";
 import { vehicleOpen } from "../action/vehicle";
 import { UPLOAD_URI } from "../utils/api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "react-multi-carousel/lib/styles.css";
+import "../components/slick/styles.css";
 
 function MasonrySection() {
   const dispatch = useDispatch();
@@ -130,7 +132,7 @@ function MasonrySection() {
   const [data, setData] = useState([]);
   useEffect(() => {
     dispatch(vehicleOpen({search:"", num:12}))
-      .then((res) => setData([...res]))
+      .then((res) => setData([...res.data]))
       .catch((err) => console.log(err));
   }, []); 
   return (

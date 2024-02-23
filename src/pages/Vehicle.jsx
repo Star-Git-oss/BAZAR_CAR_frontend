@@ -3,7 +3,7 @@ import SignInput from "../components/SignInput";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { vehicleUpload } from "../action/vehicle";
-import React from 'react';
+import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -21,7 +21,7 @@ const Sell = () => {
   const [vehicleInfo, setVehicleInfo] = useState("");
   const [selectedImage, setSelectedImage] = useState([]);
 
-  const handleTerminosClick = () => {
+  const handleGuardarClick = () => {
     if (
       brand !== "" &&
       year !== "" &&
@@ -70,6 +70,9 @@ const Sell = () => {
       });
     }
   };
+  const handleCancelarClick = () => {
+    navigate('/');
+  }
   useEffect(() => {
     let isLogged = localStorage.getItem("isLogged");
     if (isLogged !== "true") navigate("/signin");
@@ -311,12 +314,18 @@ const Sell = () => {
                 Te recomendamos fotos del interior asientos Kilometraje, llantas
               </p>
             </div>
-            <div className="w-full col-span-4 flex justify-center pt-4 md:pt-0 md:justify-end mb-12 lg:ml-4">
+            <div className="w-full col-span-4 flex justify-center pt-4 md:pt-0 md:justify-end mb-12 lg:ml-4 gap-8">
+              <button
+                className="w-[250px] h-[40px] bg-red-800 hover:bg-red-600 transition-colors duration-300 ease-in-out click:animate-ping rounded-md text-white"
+                onClick={handleCancelarClick}
+              >
+                Cancelar
+              </button>
               <button
                 className="w-[250px] h-[40px] bg-blue-700 hover:bg-blue-500 transition-colors duration-300 ease-in-out click:animate-ping rounded-md text-white"
-                onClick={handleTerminosClick}
+                onClick={handleGuardarClick}
               >
-                Crea Cuenta
+                Guardar
               </button>
             </div>
           </div>

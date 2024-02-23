@@ -1,9 +1,10 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { MenuIcon, XIcon } from "@heroicons/react/solid";
 import { useEffect, useState } from "react";
-import React from 'react';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./Nav.scss";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -24,40 +25,43 @@ const Navbar = () => {
     setMenu((prev) => !prev);
   };
   const handleUsadosClick = () => {
-    if(isLoggedIn) navigate("/semi");
-    else toast.error("Ha cerrado la sesión correctamente.", {
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      theme: "colored",
-      draggable: true,
-    });
+    if (isLoggedIn) navigate("/semi");
+    else
+      toast.error("Ha cerrado la sesión correctamente.", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: "colored",
+        draggable: true,
+      });
   };
   const handleFinanceClick = () => {
-    if(isLoggedIn) navigate("/finance");
-    else toast.error("Ha cerrado la sesión correctamente.", {
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      theme: "colored",
-      draggable: true,
-    });
+    if (isLoggedIn) navigate("/finance");
+    else
+      toast.error("Ha cerrado la sesión correctamente.", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: "colored",
+        draggable: true,
+      });
   };
   const handleGarantClick = () => {
-    if(isLoggedIn) navigate("/garantia");
-    else toast.error("Ha cerrado la sesión correctamente.", {
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      theme: "colored",
-      draggable: true,
-    });
+    if (isLoggedIn) navigate("/garantia");
+    else
+      toast.error("Ha cerrado la sesión correctamente.", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: "colored",
+        draggable: true,
+      });
   };
   const handleIniciarClick = () => {
     if (!isLoggedIn) navigate("/signin");
@@ -101,15 +105,15 @@ const Navbar = () => {
           alt="logo"
           onClick={handleLogoClick}
         />
-        <div className="transition-transform relative w-2 h-20">
+        <div className="transition-transform relative w-2 h-20 md:hidden">
           <XIcon
-            className={`h-10 md:hidden absolute -translate-x-1/2 -translate-y-1/2 top-1/2 ${
+            className={`h-10 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 cursor-pointer ${
               menu ? "visible" : "invisible"
             }`}
             onClick={handleMenuClick}
           />
           <MenuIcon
-            className={`h-10 md:hidden absolute -translate-x-1/2 -translate-y-1/2 top-1/2 ${
+            className={`h-10 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 cursor-pointer ${
               menu ? "invisible" : "visible"
             }`}
             onClick={handleMenuClick}
@@ -120,34 +124,41 @@ const Navbar = () => {
             menu ? "" : "translate-x-96"
           } top-20 sm:top-24 transition transform ease-in-out delay-200 bg-white p-8 rounded-b-xl md:rounded-none md:p-0 md:bg-inherit md:relative flex flex-col md:flex-row md:w-4/5 w-fit md:justify-evenly items-center md:contents`}
         >
-          <img
-            src="./icono2 usados.png"
-            className="w-[90px] h-[90px] cursor-pointer"
-            alt="logo"
-            onClick={handleUsadosClick}
-          />
-          <img
-            src="./financiamiento1.png"
-            className="w-[110px] h-[90px] cursor-pointer mt-2"
-            alt="logo"
-            onClick={handleFinanceClick}
-          />
-          <img
-            src="./icono1 Garantia.png"
-            className="w-[97px] h-[90px] cursor-pointer"
-            alt="logo"
-            onClick={handleGarantClick}
-          />
+          <div className="w-[100px] h-[100px] cursor-pointer navbutton flex justify-center items-center">
+            <img
+              src="./icono2 usados.png"
+              className="w-[90px] h-[90px] cursor-pointer"
+              alt="logo"
+              onClick={handleUsadosClick}
+            />
+          </div>
+          <div className="w-[100px] h-[100px] cursor-pointer navbutton flex justify-center items-center">
+            <img
+              src="./financiamiento1.png"
+              className="w-[110px] h-[90px] cursor-pointer mt-2"
+              alt="logo"
+              onClick={handleFinanceClick}
+            />
+          </div>
+          <div className="w-[100px] h-[100px] cursor-pointer navbutton flex justify-center items-center">
+            <img
+              src="./icono1 Garantia.png"
+              className="w-[97px] h-[90px] cursor-pointer"
+              alt="logo"
+              onClick={handleGarantClick}
+            />
+          </div>
+
           <div className="w-fit">
             <button
-              className="w-[185px] h-[40px] ml-[6px] bg-blue-700 rounded-md text-white"
+              className="w-[185px] h-[40px] ml-[6px] bg-blue-700 rounded-md text-white hover:bg-blue-500 transition-colors duration-300 ease-in-out"
               onClick={handleIniciarClick}
             >
               {isLoggedIn ? "Cerrar sesión." : "INCIAR SESION"}
             </button>
             <img
               src="./Boton-Whatsapp.png"
-              className="w-[200px] h-[55px]"
+              className="w-[200px] h-[60px] hover:opacity-90 transition-colors duration-300 ease-in-out cursor-pointer"
               alt="logo"
             />
           </div>

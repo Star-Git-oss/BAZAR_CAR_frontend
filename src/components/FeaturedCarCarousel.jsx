@@ -6,8 +6,10 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { vehicleOpen } from "../action/vehicle";
 import { UPLOAD_URI } from "../utils/api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const FeaturedCarCarousel = ({search}) => {
+const FeaturedCarCarousel = ({ search }) => {
   console.log(search);
   const dispatch = useDispatch();
   const responsive = {
@@ -44,12 +46,52 @@ const FeaturedCarCarousel = ({search}) => {
   };
   const [data, setData] = useState([]);
   useEffect(() => {
-    dispatch(vehicleOpen({search: search !== undefined ? search : "", num:12}))
-      .then((res) => setData([...res]))
-      .catch((err) => console.log(err));
+    dispatch(
+      vehicleOpen({ search: search !== undefined ? search : "", num: 12 })
+    )
+      .then((res) => {
+        setData([...res.data]);
+        if (search.length > 0)
+          toast.info("AUTOS DESTACADOS: Totales: 100, Resultado: 23", {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            theme: "colored",
+            draggable: true,
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error(
+          "No se puede comunicar con el servidor. Por favor, compruebe su conexión.",
+          {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            theme: "colored",
+            draggable: true,
+          }
+        );
+      });
   }, [search]);
   return (
     <>
+    <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        theme="colored"
+      />
       <div className="w-full px-6 mb-8 rounded-lg border-gray-400 border-[1px]">
         <Carousel
           className="pb-6 h-96"
@@ -68,7 +110,7 @@ const FeaturedCarCarousel = ({search}) => {
                 src={UPLOAD_URI + item.uploads}
                 key={item.uploads + item.title + item.price}
                 title={item.brand}
-                price={"$"+item.price}
+                price={"$" + item.price}
               />
             );
           })}
