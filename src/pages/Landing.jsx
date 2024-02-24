@@ -8,19 +8,27 @@ import Footer from "../components/Footer";
 import PromotionCarCarousel from "../components/PromotionCarCarousel";
 import FeaturedCarCarousel from "../components/FeaturedCarCarousel";
 import { useEffect, useState } from "react";
-import React from 'react';
+import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FloatingWhatsApp } from "react-floating-whatsapp";
 
 const Landing = () => {
-
-  const [search, setSearch] = useState('');
-  const handleKeyDown = (e) => {
-    console.log(e.target.value);
-    if (e.key === "Enter") setSearch(e.target.value);
-  }
+  const [search, setSearch] = useState("");
+  const [username, setUsername] = useState("");
+  // const handleKeyDown = (e) => {
+  //   console.log(e.target.value);
+  //   if (e.key === "Enter") setSearch(e.target.value);
+  // }
+  const handleWhatsAppClick = () => {
+    console.log("handleWhatsAppClick");
+  };
+  const clickSubmit = (event, formValue) => {
+    console.log(event.target, formValue);
+  };
   useEffect(() => {
     let isLogged = localStorage.getItem("isLogged");
+    let username = localStorage.getItem("username");
     if (isLogged !== "true") {
       toast.warning("Inicia sesión para obtener más información.", {
         position: "bottom-right",
@@ -31,7 +39,10 @@ const Landing = () => {
         theme: "colored",
         draggable: true,
       });
-    };
+    }
+    if (username.length > 0) {
+      setUsername(username);
+    }
 
     const currentURL = window.location.href;
     const urlParams = new URLSearchParams(currentURL);
@@ -47,16 +58,19 @@ const Landing = () => {
       let index = param[0].indexOf("?");
       str = param[0].slice(index + 1, param[0].length);
     }
-    if(str === "uploadsuccess") {
-      toast.success("Enhorabuena. Ha cargado correctamente la información de su vehículo.", {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        theme: "colored",
-        draggable: true,
-      });
+    if (str === "uploadsuccess") {
+      toast.success(
+        "Enhorabuena. Ha cargado correctamente la información de su vehículo.",
+        {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          theme: "colored",
+          draggable: true,
+        }
+      );
     }
   }, []);
   return (
@@ -74,6 +88,15 @@ const Landing = () => {
         draggable
         pauseOnHover={false}
         theme="colored"
+      />
+      <FloatingWhatsApp
+        accountName={username}
+        onClick={handleWhatsAppClick}
+        darkMode={true}
+        allowEsc={true}
+        avatar="./logo icono1.png"
+        phoneNumber={"52 1 5616002085"}
+        onSubmit={(event, formValue) => clickSubmit(event, formValue)}
       />
       <PreownedCarousel />
       <MasonrySection />
