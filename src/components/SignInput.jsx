@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 const SignInput = ({
   label,
   value,
@@ -39,13 +41,17 @@ const SignInput = ({
         type={type === "password" ? "password" : "text"}
         onChange={(e) => {
           if (onChange) {
-            console.log("onChange", onChange);
             onChange(e.target.value);
           }
         }}
-        onKeyDown={(e) => onKeyDown(e)}
+        onKeyDown={(e) => {onKeyDown ? onKeyDown(e) : ""}}
       />
     </div>
   );
 };
+
+SignInput.propTypes = {
+  onKeyDown: PropTypes.func,
+};
+
 export default SignInput;

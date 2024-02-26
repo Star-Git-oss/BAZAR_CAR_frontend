@@ -13,6 +13,7 @@ const Navbar = () => {
   const [menu, setMenu] = useState(false);
   useEffect(() => {
     let isLogged = localStorage.getItem("isLogged");
+    let freetime = localStorage.getItem("freetime");
     if (isLogged !== "true") {
       setIsLoggedIn(false);
     } else {
@@ -28,7 +29,7 @@ const Navbar = () => {
   const handleUsadosClick = () => {
     if (isLoggedIn) navigate("/semi");
     else
-      toast.error("Ha cerrado la sesión correctamente.", {
+      toast.error(isLoggedIn ? "Ha cerrado la sesión correctamente." : "Su prueba gratuita ha terminado.", {
         position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: true,
@@ -41,7 +42,7 @@ const Navbar = () => {
   const handleFinanceClick = () => {
     if (isLoggedIn) navigate("/finance");
     else
-      toast.error("Ha cerrado la sesión correctamente.", {
+      toast.error(isLoggedIn ? "Ha cerrado la sesión correctamente." : "Su prueba gratuita ha terminado.", {
         position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: true,
@@ -54,7 +55,7 @@ const Navbar = () => {
   const handleGarantClick = () => {
     if (isLoggedIn) navigate("/garantia");
     else
-      toast.error("Ha cerrado la sesión correctamente.", {
+      toast.error(isLoggedIn ? "Ha cerrado la sesión correctamente." : "Su prueba gratuita ha terminado.", {
         position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: true,

@@ -75,7 +75,9 @@ const Sell = () => {
   }
   useEffect(() => {
     let isLogged = localStorage.getItem("isLogged");
-    if (isLogged !== "true") navigate("/signin");
+    let freetime = localStorage.getItem("freetime");
+    if(isLogged !== "true") navigate("/signin");
+    else if(freetime !== "true") navigate("/system");
     else {
       toast.success("Se ha conectado con éxito.", {
         position: "bottom-right",

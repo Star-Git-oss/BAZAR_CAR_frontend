@@ -20,8 +20,7 @@ export const createCustomer = (data) => (dispatch) =>
     axios
       .post(`${BASE_URI}/stripe/create-subscription`, data)
       .then((res) => {
-        // console.log(res.data);
-        resolve("success");
+        resolve(res.data);
       })
       .catch((err) => {
         console.log(err.message);

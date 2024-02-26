@@ -7,12 +7,14 @@ import { useGoogleLogin } from "@react-oauth/google";
 import React from 'react';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Stripe from "stripe";
 
 const SignIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const stripe = Stripe('pk_test_51OnG87Dg9vv5uXuMTljAKOJyBd4zJV5PHLHWMy6ZQcQShOGOxDprP9S97td4OcED5jxDgEcybc4jDsVNQBlPJWwI00LQCwbSSf');
   const handleCreaClick = () => {
     console.log("handleCreaClick");
     navigate("/signup");
@@ -31,11 +33,14 @@ const SignIn = () => {
       .then((res) => {
         localStorage.setItem("id", res.id);
         localStorage.setItem("isLogged", "true");
+        localStorage.setItem("membership", res.membership);
         localStorage.setItem("token", res.token);
         localStorage.setItem("email", res.email);
         localStorage.setItem("tel", res.tel);
         localStorage.setItem("username", res.username);
         localStorage.setItem("whatsApp", res.whatsApp);
+        localStorage.setItem("freetime", res.freetime);
+
         navigate("/vehicle");
       })
       .catch((err) => {
