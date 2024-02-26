@@ -1,6 +1,31 @@
+import { useEffect, useState } from "react";
 import Cell from "../components/Cell";
+import { useDispatch } from "react-redux";
+import { createCustomer, createSubscription } from "../action/stripe";
 
 const System = () => {
+  const [email, setEmail] = useState();
+  const [name, setName] = useState();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    let storageEmail = localStorage.getItem("email");
+    let username = localStorage.getItem("username");
+    setEmail(storageEmail);
+    setName(username);
+  }, []);
+  const smallMesOnClick = () => {
+    let response = {};
+    dispatch(createCustomer({ email, name }))
+      .then((res) => {
+        response = res;
+        console.log(response);
+        dispatch(createSubscription({ customerId: response.id, priceId: 100 }))
+          .then((res) => console.log(res))
+          .catch((err) => console.log(err));
+      })
+      .catch((err) => console.err);
+    console.log(response);
+  };
   return (
     <div className="bg-[url('./wallpaper.png')] w-full min-h-screen py-4 bg-cover bg-no-repeat bg-center flex justify-center items-center">
       <div className="bg-white/[0.6] w-11/12 md:w-[750px] lg:w-[1000px] scale-90 md:scale-100 h-[400px] xs2:h-[500px] xs:h-2/3 p-2 flex items-center justify-center rounded-lg">
@@ -39,8 +64,20 @@ const System = () => {
                   round={true}
                 />
               </td>
-              <td><img className="w-[30px] h-[30px] m-auto" src="./x1.png" alt="X" /></td>
-              <td><img className="w-[30px] h-[30px] m-auto" src="./ok1.png" alt="O" /></td>
+              <td>
+                <img
+                  className="w-[30px] h-[30px] m-auto"
+                  src="./x1.png"
+                  alt="X"
+                />
+              </td>
+              <td>
+                <img
+                  className="w-[30px] h-[30px] m-auto"
+                  src="./ok1.png"
+                  alt="O"
+                />
+              </td>
             </tr>
             <tr>
               <td>
@@ -50,8 +87,20 @@ const System = () => {
                   round={true}
                 />
               </td>
-              <td><img className="w-[30px] h-[30px] m-auto" src="./x1.png" alt="X" /></td>
-              <td><img className="w-[30px] h-[30px] m-auto" src="./ok1.png" alt="O" /></td>
+              <td>
+                <img
+                  className="w-[30px] h-[30px] m-auto"
+                  src="./x1.png"
+                  alt="X"
+                />
+              </td>
+              <td>
+                <img
+                  className="w-[30px] h-[30px] m-auto"
+                  src="./ok1.png"
+                  alt="O"
+                />
+              </td>
             </tr>
             <tr>
               <td>
@@ -61,8 +110,20 @@ const System = () => {
                   round={true}
                 />
               </td>
-              <td><img className="w-[30px] h-[30px] m-auto" src="./x1.png" alt="X" /></td>
-              <td><img className="w-[30px] h-[30px] m-auto" src="./ok1.png" alt="O" /></td>
+              <td>
+                <img
+                  className="w-[30px] h-[30px] m-auto"
+                  src="./x1.png"
+                  alt="X"
+                />
+              </td>
+              <td>
+                <img
+                  className="w-[30px] h-[30px] m-auto"
+                  src="./ok1.png"
+                  alt="O"
+                />
+              </td>
             </tr>
             <tr>
               <td>
@@ -72,13 +133,28 @@ const System = () => {
                   round={true}
                 />
               </td>
-              <td><img className="w-[30px] h-[30px] m-auto" src="./x1.png" alt="X" /></td>
-              <td><img className="w-[30px] h-[30px] m-auto" src="./ok1.png" alt="O" /></td>
+              <td>
+                <img
+                  className="w-[30px] h-[30px] m-auto"
+                  src="./x1.png"
+                  alt="X"
+                />
+              </td>
+              <td>
+                <img
+                  className="w-[30px] h-[30px] m-auto"
+                  src="./ok1.png"
+                  alt="O"
+                />
+              </td>
             </tr>
             <tr>
               <td></td>
               <td>
-                <button className="w-[100px] lg:w-4/5 p-2 lg:h-[40px] bg-blue-500 rounded-md text-white">
+                <button
+                  className="w-[100px] lg:w-4/5 p-2 lg:h-[40px] bg-blue-500 rounded-md text-white"
+                  onClick={smallMesOnClick}
+                >
                   $600.00 al mes
                 </button>
               </td>

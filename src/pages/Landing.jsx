@@ -40,7 +40,7 @@ const Landing = () => {
         draggable: true,
       });
     }
-    if (username.length > 0) {
+    if (username) {
       setUsername(username);
     }
 
