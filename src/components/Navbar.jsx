@@ -123,7 +123,7 @@ const Navbar = () => {
         <div
           className={`absolute right-0 drop-shadow-xl ${
             menu ? "" : "translate-x-96"
-          } top-20 sm:top-24 transition transform ease-in-out delay-200 bg-white p-8 rounded-b-xl md:rounded-none md:p-0 md:bg-inherit md:relative flex flex-col md:flex-row md:w-4/5 w-fit md:justify-evenly items-center md:contents`}
+          } top-20 sm:top-24 transition transform ease-in-out  gap-3 delay-200 bg-white p-8 rounded-b-xl md:rounded-none md:p-0 md:bg-inherit md:relative flex flex-col md:flex-row md:w-4/5 w-fit md:justify-evenly items-center md:contents`}
         >
           <div className="nav-btn w-[100px] h-[100px] cursor-pointer navbutton flex justify-center items-center">
             <img
@@ -157,11 +157,11 @@ const Navbar = () => {
             >
               {isLoggedIn ? "Cerrar sesión." : "INCIAR SESION"}
             </button>
-            <img
+            {/* <img
               src="./Boton-Whatsapp.png"
               className="w-[200px] h-[60px] hover:opacity-90 transition-colors duration-300 ease-in-out cursor-pointer"
               alt="logo"
-            />
+            /> */}
           </div>
         </div>
       </div>

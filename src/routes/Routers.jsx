@@ -11,6 +11,7 @@ import Landing from '../pages/Landing';
 import ViewPort from '../pages/ViewPort';
 import Credito from '../pages/Credito';
 import Renta from '../pages/Renta';
+import Payment from '../pages/Payment';
 
 const Routers = () => {
   return ( 
@@ -26,6 +27,7 @@ const Routers = () => {
         <Route path="/view" element={<ViewPort />} />
         <Route path="/credito" element={<Credito />} />
         <Route path="/renta" element={<Renta />} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
   );
 };

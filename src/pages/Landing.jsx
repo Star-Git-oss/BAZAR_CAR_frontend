@@ -90,11 +90,13 @@ const Landing = () => {
         theme="colored"
       />
       <FloatingWhatsApp
-        accountName={username}
+        accountName={"52 1 5616002085"}
         onClick={handleWhatsAppClick}
         darkMode={true}
         allowEsc={true}
         avatar="./logo icono1.png"
+        statusMessage="Bienvenido a nuestro servicio."
+        chatMessage="Hola, ¿en qué puedo ayudarle?"
         phoneNumber={"52 1 5616002085"}
         onSubmit={(event, formValue) => clickSubmit(event, formValue)}
       />
