@@ -13,7 +13,6 @@ const Navbar = () => {
   const [menu, setMenu] = useState(false);
   useEffect(() => {
     let isLogged = localStorage.getItem("isLogged");
-    let freetime = localStorage.getItem("freetime");
     if (isLogged !== "true") {
       setIsLoggedIn(false);
     } else {

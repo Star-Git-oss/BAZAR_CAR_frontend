@@ -11,11 +11,23 @@ const System = () => {
   const [name, setName] = useState();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const handleCancelOnClick = () => {
+    navigate('/');
+  }
   useEffect(() => {
     let storageEmail = localStorage.getItem("email");
     let username = localStorage.getItem("username");
     setEmail(storageEmail);
     setName(username);
+    toast.warning("Para más información, utilice la función de pertenencia.", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      theme: "colored",
+      draggable: true,
+    });
   }, []);
   const smallMesOnClick = (amount) => {
     let response = {};
@@ -32,14 +44,20 @@ const System = () => {
           draggable: true,
         });
         dispatch(
-          createSubscription({ customerId: response.id, priceAmount: amount })
+          createSubscription({
+            email,
+            customerId: response.id,
+            priceAmount: amount,
+          })
         )
           .then((res) => {
             console.log(res.hosted_invoice_url);
             const newTab = window.open("", "_blank");
-            if (newTab) {newTab.document.write(
-              `<script>window.location.href = '${res.hosted_invoice_url}';</script>`
-            );}
+            if (newTab) {
+              newTab.document.write(
+                `<script>window.location.href = '${res.hosted_invoice_url}';</script>`
+              );
+            }
           })
           .catch((err) => console.log(err));
       })
@@ -61,7 +79,7 @@ const System = () => {
         theme="colored"
       />
       <div className="bg-[url('./wallpaper.png')] w-full min-h-screen py-4 bg-cover bg-no-repeat bg-center flex justify-center items-center">
-        <div className="bg-white/[0.6] w-11/12 md:w-[750px] lg:w-[1000px] scale-90 md:scale-100 h-[400px] xs2:h-[500px] xs:h-2/3 p-2 flex items-center justify-center rounded-lg">
+        <div className="bg-white/[0.6] w-11/12 md:w-[750px] lg:w-[1000px] scale-90 md:scale-100 h-[400px] xs2:h-[500px] xs:h-2/3 p-2 flex flex-col items-center justify-center rounded-lg">
           <table className="scale-[0.7] xs2:scale-[0.9] xs:scale-100 xs2:w-full h-full">
             <thead className="h-12">
               <tr>
@@ -189,7 +207,7 @@ const System = () => {
                 <td></td>
                 <td>
                   <button
-                    className="sm:w-[200px] lg:w-4/5 p-2 lg:h-[40px] bg-blue-500 rounded-md text-white"
+                    className="m-2 sm:w-[200px] lg:w-4/5 p-2 lg:h-[40px] bg-blue-500 rounded-md text-white"
                     onClick={() => smallMesOnClick(60000)}
                   >
                     $600.00 al mes
@@ -197,7 +215,7 @@ const System = () => {
                 </td>
                 <td>
                   <button
-                    className="sm:w-[200px] lg:w-4/5 p-2 lg:h-[40px] bg-blue-900 rounded-md text-white"
+                    className="m-2 sm:w-[200px] lg:w-4/5 p-2 lg:h-[40px] bg-blue-900 rounded-md text-white"
                     onClick={() => smallMesOnClick(360000)}
                   >
                     $3,600.00 al mes
@@ -206,6 +224,12 @@ const System = () => {
               </tr>
             </tbody>
           </table>
+          <button
+            className="w-[100px] sm:w-[200px] lg:w-[300px] p-2 lg:h-[40px] bg-red-800 mt-4 rounded-md text-white"
+            onClick={handleCancelOnClick}
+          >
+            Cancelar
+          </button>
         </div>
       </div>
     </>

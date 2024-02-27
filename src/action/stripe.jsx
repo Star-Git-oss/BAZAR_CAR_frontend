@@ -27,3 +27,16 @@ export const createCustomer = (data) => (dispatch) =>
         reject("exist");
       });
   });
+
+  export const checkSubscription = (data) => (dispatch) =>
+  new Promise((resolve, reject) => {
+    axios
+      .post(`${BASE_URI}/stripe/check-subscription`, data)
+      .then((res) => {
+        resolve(res.data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+        reject("exist");
+      });
+  });

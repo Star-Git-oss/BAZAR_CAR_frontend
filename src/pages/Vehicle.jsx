@@ -76,6 +76,9 @@ const Sell = () => {
   useEffect(() => {
     let isLogged = localStorage.getItem("isLogged");
     let freetime = localStorage.getItem("freetime");
+    let status = localStorage.getItem("membership");
+    if(isLogged !== "true") navigate("/signin");
+    else if(freetime !== "true" || status !== "active") navigate("/system");
     if(isLogged !== "true") navigate("/signin");
     else if(freetime !== "true") navigate("/system");
     else {
@@ -327,7 +330,7 @@ const Sell = () => {
                 className="pushbutton w-[250px] h-[40px] bg-blue-700 hover:bg-blue-500 transition-colors duration-300 ease-in-out click:animate-ping rounded-md text-white"
                 onClick={handleGuardarClick}
               >
-                Guardar
+                Ahorra
               </button>
             </div>
           </div>

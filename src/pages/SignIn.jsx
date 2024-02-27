@@ -4,17 +4,20 @@ import { useNavigate } from "react-router-dom";
 import { googleSignin, signin } from "../action/user";
 import SignInput from "../components/SignInput";
 import { useGoogleLogin } from "@react-oauth/google";
-import React from 'react';
+import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Stripe from "stripe";
+import { checkSubscription } from "../action/stripe";
 
 const SignIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const stripe = Stripe('pk_test_51OnG87Dg9vv5uXuMTljAKOJyBd4zJV5PHLHWMy6ZQcQShOGOxDprP9S97td4OcED5jxDgEcybc4jDsVNQBlPJWwI00LQCwbSSf');
+  const stripe = Stripe(
+    "pk_test_51OnG87Dg9vv5uXuMTljAKOJyBd4zJV5PHLHWMy6ZQcQShOGOxDprP9S97td4OcED5jxDgEcybc4jDsVNQBlPJWwI00LQCwbSSf"
+  );
   const handleCreaClick = () => {
     console.log("handleCreaClick");
     navigate("/signup");
@@ -40,6 +43,10 @@ const SignIn = () => {
         localStorage.setItem("username", res.username);
         localStorage.setItem("whatsApp", res.whatsApp);
         localStorage.setItem("freetime", res.freetime);
+
+        dispatch(checkSubscription({ email }))
+          .then((res) => localStorage.setItem("membership", res.status))
+          .catch((err) => console.log(res.status));
 
         navigate("/vehicle");
       })
