@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Cell from "../components/Cell";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { createCustomer, createSubscription } from "../action/stripe";
+import { checkSubscription, createCustomer, createSubscription } from "../action/stripe";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -12,8 +12,15 @@ const System = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleCancelOnClick = () => {
-    navigate('/');
-  }
+    dispatch(checkSubscription({ email }))
+      .then((res) => {
+        console.log(res.status);
+        localStorage.setItem("membership", res.status);
+        navigate("/");
+      })
+      .catch((err) => console.log(res.status));
+    navigate("/");
+  };
   useEffect(() => {
     let storageEmail = localStorage.getItem("email");
     let username = localStorage.getItem("username");
@@ -79,7 +86,7 @@ const System = () => {
         theme="colored"
       />
       <div className="bg-[url('./wallpaper.png')] w-full min-h-screen py-4 bg-cover bg-no-repeat bg-center flex justify-center items-center">
-        <div className="bg-white/[0.6] w-11/12 md:w-[750px] lg:w-[1000px] scale-90 md:scale-100 h-[400px] xs2:h-[500px] xs:h-2/3 p-2 flex flex-col items-center justify-center rounded-lg">
+        <div className="bg-white/[0.6] sm:w-11/12 md:w-[750px] lg:w-[1000px] scale-90 md:scale-100 h-[600px] xs2:h-[600px] xs:h-2/3 p-2 flex flex-col items-center justify-center rounded-lg">
           <table className="scale-[0.7] xs2:scale-[0.9] xs:scale-100 xs2:w-full h-full">
             <thead className="h-12">
               <tr>
@@ -224,12 +231,14 @@ const System = () => {
               </tr>
             </tbody>
           </table>
-          <button
-            className="w-[100px] sm:w-[200px] lg:w-[300px] p-2 lg:h-[40px] bg-red-800 mt-4 rounded-md text-white"
-            onClick={handleCancelOnClick}
-          >
-            Cancelar
-          </button>
+          <div className="w-full flex justify-end">
+            <button
+              className="w-[100px] sm:w-[200px] lg:w-[300px] p-2 lg:h-[40px] bg-red-800 mt-4 mr-4 rounded-md text-white"
+              onClick={handleCancelOnClick}
+            >
+              Cancelar
+            </button>
+          </div>
         </div>
       </div>
     </>

@@ -213,7 +213,7 @@ function MasonrySection() {
               >
                 {selldata.map((item) => (
                   <img
-                    className="w-full md:h-[750px] rounded-lg"
+                    className="w-full md:h-[750px] rounded-lg object-cover"
                     src={item.src}
                     key={item.src}
                   />

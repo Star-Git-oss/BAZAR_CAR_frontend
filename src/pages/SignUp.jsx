@@ -5,6 +5,7 @@ import { signin, signup } from "../action/user";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CircularProgress from "@mui/joy/CircularProgress";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -16,8 +17,10 @@ const SignUp = () => {
   const [tel, setTel] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleCreaCuentaClick = () => {
+    setLoading(true);
     console.log("handleCreaCuentaClick");
     if (password === confirmPassword) {
       dispatch(
@@ -47,9 +50,10 @@ const SignUp = () => {
               localStorage.setItem("username", res.username);
               localStorage.setItem("whatsApp", res.whatsApp);
               localStorage.setItem("freetime", res.freetime);
-      
+
               navigate("/vehicle");
             })
+            .catch((err) => setLoading(false));
         })
         .catch((err) => {
           console.log(err);
@@ -62,6 +66,7 @@ const SignUp = () => {
             theme: "colored",
             draggable: true,
           });
+          setLoading(false);
         });
     }
   };
@@ -143,7 +148,17 @@ const SignUp = () => {
                 className="w-full lg:w-1/2 h-[40px] bg-blue-700 rounded-md text-white"
                 onClick={handleCreaCuentaClick}
               >
-                Crea Cuenta
+                <div className="w-full h-full flex justify-center items-center">
+                  Crea Cuenta
+                  <CircularProgress
+                    size="sm"
+                    style={{
+                      visibility: loading ? "visible" : "hidden",
+                      position: "absolute",
+                      right: "50px",
+                    }}
+                  />
+                </div>
               </button>
             </div>
           </div>

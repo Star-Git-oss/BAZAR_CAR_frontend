@@ -28,46 +28,69 @@ const Navbar = () => {
   const handleUsadosClick = () => {
     if (isLoggedIn) navigate("/semi");
     else
-      toast.error(isLoggedIn ? "Ha cerrado la sesión correctamente." : "Su prueba gratuita ha terminado.", {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        theme: "colored",
-        draggable: true,
-      });
+      toast.error(
+        isLoggedIn
+          ? "Ha cerrado la sesión correctamente."
+          : "Su prueba gratuita ha terminado.",
+        {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          theme: "colored",
+          draggable: true,
+        }
+      );
   };
   const handleFinanceClick = () => {
     if (isLoggedIn) navigate("/finance");
     else
-      toast.error(isLoggedIn ? "Ha cerrado la sesión correctamente." : "Su prueba gratuita ha terminado.", {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        theme: "colored",
-        draggable: true,
-      });
+      toast.error(
+        isLoggedIn
+          ? "Ha cerrado la sesión correctamente."
+          : "Su prueba gratuita ha terminado.",
+        {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          theme: "colored",
+          draggable: true,
+        }
+      );
   };
   const handleGarantClick = () => {
     if (isLoggedIn) navigate("/garantia");
     else
-      toast.error(isLoggedIn ? "Ha cerrado la sesión correctamente." : "Su prueba gratuita ha terminado.", {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        theme: "colored",
-        draggable: true,
-      });
+      toast.error(
+        isLoggedIn
+          ? "Ha cerrado la sesión correctamente."
+          : "Su prueba gratuita ha terminado.",
+        {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          theme: "colored",
+          draggable: true,
+        }
+      );
   };
   const handleIniciarClick = () => {
     if (!isLoggedIn) navigate("/signin");
     else {
-      localStorage.setItem("isLogged", "false");
+      localStorage.setItem("id", "");
+      localStorage.setItem("isLogged", "");
+      localStorage.setItem("membership", "");
+      localStorage.setItem("token", "");
+      localStorage.setItem("email", "");
+      localStorage.setItem("tel", "");
+      localStorage.setItem("username", "");
+      localStorage.setItem("whatsApp", "");
+      localStorage.setItem("freetime", "");
       setIsLoggedIn(false);
       toast.error("Ha cerrado la sesión correctamente.", {
         position: "bottom-right",

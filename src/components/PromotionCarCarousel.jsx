@@ -111,7 +111,6 @@ const PromotionCarCarousel = ({ search }) => {
           slidesToSlide={1}
         >
           {data.map((item) => {
-            console.log(item);
             return (
               <SellCard
                 src={UPLOAD_URI + item.uploads + "?v=1"}

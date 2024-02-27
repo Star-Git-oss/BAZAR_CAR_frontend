@@ -31,9 +31,7 @@ const Finance = () => {
     let freetime = localStorage.getItem("freetime");
     let status = localStorage.getItem("membership");
     if(isLogged !== "true") navigate("/signin");
-    else if(freetime !== "true" || status !== "active") navigate("/system");
-    if(isLogged !== "true") navigate("/signin");
-    else if(freetime !== "true") navigate("/system");
+    else if(freetime !== "true" && status !== "active") navigate("/system");
   }, []);
   return (
     <>

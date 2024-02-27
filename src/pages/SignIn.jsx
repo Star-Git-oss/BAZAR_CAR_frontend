@@ -7,17 +7,15 @@ import { useGoogleLogin } from "@react-oauth/google";
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Stripe from "stripe";
 import { checkSubscription } from "../action/stripe";
+import CircularProgress from "@mui/joy/CircularProgress";
 
 const SignIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const stripe = Stripe(
-    "pk_test_51OnG87Dg9vv5uXuMTljAKOJyBd4zJV5PHLHWMy6ZQcQShOGOxDprP9S97td4OcED5jxDgEcybc4jDsVNQBlPJWwI00LQCwbSSf"
-  );
+  const [loading, setLoading] = useState(false);
   const handleCreaClick = () => {
     console.log("handleCreaClick");
     navigate("/signup");
@@ -27,6 +25,7 @@ const SignIn = () => {
   };
   const handleIniciarClick = () => {
     console.log("handleIniciarClick", email, password);
+    setLoading(true);
     dispatch(
       signin({
         email: email,
@@ -34,6 +33,7 @@ const SignIn = () => {
       })
     )
       .then((res) => {
+        let email = res.email;
         localStorage.setItem("id", res.id);
         localStorage.setItem("isLogged", "true");
         localStorage.setItem("membership", res.membership);
@@ -45,10 +45,11 @@ const SignIn = () => {
         localStorage.setItem("freetime", res.freetime);
 
         dispatch(checkSubscription({ email }))
-          .then((res) => localStorage.setItem("membership", res.status))
-          .catch((err) => console.log(res.status));
-
-        navigate("/vehicle");
+          .then((res) => {
+            localStorage.setItem("membership", res.status);
+            navigate("/vehicle");
+          })
+          .catch((err) => setLoading(false));
       })
       .catch((err) => {
         toast.error("Error. Confirme su correo electrónico o contraseña.", {
@@ -60,6 +61,7 @@ const SignIn = () => {
           theme: "colored",
           draggable: true,
         });
+        setLoading(false);
       });
   };
   const login = useGoogleLogin({
@@ -69,8 +71,21 @@ const SignIn = () => {
       console.log(access_token);
       dispatch(googleSignin(access_token))
         .then((res) => {
-          console.log("googlein==>res.id", res.id);
+          let email = res.email;
+          localStorage.setItem("id", res.id);
           localStorage.setItem("isLogged", "true");
+          localStorage.setItem("membership", res.membership);
+          localStorage.setItem("token", res.token);
+          localStorage.setItem("email", res.email);
+          localStorage.setItem("tel", res.tel);
+          localStorage.setItem("username", res.username);
+          localStorage.setItem("whatsApp", res.whatsApp);
+          localStorage.setItem("freetime", res.freetime);
+
+          dispatch(checkSubscription({ email }))
+            .then((res) => localStorage.setItem("membership", res.status))
+            .catch((err) => console.log(res.status));
+
           navigate("/vehicle");
         })
         .catch((err) => console.log(err));
@@ -140,7 +155,10 @@ const SignIn = () => {
           className="w-4/5 h-[40px] bg-blue-700 hover:bg-blue-500 transition-colors duration-300 ease-in-out rounded-md text-white"
           onClick={handleIniciarClick}
         >
-          Iniciar sesión
+          <div className="w-full h-full flex justify-center items-center">
+            Iniciar sesión
+            <CircularProgress size="sm" style={{visibility: loading ? "visible" : "hidden", position:"absolute", right:"50px"}} />
+          </div>
         </button>
         <p className="w-full text-center text-blue-900 hidden sm:block">
           --------------o iniciar con -------------

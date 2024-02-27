@@ -6,6 +6,7 @@ import { vehicleUpload } from "../action/vehicle";
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CircularProgress from "@mui/joy/CircularProgress";
 
 const Sell = () => {
   const navigate = useNavigate();
@@ -17,11 +18,13 @@ const Sell = () => {
   const [transmission, setTransmission] = useState("");
   const [whatsApp, setWhatsApp] = useState("");
   const [price, setPrice] = useState("");
+  const [loading, setLoading] = useState(false);
   const [payMethod, setPayMethod] = useState("");
   const [vehicleInfo, setVehicleInfo] = useState("");
   const [selectedImage, setSelectedImage] = useState([]);
 
   const handleGuardarClick = () => {
+    setLoading(true);
     if (
       brand !== "" &&
       year !== "" &&
@@ -54,9 +57,10 @@ const Sell = () => {
       try {
         dispatch(vehicleUpload(formData))
           .then((res) => navigate("/" + "?" + "uploadsuccess"))
-          .catch((err) => console.log(err));
+          .catch((err) => setLoading(false));
       } catch (error) {
         console.error("Error uploading file", error);
+        setLoading(false);
       }
     } else {
       toast.error("Rellene todos los datos.", {
@@ -71,16 +75,15 @@ const Sell = () => {
     }
   };
   const handleCancelarClick = () => {
-    navigate('/');
-  }
+    navigate("/");
+  };
   useEffect(() => {
     let isLogged = localStorage.getItem("isLogged");
     let freetime = localStorage.getItem("freetime");
     let status = localStorage.getItem("membership");
-    if(isLogged !== "true") navigate("/signin");
-    else if(freetime !== "true" || status !== "active") navigate("/system");
-    if(isLogged !== "true") navigate("/signin");
-    else if(freetime !== "true") navigate("/system");
+    console.log("isLogged, freetime, status", isLogged, freetime, status);
+    if (isLogged !== "true") navigate("/signin");
+    else if (freetime !== "true" && status !== "active") navigate("/system");
     else {
       toast.success("Se ha conectado con éxito.", {
         position: "bottom-right",
@@ -330,7 +333,17 @@ const Sell = () => {
                 className="pushbutton w-[250px] h-[40px] bg-blue-700 hover:bg-blue-500 transition-colors duration-300 ease-in-out click:animate-ping rounded-md text-white"
                 onClick={handleGuardarClick}
               >
-                Ahorra
+                <div className="w-full h-full flex justify-center items-center">
+                  Ahorra
+                  <CircularProgress
+                    size="sm"
+                    style={{
+                      visibility: loading ? "visible" : "hidden",
+                      position: "absolute",
+                      right: "50px",
+                    }}
+                  />
+                </div>
               </button>
             </div>
           </div>
