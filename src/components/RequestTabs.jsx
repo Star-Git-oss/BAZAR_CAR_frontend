@@ -43,7 +43,7 @@ export function RequestTabs() {
     setActiveTab(value);
   };
   return (
-    <Tabs value={activeTab}>
+    <Tabs value={activeTab} style={{marginBottom:"40px"}}>
       <TabsHeader
         className="rounded-none border-b border-blue-gray-50 bg-transparent p-0"
         indicatorProps={{

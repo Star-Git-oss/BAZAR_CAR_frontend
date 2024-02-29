@@ -31,9 +31,9 @@ const Contizadores = () => {
           <p className="xs:text-md sm:text-lg md:text-2xl md:my-4 lg:my-8 text-gray-800">
             Solicitud de Cotización
           </p>
-          <div className="w-full h-full">
+          {/* <div className="w-full h-full"> */}
             <RequestTabs />
-          </div>
+          {/* </div> */}
         </div>
       </div>
       {/* <FooterSmall /> */}
