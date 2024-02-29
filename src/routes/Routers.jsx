@@ -13,6 +13,7 @@ import Credito from "../pages/Credito";
 import Renta from "../pages/Renta";
 import MembershipRoute from "./MembershipRoute";
 import Layout from "../pages/Layout";
+import Contizadores from "../pages/Cotizadores";
 
 const Routers = () => {
   return (
@@ -28,6 +29,7 @@ const Routers = () => {
       <Route path="/view" element={<ViewPort />} />
       <Route path="/credito" element={<Credito />} />
       <Route path="/renta" element={<Renta />} />
+      <Route path="/cotizadores" element={<Contizadores />} />
     </Routes>
     // <Routes>
     //   <Route path="/" element={<Landing />} />

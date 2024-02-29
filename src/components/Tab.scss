@@ -1,0 +1,28 @@
+nav {
+  width: 100%;
+  pointer-events: none;
+  ul {
+    width: 100%;
+    li {
+      width: 100% !important;
+      padding: 0px !important;
+      margin: auto;
+
+      @media screen and (max-width: 768px) {
+        margin: 0; /* Set margin to 0px for screens smaller than 768px */
+      }
+
+      div {
+        width: 100%;
+        padding: 0px; 
+      }
+      .absolute {
+        border: 0px;
+      }
+    }
+  }
+}
+
+.TabPanel {
+  padding: 0px !important;
+}

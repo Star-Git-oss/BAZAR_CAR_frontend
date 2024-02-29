@@ -103,6 +103,9 @@ const Navbar = () => {
       });
     }
   };
+  const handleCotizadoresClick = () => {
+    navigate('/cotizadores');
+  }
 
   return (
     // <div className="w-full fixed">
@@ -173,12 +176,18 @@ const Navbar = () => {
             />
           </div>
 
-          <div className="w-fit">
+          <div className="flex flex-col w-[220px] gap-4 mb-4">
             <button
-              className="w-[185px] h-[40px] ml-[6px] bg-blue-700 rounded-md text-white hover:bg-blue-500 transition-colors duration-300 ease-in-out"
+              className="w-full h-[40px] ml-[6px] bg-blue-700 rounded-md text-white hover:bg-blue-500 transition-colors duration-300 ease-in-out"
               onClick={handleIniciarClick}
             >
               {isLoggedIn ? "Cerrar sesión." : "INCIAR SESION"}
+            </button>
+            <button
+              className="w-full h-[40px] ml-[6px] bg-red-800 hover:bg-red-600 rounded-md text-white transition-colors duration-300 ease-in-out"
+              onClick={handleCotizadoresClick}
+            >
+              Solicitud de presupuesto.
             </button>
             {/* <img
               src="./Boton-Whatsapp.png"
