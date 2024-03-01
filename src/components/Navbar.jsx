@@ -1,8 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { MenuIcon, XIcon } from "@heroicons/react/solid";
+// import { MenuIcon, XIcon } from "@heroicons/react/solid";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./Nav.scss";
@@ -142,13 +144,33 @@ const Navbar = () => {
           onClick={handleLogoLandingClick}
         />
         <div className="transition-transform relative w-2 h-20 md:hidden">
-          <XIcon
+          {/* <XIcon
+            className={`h-10 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 cursor-pointer ${
+              menu ? "visible" : "invisible"
+            }`}
+            onClick={handleMenuClick}
+          /> */}
+          {/* <i className={`fa-solid fa-xmark h-10 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 cursor-pointer ${
+              menu ? "visible" : "invisible"
+            }`}></i> */}
+          <FontAwesomeIcon
+            icon={faTimes}
             className={`h-10 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 cursor-pointer ${
               menu ? "visible" : "invisible"
             }`}
             onClick={handleMenuClick}
           />
-          <MenuIcon
+          {/* <MenuIcon
+            className={`h-10 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 cursor-pointer ${
+              menu ? "invisible" : "visible"
+            }`}
+            onClick={handleMenuClick}
+          /> */}
+          {/* <i className={`fa-solid fa-bars h-10 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 cursor-pointer ${
+              menu ? "invisible" : "visible"
+            }`}></i> */}
+          <FontAwesomeIcon
+            icon={faBars}
             className={`h-10 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 cursor-pointer ${
               menu ? "invisible" : "visible"
             }`}
