@@ -7,6 +7,7 @@ export default function SellCard({ src, title, price }) {
     navigate("/view?" + " " + src);
   };
   return (
+    <div>
     <div className="w-full h-full">
       <div
         className="sellcard flex flex-col w-auto h-full relative overflow-hidden shadow-md hover:cursor-pointer"
@@ -23,6 +24,7 @@ export default function SellCard({ src, title, price }) {
           <p className="text-xs sm:text-sm md:text-md">{price}</p>
         </div>
       </div>
+    </div>
     </div>
   );
 }
