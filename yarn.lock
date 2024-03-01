@@ -466,11 +466,6 @@
   dependencies:
     prop-types "^15.8.1"
 
-"@heroicons/react@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.npmjs.org/@heroicons/react/-/react-2.1.1.tgz"
-  integrity sha512-JyyN9Lo66kirbCMuMMRPtJxtKJoIsXKS569ebHGGRKbl8s4CtUfLnyKJxteA+vIKySocO4s1SkTkGS4xtG/yEA==
-
 "@isaacs/cliui@^8.0.2":
   version "8.0.2"
   resolved "https://registry.npmjs.org/@isaacs/cliui/-/cliui-8.0.2.tgz"
