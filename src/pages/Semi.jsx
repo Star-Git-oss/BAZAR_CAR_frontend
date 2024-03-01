@@ -91,13 +91,13 @@ const Semi = () => {
     console.log(e.target.value);
     if (e.key === "Enter") setSearch(e.target.value);
   }
-  useEffect(() => {
-    let isLogged = localStorage.getItem("isLogged");
-    let freetime = localStorage.getItem("freetime");
-    let status = localStorage.getItem("membership");
-    if(isLogged !== "true") navigate("/signin");
-    else if(freetime !== "true" && status !== "active") navigate("/system");
-  }, []);
+  // useEffect(() => {
+  //   let isLogged = localStorage.getItem("isLogged");
+  //   let freetime = localStorage.getItem("freetime");
+  //   let status = localStorage.getItem("membership");
+  //   if(isLogged !== "true") navigate("/signin");
+  //   else if(freetime !== "true" && status !== "active") navigate("/system");
+  // }, []);
   return (
     <>
       <Navbar />

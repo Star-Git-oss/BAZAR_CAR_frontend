@@ -47,7 +47,7 @@ const SignIn = () => {
         dispatch(checkSubscription({ email }))
           .then((res) => {
             localStorage.setItem("membership", res.status);
-            navigate("/vehicle");
+            navigate("/");
           })
           .catch((err) => setLoading(false));
       })
@@ -86,7 +86,7 @@ const SignIn = () => {
             .then((res) => localStorage.setItem("membership", res.status))
             .catch((err) => console.log(res.status));
 
-          navigate("/vehicle");
+          navigate("/");
         })
         .catch((err) => console.log(err));
     },

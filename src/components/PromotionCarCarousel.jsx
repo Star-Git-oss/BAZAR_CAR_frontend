@@ -113,7 +113,7 @@ const PromotionCarCarousel = ({ search }) => {
           {data.map((item) => {
             return (
               <SellCard
-                src={UPLOAD_URI + item.uploads + "?v=1"}
+                src={UPLOAD_URI + item.uploads}
                 key={item.uploads + item.title + item.price}
                 title={item.brand}
                 price={"$" + item.price}

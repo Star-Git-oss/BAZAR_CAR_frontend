@@ -21,6 +21,7 @@ const ViewPort = () => {
   const [description, setDescriptionInfo] = useState("");
   const [mainImg, setMainImg] = useState("");
   const [selldata, setSellData] = useState([]);
+  const [vehicle, setVehicle] = useState({});
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -53,11 +54,13 @@ const ViewPort = () => {
     for (const param of urlParams) {
       let index = param[0].indexOf("?");
       str = param[0].slice(index + 2, param[0].length);
+      console.log(str);
     }
     dispatch(vehicleGroupOpen({ str }))
       .then((res) => {
-        setSellData(prev => res);
-        setMainImg(res[res.length-1]);
+        setSellData(prev => res.imageNames);
+        setVehicle(res.vehicle[0]);
+        setMainImg(res.imageNames[res.imageNames.length-1]);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -75,13 +78,13 @@ const ViewPort = () => {
   const handleImgClick = (item) => {
     setMainImg(item);
   }
-  useEffect(() => {
-    let isLogged = localStorage.getItem("isLogged");
-    let freetime = localStorage.getItem("freetime");
-    let status = localStorage.getItem("membership");
-    if(isLogged !== "true") navigate("/signin");
-    else if(freetime !== "true" && status !== "active") navigate("/system");
-  }, []);
+  // useEffect(() => {
+  //   let isLogged = localStorage.getItem("isLogged");
+  //   let freetime = localStorage.getItem("freetime");
+  //   let status = localStorage.getItem("membership");
+  //   if(isLogged !== "true") navigate("/signin");
+  //   else if(freetime !== "true" && status !== "active") navigate("/system");
+  // }, []);
   return (
     <>
       <NavSmall />
@@ -129,7 +132,7 @@ const ViewPort = () => {
                   Precio de Contado
                 </p>
                 <p className="w-full text-left text-md md:text-lg font-bold">
-                  $220,000.00
+                  ${vehicle.price}
                 </p>
               </div>
               <div className="">
@@ -137,7 +140,7 @@ const ViewPort = () => {
                   Kilometraje:
                 </p>
                 <p className="w-full text-left text-sm md:text-md font-bold">
-                  56000
+                  {vehicle.mileage}
                 </p>
               </div>
               <div className="">
@@ -145,7 +148,7 @@ const ViewPort = () => {
                   Transmisíon
                 </p>
                 <p className="w-full text-left text-sm md:text-md font-bold">
-                  Estandar
+                  {vehicle.transmission}
                 </p>
               </div>
             </div>

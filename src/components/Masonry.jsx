@@ -8,6 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-multi-carousel/lib/styles.css";
 import "../components/slick/styles.css";
+import { logoOpen } from "../action/logo";
 
 function MasonrySection() {
   const dispatch = useDispatch();
@@ -21,51 +22,6 @@ function MasonrySection() {
       src: "ejemplo de banner1.png",
       title: "2",
       price: "$300",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "3",
-      price: "$400",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "4",
-      price: "$500",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "5",
-      price: "$600",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "6",
-      price: "$700",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "7",
-      price: "$800",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "8",
-      price: "$900",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "9",
-      price: "$1000",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "10",
-      price: "$1100",
-    },
-    {
-      src: "ejemplo de banner1.png",
-      title: "11",
-      price: "$1200",
     },
   ];
   const responsive1 = {
@@ -130,11 +86,18 @@ function MasonrySection() {
     },
   };
   const [data, setData] = useState([]);
+  const [logoList, setLogoList] = useState([]);
   useEffect(() => {
-    dispatch(vehicleOpen({search:"", num:12}))
+    dispatch(vehicleOpen({ search: "", num: 12 }))
       .then((res) => setData([...res.data]))
       .catch((err) => console.log(err));
-  }, []); 
+    dispatch(logoOpen())
+      .then((res) => {
+        setLogoList(res.imageNames);
+        console.log("res--result", res.imageNames);
+      })
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <>
       <div className="w-full px-2">
@@ -175,9 +138,16 @@ function MasonrySection() {
                     dotListClass="custom-dot-list-style"
                     slidesToSlide={1}
                   >
-                    {selldata.map((item) => (
-                      <img src={"./tomas1.png"} key={item.src} />
-                    ))}
+                    {logoList.map((item, index) => {
+                      console.log("item.src, index =======>", item.src, index);
+                      return (
+                        <img
+                          src={UPLOAD_URI + "logos/" + item}
+                          key={item.src + item._id}
+                          draggable={false}
+                        />
+                      );
+                    })}
                   </Carousel>
                 </div>
                 <div className="rounded-lg border-gray-400 border-[1px]">
@@ -191,9 +161,16 @@ function MasonrySection() {
                     dotListClass="custom-dot-list-style"
                     slidesToSlide={1}
                   >
-                    {selldata.map((item) => (
-                      <img src={"./tomas2.png"} key={item.src} />
-                    ))}
+                    {logoList.map((item, index) => {
+                      console.log("item.src, index =======>", item.src, index);
+                      return (
+                        <img
+                          src={UPLOAD_URI + "logos/" + item}
+                          key={item.src + item._id}
+                          draggable={false}
+                        />
+                      );
+                    })}
                   </Carousel>
                 </div>
               </div>

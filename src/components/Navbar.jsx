@@ -19,65 +19,74 @@ const Navbar = () => {
       setIsLoggedIn(true);
     }
   }, []);
-  const handleLogoClick = () => {
+  const handleVehicleClick = () => {
+    navigate("/vehicle");
+  };
+  const handleLogoLandingClick = () => {
     navigate("/");
+  };
+  const handleLogoClick = () => {
+    navigate("/logo");
   };
   const handleMenuClick = () => {
     setMenu((prev) => !prev);
   };
   const handleUsadosClick = () => {
-    if (isLoggedIn) navigate("/semi");
-    else
-      toast.error(
-        isLoggedIn
-          ? "Ha cerrado la sesión correctamente."
-          : "Su prueba gratuita ha terminado.",
-        {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          theme: "colored",
-          draggable: true,
-        }
-      );
+    // if (isLoggedIn) {
+    navigate("/semi");
+    // } else
+    //   toast.error(
+    //     isLoggedIn
+    //       ? "Ha cerrado la sesión correctamente."
+    //       : "Su prueba gratuita ha terminado.",
+    //     {
+    //       position: "bottom-right",
+    //       autoClose: 5000,
+    //       hideProgressBar: true,
+    //       closeOnClick: true,
+    //       pauseOnHover: true,
+    //       theme: "colored",
+    //       draggable: true,
+    //     }
+    //   );
   };
   const handleFinanceClick = () => {
-    if (isLoggedIn) navigate("/finance");
-    else
-      toast.error(
-        isLoggedIn
-          ? "Ha cerrado la sesión correctamente."
-          : "Su prueba gratuita ha terminado.",
-        {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          theme: "colored",
-          draggable: true,
-        }
-      );
+    // if (isLoggedIn) {
+    navigate("/finance");
+    // } else
+    //   toast.error(
+    //     isLoggedIn
+    //       ? "Ha cerrado la sesión correctamente."
+    //       : "Su prueba gratuita ha terminado.",
+    //     {
+    //       position: "bottom-right",
+    //       autoClose: 5000,
+    //       hideProgressBar: true,
+    //       closeOnClick: true,
+    //       pauseOnHover: true,
+    //       theme: "colored",
+    //       draggable: true,
+    //     }
+    //   );
   };
   const handleGarantClick = () => {
-    if (isLoggedIn) navigate("/garantia");
-    else
-      toast.error(
-        isLoggedIn
-          ? "Ha cerrado la sesión correctamente."
-          : "Su prueba gratuita ha terminado.",
-        {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          theme: "colored",
-          draggable: true,
-        }
-      );
+    // if (isLoggedIn) {
+    navigate("/garantia");
+    // } else
+    //   toast.error(
+    //     isLoggedIn
+    //       ? "Ha cerrado la sesión correctamente."
+    //       : "Su prueba gratuita ha terminado.",
+    //     {
+    //       position: "bottom-right",
+    //       autoClose: 5000,
+    //       hideProgressBar: true,
+    //       closeOnClick: true,
+    //       pauseOnHover: true,
+    //       theme: "colored",
+    //       draggable: true,
+    //     }
+    //   );
   };
   const handleIniciarClick = () => {
     if (!isLoggedIn) navigate("/signin");
@@ -104,13 +113,13 @@ const Navbar = () => {
     }
   };
   const handleCotizadoresClick = () => {
-    navigate('/cotizadores');
-  }
+    navigate("/cotizadores");
+  };
 
   return (
     // <div className="w-full fixed">
     <>
-      <ToastContainer
+      {/* <ToastContainer
         position="bottom-right"
         autoClose={5000}
         hideProgressBar
@@ -121,7 +130,7 @@ const Navbar = () => {
         draggable
         pauseOnHover={false}
         theme="colored"
-      />
+      /> */}
       <div
         className="bg-white fixed w-full h-24 sm:h-28 md:h-32 mx-auto flex flex-row justify-between md:justify-evenly px-8 sm:px-20 md:px-4 pt-6 items-center border-sky-950  border-t-0 rounded-b-2xl shadow-2xl shadow-gray-400"
         style={{ zIndex: 9999 }}
@@ -130,7 +139,7 @@ const Navbar = () => {
           src="./Logo bazar 1.png"
           className="w-[230px] h-[55px] cursor-pointer sm:mb-4 hover:scale-105 transition-all duration-300 hover:brightness-150"
           alt="logo"
-          onClick={handleLogoClick}
+          onClick={handleLogoLandingClick}
         />
         <div className="transition-transform relative w-2 h-20 md:hidden">
           <XIcon
@@ -183,12 +192,26 @@ const Navbar = () => {
             >
               {isLoggedIn ? "Cerrar sesión." : "INCIAR SESION"}
             </button>
-            <button
+            {/* <button
               className="w-full h-[40px] ml-[6px] bg-red-800 hover:bg-red-600 rounded-md text-white transition-colors duration-300 ease-in-out"
               onClick={handleCotizadoresClick}
             >
               Solicitud de presupuesto.
-            </button>
+            </button> */}
+            <div className="w-full h-full flex flex-col md:flex-row gap-4">
+              <button
+                className="w-full h-[40px] ml-[6px] bg-red-800 hover:bg-red-600 text-sm rounded-md text-white transition-colors duration-300 ease-in-out"
+                onClick={handleVehicleClick}
+              >
+                Cargar vehículo.
+              </button>
+              <button
+                className="w-full h-[40px] ml-[6px] bg-red-800 hover:bg-red-600 text-sm rounded-md text-white transition-colors duration-300 ease-in-out"
+                onClick={handleLogoClick}
+              >
+                Cargar logotipo.
+              </button>
+            </div>
             {/* <img
               src="./Boton-Whatsapp.png"
               className="w-[200px] h-[60px] hover:opacity-90 transition-colors duration-300 ease-in-out cursor-pointer"

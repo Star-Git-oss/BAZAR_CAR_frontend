@@ -6,7 +6,7 @@ export function MyHeader({ active, num, title, label }) {
   return (
     <div
       className={`w-full h-full flex flex-col md:flex-row p-4 items-center justify-start gap-5 ${
-        active ? "bg-blue-400" : "bg-inherit"
+        active ? "bg-blue-400" : "bg-gray-200"
       }`}
     >
       <p
@@ -76,26 +76,26 @@ export function Selecciona({ setActive }) {
   return (
     <div className={`w-full h-full items-center justify-start bg-white`}>
       <div className="flex flex-col md:flex-row items-center md:items-start justify-center px-8 pt-20 gap-16">
-        <div className="grid grid-cols-2 gap-8 w-full md:w-1/2 h-fit md:pr-0 sm:pr-16 xs:10">
-          <p className="text-sm w-full text-right">Plan Financiero:</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full md:w-1/2 h-fit md:pr-0 sm:pr-16 xs:10">
+          <p className="text-sm w-full text-left md:text-right">Plan Financiero:</p>
           <DropdownComponent
             arrow={false}
             selectList={planList}
             setValue={setPlan}
           />
-          <p className="text-sm w-full text-right">Tipo de Crédito:</p>
+          <p className="text-sm w-full text-left md:text-right">Tipo de Crédito:</p>
           <DropdownComponent
             arrow={false}
             selectList={tipoList}
             setValue={setTipo}
           />
-          <p className="text-sm w-full text-right">Año del Vehículo:</p>
+          <p className="text-sm w-full text-left md:text-right">Año del Vehículo:</p>
           <DropdownComponent
             arrow={false}
             selectList={anoList}
             setValue={setAno}
           />
-          <p className="text-sm w-full text-right">
+          <p className="text-sm w-full text-left md:text-right">
             Valor Factura de la Unidad:
           </p>
           <input
@@ -105,7 +105,7 @@ export function Selecciona({ setActive }) {
             className="pl-3 text-xs border-[1px] border-gray-200 outline-none focus:border-[1px] h-[25px] focus:border-blue-200"
           />
         </div>
-        <div className="grid grid-cols-3 gap-8 w-full md:w-1/2 h-fit">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full md:w-1/2 h-fit">
           <p className="text-sm">
             Accesorios:<span className="text-green-600 font-extrabold">+</span>
           </p>
@@ -182,7 +182,7 @@ export function Calcula({ setActive }) {
       <div className="grid grid-cols-1 md:grid-cols-3 items-start gap-4">
         <div className="w-full flex flex-col gap-4">
           <div className="flex w-full h-10 border-[1px] border-gray-200">
-            <p className="w-3/5 h-full text-sm flex items-center bg-blue-300 text-white pl-4">
+            <p className="w-3/5 h-full text-sm flex items-center justify-center md:justify-start bg-blue-300 text-white md:pl-4">
               Valor Total
             </p>
             <p className="w-2/5 h-full text-sm flex items-center bg-gray-200 pl-4">
@@ -190,16 +190,16 @@ export function Calcula({ setActive }) {
             </p>
           </div>
           <div className="flex w-full h-10 border-[1px] border-gray-200">
-            <p className="w-3/5 h-full text-sm flex items-center bg-blue-300 text-white pl-4">
-              Comisión por Apertura ($)*
+            <p className="w-3/5 h-full text-sm flex flex-col items-center md:items-start justify-center md:justify-start bg-blue-300 text-white md:pl-4">
+              Comisión<b/>por Apertura ($)*
             </p>
             <p className="w-2/5 h-full text-sm flex items-center bg-gray-200 pl-4">
               0% - $0.00
             </p>
           </div>
           <div className="flex w-full h-10 border-[1px] border-gray-200">
-            <p className="w-3/5 h-full text-sm flex items-center bg-blue-300 text-white pl-4">
-              Comisión por Admon. ($)*
+            <p className="w-3/5 h-full text-sm flex flex-col items-center md:items-start justify-center md:justify-start bg-blue-300 text-white md:pl-4">
+              Comisión<b />por Admon. ($)*
             </p>
             <p className="w-2/5 h-full text-sm flex items-center bg-gray-200 pl-4">
               0% - $0.00
@@ -464,8 +464,8 @@ export function Elige({ setActive }) {
           <button className="w-full h-7 rounded-md border-[1px] border-gray-200 text-md flex items-center justify-center bg-red-300 text-white">
             Buscar Seguro<i class="fas fa-glass"></i>
           </button>
-          <div className="flex">
-            <div className="px-4 flex flex-col gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <div className="px-4 flex flex-col gap-2 col-span-2">
               <div className="flex w-full h-10 border-[1px] border-gray-200">
                 <p className="w-3/5 h-full text-sm flex items-center bg-blue-300 text-white pl-4">
                   Comisión por Apertura ($)*
@@ -491,7 +491,7 @@ export function Elige({ setActive }) {
                 </p>
               </div>
             </div>
-            <div className="w-2/5 flex justify-center items-center">
+            <div className="flex pl-4 pr-2 md:p-0 justify-center items-center">
               <SelectIndicator
                 selectList={buscarList}
                 setValue={setBuscarListItem}

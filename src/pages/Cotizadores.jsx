@@ -15,20 +15,20 @@ import "../components/Tab.scss";
 
 const Contizadores = () => {
   const navigate = useNavigate();
-  useEffect(() => {
-    let isLogged = localStorage.getItem("isLogged");
-    let freetime = localStorage.getItem("freetime");
-    let status = localStorage.getItem("membership");
-    if (isLogged !== "true") navigate("/signin");
-    else if (freetime !== "true" && status !== "active") navigate("/system");
-  }, []);
+  // useEffect(() => {
+  //   let isLogged = localStorage.getItem("isLogged");
+  //   let freetime = localStorage.getItem("freetime");
+  //   let status = localStorage.getItem("membership");
+  //   if (isLogged !== "true") navigate("/signin");
+  //   else if (freetime !== "true" && status !== "active") navigate("/system");
+  // }, []);
   return (
     <div className="min-h-screen relative bg-gray-100 h-fit">
       <Navbar />
       <div className="bg-gray-100 w-full h-full md:p-4 lg:p-8 flex justify-center">
         <div className="w-11/12 sm:w-5/6 md:w-4/5">
           <div className="bg-inherit w-full h-36 sm:h-36 md:h-36" />
-          <p className="xs:text-md sm:text-lg md:text-2xl md:my-4 lg:my-8 text-gray-800">
+          <p className="text-lg md:text-2xl my-4 lg:my-8 text-gray-800">
             Solicitud de Cotización
           </p>
           {/* <div className="w-full h-full"> */}

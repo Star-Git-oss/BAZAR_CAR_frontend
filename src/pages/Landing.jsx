@@ -12,6 +12,7 @@ import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
+import Calculate from "../components/Calculate";
 
 const Landing = () => {
   const [search, setSearch] = useState("");
@@ -26,20 +27,20 @@ const Landing = () => {
   const clickSubmit = (event, formValue) => {
     console.log(event.target, formValue);
   };
-  useEffect(() => {
+  useEffect(() => { 
     let isLogged = localStorage.getItem("isLogged");
     let username = localStorage.getItem("username");
-    if (isLogged !== "true") {
-      toast.warning("Inicia sesión para obtener más información.", {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        theme: "colored",
-        draggable: true,
-      });
-    }
+    // if (isLogged !== "true") {
+    //   toast.warning("Inicia sesión para obtener más información.", {
+    //     position: "bottom-right",
+    //     autoClose: 5000,
+    //     hideProgressBar: true,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     theme: "colored",
+    //     draggable: true,
+    //   });
+    // }
     if (username) {
       setUsername(username);
     }
@@ -58,20 +59,34 @@ const Landing = () => {
       let index = param[0].indexOf("?");
       str = param[0].slice(index + 1, param[0].length);
     }
-    if (str === "uploadsuccess") {
-      toast.success(
-        "Enhorabuena. Ha cargado correctamente la información de su vehículo.",
-        {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          theme: "colored",
-          draggable: true,
-        }
-      );
-    }
+    // if (str === "uploadsuccess") {
+    //   toast.success(
+    //     "Enhorabuena. Ha cargado correctamente la información de su vehículo.",
+    //     {
+    //       position: "bottom-right",
+    //       autoClose: 5000,
+    //       hideProgressBar: true,
+    //       closeOnClick: true,
+    //       pauseOnHover: true,
+    //       theme: "colored",
+    //       draggable: true,
+    //     }
+    //   );
+    // }
+    // else if (str === "uploadsuccesslogo") {
+    //   toast.success(
+    //     "Enhorabuena. Ha cargado correctamente su logotipo favorito.",
+    //     {
+    //       position: "bottom-right",
+    //       autoClose: 5000,
+    //       hideProgressBar: true,
+    //       closeOnClick: true,
+    //       pauseOnHover: true,
+    //       theme: "colored",
+    //       draggable: true,
+    //     }
+    //   );
+    // }
   }, []);
   return (
     <>
@@ -100,7 +115,10 @@ const Landing = () => {
         phoneNumber={"52 1 5616002085"}
         onSubmit={(event, formValue) => clickSubmit(event, formValue)}
       />
-      <PreownedCarousel />
+      <div className="w-full relative">
+        <PreownedCarousel />
+        <Calculate />
+      </div>
       <MasonrySection />
       {/* <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4 shadow-xl shadow-gray-200"> */}
       <div className="h-16 flex flex-col-reverse md:flex-row justify-between items-center mx-8 mt-16 mb-4 gap-2 md:gap-0 md:mb-0 md:mt-2 px-4">

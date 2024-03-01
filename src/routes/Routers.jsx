@@ -11,9 +11,8 @@ import Landing from "../pages/Landing";
 import ViewPort from "../pages/ViewPort";
 import Credito from "../pages/Credito";
 import Renta from "../pages/Renta";
-import MembershipRoute from "./MembershipRoute";
-import Layout from "../pages/Layout";
 import Contizadores from "../pages/Cotizadores";
+import Logo from "../pages/Logo";
 
 const Routers = () => {
   return (
@@ -22,6 +21,7 @@ const Routers = () => {
       <Route path="/signin" element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/vehicle" element={<Vehicle />} />
+      <Route path="/logo" element={<Logo />} />
       <Route path="/system" element={<System />} />
       <Route path="/semi" element={<Semi />} />
       <Route path="/finance" element={<Finance />} />

@@ -13,13 +13,13 @@ const Renta = () => {
     console.log("handleSolcitudClick");
   };
   const navigate = useNavigate();
-  useEffect(() => {
-    let isLogged = localStorage.getItem("isLogged");
-    let freetime = localStorage.getItem("freetime");
-    let status = localStorage.getItem("membership");
-    if(isLogged !== "true") navigate("/signin");
-    else if(freetime !== "true" || status !== "active") navigate("/system");
-  }, []);
+  // useEffect(() => {
+  //   let isLogged = localStorage.getItem("isLogged");
+  //   let freetime = localStorage.getItem("freetime");
+  //   let status = localStorage.getItem("membership");
+  //   if(isLogged !== "true") navigate("/signin");
+  //   else if(freetime !== "true" || status !== "active") navigate("/system");
+  // }, []);
   return (
     <>
       <NavSmall />
