@@ -78,7 +78,7 @@ const Calculate = () => {
         </h2>
         <label htmlFor="monto">* Monto Total del Automóvil (MXN)</label>
         <input
-          className="rounded-sm"
+          className="outline-none border-[1px] border-gray-500 rounded-lg pl-2"
           value={monto}
           onChange={(e) => setMonto(e.target.value)}
           type="number"
@@ -99,15 +99,14 @@ const Calculate = () => {
         <h6>* Costo por apertura 3%</h6>
         <div className="w-full flex gap-2">
           <label htmlFor="enganche">* Porcentaje de Enganche (%)</label>
-          <input className="outline-none border-[1px] border-gray-300 rounded-lg" type="number" id="enganche" min="10" max="80" step="1" />
+          <input className="outline-none border-[1px] border-gray-500 rounded-lg pl-2" type="number" id="enganche" min="10" max="80" step="1" />
         </div>
         <button
-          className="bg-blue-700 hover:bg-blue-500 transition-colors duration-300 ease-in-out rounded-md text-white my-2"
+          className="bg-blue-700 p-2 hover:bg-blue-500 transition-colors duration-300 ease-in-out rounded-md text-white my-2"
           // onclick="calcularPrestamo()"
           onClick={calcularPrestamo}
         >
-          {" "}
-          Calcular{" "}
+          Calcular
         </button>
         <div
           className="w-full h-fit animate-pulse animate-number animation duration-1000 ease-in-out infinite"
