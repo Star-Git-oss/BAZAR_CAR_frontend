@@ -53,17 +53,32 @@ function MasonrySection() {
   };
   const responsive2 = {
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+      breakpoint: { max: 3000, min: 1384 },
       items: 6,
       slidesToSlide: 1, // optional, default to 1.
     },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 3,
+    tablet1: {
+      breakpoint: { max: 1384, min: 1060 },
+      items: 5,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    tablet2: {
+      breakpoint: { max: 1060, min: 768 },
+      items: 5,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    tablet3: {
+      breakpoint: { max: 768, min: 620 },
+      items: 4,
       slidesToSlide: 1, // optional, default to 1.
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
+      breakpoint: { max: 620, min: 480 },
+      items: 3,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    mobile2: {
+      breakpoint: { max: 480, min: 0 },
       items: 2,
       slidesToSlide: 1, // optional, default to 1.
     },
@@ -89,12 +104,14 @@ function MasonrySection() {
   const [logoList, setLogoList] = useState([]);
   useEffect(() => {
     dispatch(vehicleOpen({ search: "", num: 12 }))
-      .then((res) => setData([...res.data]))
+      .then((res) => {
+        console.log(res.data);
+        setData([...res.data]);
+      })
       .catch((err) => console.log(err));
     dispatch(logoOpen())
       .then((res) => {
         setLogoList(res.imageNames);
-        console.log("res--result", res.imageNames);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -103,10 +120,10 @@ function MasonrySection() {
       <div className="w-full px-2">
         <div className="w-full h-auto md:h-[800px] md:flex gap-4 pr-4">
           <div className="w-full md:w-2/3 border bg-gray-300 border-blue-500 rounded-lg mt-1">
-            <div className="w-full h-full p-4">
-              <div className="w-full h-1/2 p-4 rounded-lg border-gray-400 border-[1px] mb-4 md:mb-0">
+            <div className="w-full h-full p-4 flex flex-col justify-around">
+              <div className="w-full h-fit p-4 rounded-lg border-gray-400 border-[1px] mb-4 md:mb-0">
                 <Carousel
-                  className="mb-6 pb-4 h-96 md:h-full"
+                  className="mb-6 pb-4 lg:h-96 md:h-88 sm:h-80 xs:h-72 xs2:h-64 h-56"
                   responsive={responsive1}
                   showDots={true}
                   infinite={true}
@@ -126,8 +143,8 @@ function MasonrySection() {
                   ))}
                 </Carousel>
               </div>
-              <div className="h-1/2 flex flex-col justify-evenly ">
-                <div className="rounded-lg border-gray-400 border-[1px] md:mb-0 mb-4">
+              <div className="h-1/2 flex flex-col justify-around ">
+                <div className="rounded-lg border-gray-400 border-[1px] md:mb-0 mb-4 py-4">
                   <Carousel
                     // className="pb-6"
                     responsive={responsive2}
@@ -139,18 +156,18 @@ function MasonrySection() {
                     slidesToSlide={1}
                   >
                     {logoList.map((item, index) => {
-                      console.log("item.src, index =======>", item.src, index);
                       return (
                         <img
                           src={UPLOAD_URI + "logos/" + item}
                           key={item.src + item._id}
                           draggable={false}
+                          className="w-20 h-20 sm:w-24 sm:h-24"
                         />
                       );
                     })}
                   </Carousel>
                 </div>
-                <div className="rounded-lg border-gray-400 border-[1px]">
+                <div className="rounded-lg border-gray-400 border-[1px] py-4">
                   <Carousel
                     className=""
                     responsive={responsive2}
@@ -162,12 +179,12 @@ function MasonrySection() {
                     slidesToSlide={1}
                   >
                     {logoList.map((item, index) => {
-                      console.log("item.src, index =======>", item.src, index);
                       return (
                         <img
                           src={UPLOAD_URI + "logos/" + item}
                           key={item.src + item._id}
                           draggable={false}
+                          className="w-20 h-20 sm:w-24 sm:h-24"
                         />
                       );
                     })}
@@ -176,8 +193,8 @@ function MasonrySection() {
               </div>
             </div>
           </div>
-          <div className="w-full h-full md:w-1/3 bg-gray-100 border border-blue-500 rounded-lg mt-1 lg:ml-1">
-            <div className="w-full mb-10">
+          <div className="w-full h-fit md:w-1/3 bg-gray-100 border border-blue-500 rounded-lg mt-1 lg:ml-1">
+            <div className="w-full mb-2">
               <Carousel
                 className="pb-6 h-full"
                 responsive={responsive3}
@@ -190,7 +207,7 @@ function MasonrySection() {
               >
                 {selldata.map((item) => (
                   <img
-                    className="w-full md:h-[750px] rounded-lg object-cover"
+                    className="w-full md:h-[750px] rounded-lg"
                     src={item.src}
                     key={item.src}
                   />

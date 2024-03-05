@@ -13,6 +13,8 @@ import Credito from "../pages/Credito";
 import Renta from "../pages/Renta";
 import Contizadores from "../pages/Cotizadores";
 import Logo from "../pages/Logo";
+import Quienes from "../pages/Quienes";
+import Terminos from "../pages/Terminos";
 
 const Routers = () => {
   return (
@@ -30,6 +32,8 @@ const Routers = () => {
       <Route path="/credito" element={<Credito />} />
       <Route path="/renta" element={<Renta />} />
       <Route path="/cotizadores" element={<Contizadores />} />
+      <Route path="/quienes" element={<Quienes />} />
+      <Route path="/terminos" element={<Terminos />} />
     </Routes>
     // <Routes>
     //   <Route path="/" element={<Landing />} />

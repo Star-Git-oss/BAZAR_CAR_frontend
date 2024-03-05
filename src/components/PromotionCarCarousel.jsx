@@ -101,7 +101,7 @@ const PromotionCarCarousel = ({ search }) => {
       />
       <div className="w-full px-6 mb-8 rounded-lg border-gray-400 border-[1px]">
         <Carousel
-          className="pb-6 h-96"
+          className="pb-6 lg:h-96 md:h-88 sm:h-80 xs:h-72 xs2:h-64 h-56"
           responsive={responsive}
           showDots={true}
           infinite={true}

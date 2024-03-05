@@ -25,6 +25,18 @@ export const vehicleOpen = (data) =>  (dispatch) => new Promise((resolve, reject
     });
 })
 
+export const vehicleOpenLanding = (data) =>  (dispatch) => new Promise((resolve, reject) => {
+  console.log("action ---> FeaturedCarCarouselLanding Axios");
+  axios.post(`${BASE_URI}/vehicle/openLanding`, data)
+    .then(res => {
+      console.log(res.data);
+      resolve(res.data);
+    })
+    .catch(err => {
+      reject("exist");
+    });
+})
+
 export const vehicleGroupOpen = (data) =>  (dispatch) => new Promise((resolve, reject) => {
   axios.post(`${BASE_URI}/vehicle/groupOpen`, data)
     .then(res => {

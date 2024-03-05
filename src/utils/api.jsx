@@ -1,5 +1,5 @@
-// export const BACKEND_URI = 'http://localhost:5005/';
-export const BACKEND_URI = 'https://bazarcarruso.com/api';
+// export const UPLOAD_URI = 'https://bazarcarruso.com/api/uploads/';
+// export const BASE_URI = 'https://bazarcarruso.com/api';
 
-export const UPLOAD_URI = BACKEND_URI + '/uploads/';
-export const BASE_URI = BACKEND_URI + '';
+export const UPLOAD_URI = 'http://localhost:5000/uploads/';
+export const BASE_URI = "http://localhost:5000/api";

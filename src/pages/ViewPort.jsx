@@ -22,20 +22,21 @@ const ViewPort = () => {
   const [mainImg, setMainImg] = useState("");
   const [selldata, setSellData] = useState([]);
   const [vehicle, setVehicle] = useState({});
+  const [isOwner, setIsOwner] = useState(false);
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 4,
-      slidesToSlide: 1, // optional, default to 1.
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
       items: 3,
       slidesToSlide: 1, // optional, default to 1.
     },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
+    ipad: {
+      breakpoint: { max: 1024, min: 640 },
       items: 2,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 640, min: 0 },
+      items: 1,
       slidesToSlide: 1, // optional, default to 1.
     },
   };
@@ -58,9 +59,15 @@ const ViewPort = () => {
     }
     dispatch(vehicleGroupOpen({ str }))
       .then((res) => {
-        setSellData(prev => res.imageNames);
+        setSellData((prev) => res.imageNames);
         setVehicle(res.vehicle[0]);
-        setMainImg(res.imageNames[res.imageNames.length-1]);
+        setMainImg(res.imageNames[res.imageNames.length - 1]);
+        setDescriptionInfo(res.vehicle[0].vehicleInfo);
+        let isLogged = localStorage.getItem("isLogged");
+        let id = localStorage.getItem("id");
+        if (isLogged && id === res.vehicle[0].id) {
+          setIsOwner(true);
+        }
       })
       .catch((err) => console.log(err));
   }, []);
@@ -77,7 +84,7 @@ const ViewPort = () => {
   };
   const handleImgClick = (item) => {
     setMainImg(item);
-  }
+  };
   // useEffect(() => {
   //   let isLogged = localStorage.getItem("isLogged");
   //   let freetime = localStorage.getItem("freetime");
@@ -92,19 +99,19 @@ const ViewPort = () => {
       <div className="flex md:flex-row flex-col justify-between h-full+ w-full gap-8 p-8">
         <div className="w-full md:w-1/2">
           <p>Inicio/Autos de Renta/ Marca /Version</p>
-          <div className="flex flex-col lg:flex-row lg:px-10 py-10">
-            <p className="font-bold text-lg md:text-xl">Kia Sporte 2020</p>
+          <div className="flex flex-row lg:px-10 py-10">
+            <p className="font-bold text-lg md:text-xl">{vehicle.brand}</p>
             &nbsp;
-            <p className="text-md md:text-lg">Se plus Sedan Estandar</p>
+            <p className="text-sm md:text-md">{vehicle.version}</p>
           </div>
           <img
             src={UPLOAD_URI + mainImg}
-            className="right-2 h-auto w-full lg:mr-4"
+            className="right-2 md:h-[500px] lg:h-[600px] w-full object-cover lg:mr-4"
             alt="arrendamiento3"
           />
           <div className="w-full mt-10">
             <Carousel
-              className="pb-6 h-40"
+              className="pb-6 h-60 md:h-48"
               responsive={responsive}
               showDots={false}
               infinite={true}
@@ -179,6 +186,11 @@ const ViewPort = () => {
             value={description}
             placeholder="DESCRIPCÍON   (Caracteristicas DEL VENDEDOR)"
             onChange={(e) => setDescriptionInfo(e.target.value)}
+            readOnly={!isOwner}
+            style={{
+              outline: isOwner ? "2px solid gray" : "none",
+              resize: "none",
+            }}
           />
         </div>
       </div>

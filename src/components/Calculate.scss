@@ -1,53 +1,86 @@
-.container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: -5px 5px teal;
-  background-color: blue;
+// .container {
+//   max-width: 600px;
+//   margin: 50px auto;
+//   padding: 20px;
+//   border: 1px solid #ccc;
+//   border-radius: 10px;
+//   box-shadow: -5px 5px teal;
+//   background-color: blue;
 
-  .lol {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    font-size: 1.3rem;
+//   .lol {
+//     display: grid;
+//     grid-template-columns: repeat(2, 1fr);
+//     font-size: 1.3rem;
+//   }
+//   label {
+//     display: block;
+//     margin-bottom: 10px;
+//   }
+//   input[type="number"] {
+//     width: 100%;
+//     padding: 8px;
+//     margin-top: 5px;
+//     margin-bottom: 20px;
+//     border: 1px solid #ccc;
+//     border-radius: 3px;
+//     box-sizing: border-box;
+//   }
+//   button {
+//     padding: 10px 20px;
+//     background-color: #007bff;
+//     color: #fff;
+//     border: none;
+//     border-radius: 5px;
+//     cursor: pointer;
+//   }
+//   button:hover {
+//     background-color: #0056b3;
+//   }
+//   #result {
+//     margin-top: 20px;
+//   }
+//   .animated {
+//     animation: expandText 1s forwards;
+//     transform-origin: left;
+//     transform: scaleX(0);
+//     display: inline-block;
+//   }
+//   @keyframes expandText {
+//     to {
+//       transform: scaleX(1);
+//     }
+//   }
+// }
+
+p {
+  font-size: 16px; /* Base font size */
+}
+
+/* Media query for small screens */
+@media only screen and (max-width: 600px) {
+  p {
+    font-size: 12px; /* Adjust font size for small screens */
   }
-  label {
-    display: block;
-    margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  p {
+    font-size: 14px; /* Adjust font size for medium screens */
   }
-  input[type="number"] {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
+}
+
+style {
+  color: black;
+  font-size: 12px;
+  text-align: left;
+  width: 100%;
+  font-weight: bold;
+
+  @media (min-width: 1060px) {
+    font-size: 15px;
   }
-  button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  button:hover {
-    background-color: #0056b3;
-  }
-  #result {
-    margin-top: 20px;
-  }
-  .animated {
-    animation: expandText 1s forwards;
-    transform-origin: left;
-    transform: scaleX(0);
-    display: inline-block;
-  }
-  @keyframes expandText {
-    to {
-      transform: scaleX(1);
-    }
+
+  @media (min-width: 1384px) {
+    font-size: 18px;
   }
 }

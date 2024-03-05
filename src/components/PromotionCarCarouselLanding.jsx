@@ -4,13 +4,19 @@ import "react-multi-carousel/lib/styles.css";
 import "../components/slick/styles.css";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { vehicleOpen } from "../action/vehicle";
+import { vehicleOpen, vehicleOpenLanding } from "../action/vehicle";
 import { UPLOAD_URI } from "../utils/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const FeaturedCarCarousel = ({ search }) => {
-  console.log(search);
+const PromotionCarCarouselLanding = ({
+  brand,
+  auto,
+  yearMin,
+  yearMax,
+  priceMin,
+  priceMax,
+}) => {
   const dispatch = useDispatch();
   const responsive = {
     desktop: {
@@ -46,28 +52,51 @@ const FeaturedCarCarousel = ({ search }) => {
   };
   const [data, setData] = useState([]);
   useEffect(() => {
+    let brandValue = brand,
+      autoValue = auto,
+      yearMinValue = yearMin,
+      yearMaxValue = yearMax,
+      priceMinValue = priceMin,
+      priceMaxValue = priceMax;
+    if (
+      priceMinValue === "Precio desde" ||
+      priceMinValue === "Sin precio mínimo"
+    )
+      priceMinValue = "0";
+    else if (priceMinValue === "$50,000") priceMinValue = "50000";
+    if (
+      priceMaxValue === "Precio hasta" ||
+      priceMaxValue === "Sin precio máximo."
+    )
+      priceMaxValue = "0";
+    else if (priceMaxValue === "$60,000") priceMaxValue = "60000";
+    else if (priceMaxValue === "$70,000") priceMaxValue = "70000";
+    else if (priceMaxValue === "$80,000") priceMaxValue = "80000";
+    else if (priceMaxValue === "$90,000") priceMaxValue = "90000";
+    else if (priceMaxValue === "< $90,000") priceMaxValue = "90000";
+
+    console.log(
+      "   brandValue: ", brandValue,
+      "   autoValue: ", autoValue,
+      "   yearMinValue: ", yearMinValue,
+      "   yearMaxValue: ", yearMaxValue,
+      "   priceMinValue: ", priceMinValue,
+      "   priceMaxValue: ", priceMaxValue,
+    );
+
     dispatch(
-      vehicleOpen({ search: search !== undefined ? search : "", num: 12 })
+      vehicleOpenLanding({
+        brand: brandValue,
+        auto: autoValue,
+        yearMin: yearMinValue,
+        yearMax: yearMaxValue,
+        priceMin: priceMinValue,
+        priceMax: priceMaxValue,
+      })
     )
       .then((res) => {
         setData([...res.data]);
-        if (search.length > 0)
-          toast.info(
-            <>
-              <p>AUTOS DESTACADOS:</p>
-              <p>&nbsp;&nbsp;&nbsp;Totales: {res.result.total}</p>
-              <p>&nbsp;&nbsp;&nbsp;Resultado: {res.result.count}</p>
-            </>,
-            {
-              position: "bottom-right",
-              autoClose: 5000,
-              hideProgressBar: true,
-              closeOnClick: true,
-              pauseOnHover: true,
-              theme: "colored",
-              draggable: true,
-            }
-          );
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -84,7 +113,7 @@ const FeaturedCarCarousel = ({ search }) => {
           }
         );
       });
-  }, [search]);
+  }, [brand, auto, yearMin, yearMax, priceMin, priceMax]);
   return (
     <>
       <ToastContainer
@@ -111,7 +140,6 @@ const FeaturedCarCarousel = ({ search }) => {
           slidesToSlide={1}
         >
           {data.map((item) => {
-            console.log(item);
             return (
               <SellCard
                 src={UPLOAD_URI + item.uploads}
@@ -126,4 +154,4 @@ const FeaturedCarCarousel = ({ search }) => {
     </>
   );
 };
-export default FeaturedCarCarousel;
+export default PromotionCarCarouselLanding;

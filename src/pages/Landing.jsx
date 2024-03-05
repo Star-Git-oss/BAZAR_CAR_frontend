@@ -13,10 +13,17 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 import Calculate from "../components/Calculate";
+import SearchBox from "../components/SearchBox";
+import PromotionCarCarouselLanding from "../components/PromotionCarCarouselLanding";
 
 const Landing = () => {
-  const [search, setSearch] = useState("");
   const [username, setUsername] = useState("");
+  const [brand, setBrand] = useState("Toyota");
+  const [auto, setAuto] = useState("Auto");
+  const [yearMin, setYearMin] = useState("2002");
+  const [yearMax, setYearMax] = useState("2024");
+  const [priceMin, setPriceMin] = useState("Precio desde");
+  const [priceMax, setPriceMax] = useState("< $90,000");
   // const handleKeyDown = (e) => {
   //   console.log(e.target.value);
   //   if (e.key === "Enter") setSearch(e.target.value);
@@ -27,7 +34,7 @@ const Landing = () => {
   const clickSubmit = (event, formValue) => {
     console.log(event.target, formValue);
   };
-  useEffect(() => { 
+  useEffect(() => {
     let isLogged = localStorage.getItem("isLogged");
     let username = localStorage.getItem("username");
     // if (isLogged !== "true") {
@@ -91,7 +98,7 @@ const Landing = () => {
   return (
     <>
       <Navbar />
-      <div className="bg-white w-5/6 h-24"></div>
+      <div className="bg-white w-5/6 h-20 md:h-28"></div>
       <ToastContainer
         position="bottom-right"
         autoClose={5000}
@@ -117,12 +124,28 @@ const Landing = () => {
       />
       <div className="w-full relative">
         <PreownedCarousel />
-        <Calculate />
+        {/* <Calculate /> */}
+        <SearchBox
+          brand={brand}
+          setBrand={setBrand}
+          auto={auto}
+          setAuto={setAuto}
+          yearMin={yearMin}
+          setYearMin={setYearMin}
+          yearMax={yearMax}
+          setYearMax={setYearMax}
+          priceMin={priceMin}
+          setPriceMin={setPriceMin}
+          priceMax={priceMax}
+          setPriceMax={setPriceMax}
+        />
       </div>
       <MasonrySection />
       {/* <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4 shadow-xl shadow-gray-200"> */}
-      <div className="h-16 flex flex-col-reverse md:flex-row justify-between items-center mx-8 mt-16 mb-4 gap-2 md:gap-0 md:mb-0 md:mt-2 px-4">
-        <p className="text-blue-800 font-bold md:mb-0">AUTOS EN PROMOCION</p>
+      <div className="md:h-24 flex flex-col-reverse md:flex-row justify-between items-center mx-8 mt-16 mb-4 gap-2 md:gap-0 md:mb-0 md:mt-2 px-4">
+        <p className="text-blue-800 font-bold md:mb-0 text-center md:text-left text-md sm:text-lg md:mt-8">
+          AUTOS EN PROMOCION
+        </p>
         {/* <div className="flex items-center relative w-fit">
           <SignInput
             style={"mb-0"}
@@ -137,8 +160,15 @@ const Landing = () => {
           />
         </div> */}
       </div>
-      <div className="w-full px-8 mt-8">
-        <PromotionCarCarousel search={search} />
+      <div className="w-full px-8">
+        <PromotionCarCarouselLanding
+          brand={brand}
+          auto={auto}
+          yearMin={yearMin}
+          yearMax={yearMax}
+          priceMin={priceMin}
+          priceMax={priceMax}
+        />
       </div>
       {/* <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4">
         <p className="text-blue-800 font-bold">AUTOS DESTACADOS</p>

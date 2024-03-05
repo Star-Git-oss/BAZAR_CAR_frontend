@@ -12,7 +12,7 @@ import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
-// import "./Calculate.scss";
+import "./Calculate.scss";
 
 const Calculate = () => {
   const [monto, setMonto] = useState(0);
@@ -72,13 +72,13 @@ const Calculate = () => {
   };
   return (
     <>
-      <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 shadow-lg left-1/2 md:left-[80%] md:-right-[10%] mt-[2px] md:mt-4 flex flex-col w-[400px] h-fit rounded-lg bg-white/[0.6] z-50 alert alert-light p-8 gap-2">
-        <h2 className="text-lg w-full text-center mb-2">
+      <div className="absolute -translate-x-1/2 -translate-y-1/2 top-[46%] shadow-lg left-1/2 sm:left-[75%] md:left-[80%] xs:-right-[10%] mt-[24px] xs2:mt-[20px] xs:mt-[28px] sm:mt-[4px] md:mt-[10px] flex flex-col max-w-[350px] md:max-w-[400px] w-11/12 h-fit rounded-lg bg-white/[0.6] z-50 alert alert-light px-2 xs:px-8 py-2 xs:py-4 gap-2">
+        <p className="text-sm md:text-md lg:text-lg w-full text-center mb-2">
           Cotización Plan Seminuevos
-        </h2>
-        <label htmlFor="monto">* Monto Total del Automóvil (MXN)</label>
+        </p>
+        <label htmlFor="monto" className="text-xs sm:text-sm md:text-md lg:text-lg">* Monto Total del Automóvil (MXN)</label>
         <input
-          className="outline-none border-[1px] border-gray-500 rounded-lg pl-2"
+          className="outline-none border-[1px] border-gray-500 rounded-lg text-xs md:text-md pl-2 h-6 lg:h-8"
           value={monto}
           onChange={(e) => setMonto(e.target.value)}
           type="number"
@@ -86,23 +86,23 @@ const Calculate = () => {
           min="0"
           step="1000"
         />
-        <label htmlFor="plazo">
+        <label htmlFor="plazo" className="text-xs sm:text-sm md:text-md flex flex-col sm:flex-row justify-between lg:text-lg">
           * Plazo del Crédito (meses){" "}
-          <select id="plazo">
+          <select id="plazo" className="w-full xs:w-auto border-[1px] border-gray-500 rounded-md text-xs md:text-md h-6 lg:h-8">
             <option value="12">12 meses</option>
             <option value="24">24 meses</option>
             <option value="36">36 meses</option>
             <option value="48">48 meses</option>
           </select>
         </label>
-        <h6>* Tasa Anual 19%</h6>
-        <h6>* Costo por apertura 3%</h6>
-        <div className="w-full flex gap-2">
-          <label htmlFor="enganche">* Porcentaje de Enganche (%)</label>
-          <input className="outline-none border-[1px] border-gray-500 rounded-lg pl-2" type="number" id="enganche" min="10" max="80" step="1" />
+        <h6 className="text-xs sm:text-sm md:text-md lg:text-lg">* Tasa Anual 19%</h6>
+        <h6 className="text-xs sm:text-sm md:text-md lg:text-lg">* Costo por apertura 3%</h6>
+        <div className="w-full flex flex-col xs:items-center xs:flex-row gap-2">
+          <label htmlFor="enganche" className="text-xs sm:text-sm md:text-md lg:text-lg">* Porcentaje de Enganche (%)</label>
+          <input className="outline-none border-[1px] border-gray-500 rounded-lg pl-2 text-xs md:text-md h-6 lg:h-8" type="number" id="enganche" min="10" max="80" step="1" />
         </div>
         <button
-          className="bg-blue-700 p-2 hover:bg-blue-500 transition-colors duration-300 ease-in-out rounded-md text-white my-2"
+          className="bg-blue-700 p-1 text-sm sm:text-lg hover:bg-blue-500 transition-colors duration-300 ease-in-out rounded-md text-white my-[1%]"
           // onclick="calcularPrestamo()"
           onClick={calcularPrestamo}
         >

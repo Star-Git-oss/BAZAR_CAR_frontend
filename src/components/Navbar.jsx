@@ -139,7 +139,7 @@ const Navbar = () => {
       >
         <img
           src="./Logo bazar 1.png"
-          className="w-[230px] h-[55px] cursor-pointer sm:mb-4 hover:scale-105 transition-all duration-300 hover:brightness-150"
+          className="w-[170px] h-[40px] xs:w-[200px] xs:h-[48px] md:w-[230px] md:h-[55px] cursor-pointer sm:mb-4 hover:scale-105 transition-all duration-300 hover:brightness-150"
           alt="logo"
           onClick={handleLogoLandingClick}
         />
@@ -155,32 +155,32 @@ const Navbar = () => {
             }`}></i> */}
           <FontAwesomeIcon
             icon={faTimes}
-            className={`h-10 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 cursor-pointer ${
+            className={`h-7 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 cursor-pointer ${
               menu ? "visible" : "invisible"
             }`}
             onClick={handleMenuClick}
           />
           {/* <MenuIcon
-            className={`h-10 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 cursor-pointer ${
+            className={`h-7 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 cursor-pointer ${
               menu ? "invisible" : "visible"
             }`}
             onClick={handleMenuClick}
           /> */}
-          {/* <i className={`fa-solid fa-bars h-10 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 cursor-pointer ${
+          {/* <i className={`fa-solid fa-bars h-7 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 cursor-pointer ${
               menu ? "invisible" : "visible"
             }`}></i> */}
           <FontAwesomeIcon
             icon={faBars}
-            className={`h-10 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 cursor-pointer ${
+            className={`h-7 absolute -translate-x-1/2 -translate-y-1/2 top-1/2 cursor-pointer ${
               menu ? "invisible" : "visible"
             }`}
             onClick={handleMenuClick}
           />
         </div>
         <div
-          className={`absolute right-0 drop-shadow-xl ${
+          className={`absolute right-0 drop-shadow-xl scale-75 sm:scale-100 ${
             menu ? "" : "translate-x-96"
-          } top-20 sm:top-24 transition transform ease-in-out  gap-3 delay-200 bg-white p-8 rounded-b-xl md:rounded-none md:p-0 md:bg-inherit md:relative flex flex-col md:flex-row md:w-4/5 w-fit md:justify-evenly items-center md:contents`}
+          } top-4 -right-10 sm:right-0 sm:top-24 transition transform ease-in-out  gap-3 delay-200 bg-white p-8 rounded-b-xl md:rounded-none md:p-0 md:bg-inherit md:relative flex flex-col md:flex-row md:w-4/5 w-fit md:justify-evenly items-center md:contents`}
         >
           <div className="nav-btn w-[100px] h-[100px] cursor-pointer navbutton flex justify-center items-center">
             <img
@@ -220,7 +220,8 @@ const Navbar = () => {
             >
               Solicitud de presupuesto.
             </button> */}
-            <div className="w-full h-full flex flex-col md:flex-row gap-4">
+
+            {/* <div className="w-full h-full flex flex-col md:flex-row gap-4">
               <button
                 className="w-full h-[40px] ml-[6px] bg-red-800 hover:bg-red-600 text-sm rounded-md text-white transition-colors duration-300 ease-in-out"
                 onClick={handleVehicleClick}
@@ -233,7 +234,8 @@ const Navbar = () => {
               >
                 Cargar logotipo.
               </button>
-            </div>
+            </div> */}
+            
             {/* <img
               src="./Boton-Whatsapp.png"
               className="w-[200px] h-[60px] hover:opacity-90 transition-colors duration-300 ease-in-out cursor-pointer"
