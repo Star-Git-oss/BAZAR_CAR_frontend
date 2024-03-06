@@ -13,6 +13,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { vehicleOpen } from "../action/vehicle";
 import Footer from "../components/Footer";
+import { FloatingWhatsApp } from "react-floating-whatsapp";
 
 const Garantia = () => {
   const responsive = {
@@ -152,6 +153,16 @@ const Garantia = () => {
   return (
     <>
       <Navbar />
+      <FloatingWhatsApp
+        accountName={"52 1 5616002085"}
+        darkMode={true}
+        allowEsc={true}
+        avatar="./highLightTitle.png"
+        statusMessage="Bienvenido a nuestro servicio."
+        chatMessage="Hola, ¿en qué puedo ayudarle?"
+        phoneNumber={"52 1 5616002085"}
+        onSubmit={(event, formValue) => clickSubmit(event, formValue)}
+      />
       <ToastContainer
         position="bottom-right"
         autoClose={5000}

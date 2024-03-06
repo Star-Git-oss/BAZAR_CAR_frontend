@@ -12,6 +12,7 @@ import FooterSmall from "../components/FooterSmall";
 import FeaturedCarCarousel from "../components/FeaturedCarCarousel";
 import { RequestTabs } from "../components/RequestTabs";
 import "../components/Tab.scss";
+import { FloatingWhatsApp } from "react-floating-whatsapp";
 
 const Contizadores = () => {
   const navigate = useNavigate();
@@ -25,6 +26,16 @@ const Contizadores = () => {
   return (
     <div className="min-h-screen relative bg-gray-100 h-fit">
       <Navbar />
+      <FloatingWhatsApp
+        accountName={"52 1 5616002085"}
+        darkMode={true}
+        allowEsc={true}
+        avatar="./highLightTitle.png"
+        statusMessage="Bienvenido a nuestro servicio."
+        chatMessage="Hola, ¿en qué puedo ayudarle?"
+        phoneNumber={"52 1 5616002085"}
+        onSubmit={(event, formValue) => clickSubmit(event, formValue)}
+      />
       <div className="bg-gray-100 w-full h-full md:p-4 lg:p-8 flex justify-center">
         <div className="w-11/12 sm:w-5/6 md:w-4/5">
           <div className="bg-inherit w-full h-36 sm:h-36 md:h-36" />

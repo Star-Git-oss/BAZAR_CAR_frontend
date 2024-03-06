@@ -4,6 +4,7 @@ import "../components/slick/styles.css";
 import NavSmall from "../components/NavSmall";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FloatingWhatsApp } from "react-floating-whatsapp";
 
 const Renta = () => {
   const src = ["./inicio1.png", "./inicio2.png", "./inicio3.png"];
@@ -23,6 +24,16 @@ const Renta = () => {
   return (
     <>
       <NavSmall />
+      <FloatingWhatsApp
+        accountName={"52 1 5616002085"}
+        darkMode={true}
+        allowEsc={true}
+        avatar="./highLightTitle.png"
+        statusMessage="Bienvenido a nuestro servicio."
+        chatMessage="Hola, ¿en qué puedo ayudarle?"
+        phoneNumber={"52 1 5616002085"}
+        onSubmit={(event, formValue) => clickSubmit(event, formValue)}
+      />
       <div className="bg-white w-5/6 h-32"></div>
       <div className="flex flex-col md:flex-row h-fit md:h-[600px] justify-between gap-12 md:gap-0 m-12">
         <div className="w-full md:w-1/3 flex flex-col gap-4 justify-evenly items-center">

@@ -7,6 +7,7 @@ import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CircularProgress from "@mui/joy/CircularProgress";
+import { FloatingWhatsApp } from "react-floating-whatsapp";
 
 const Logo = () => {
   const navigate = useNavigate();
@@ -111,6 +112,16 @@ const Logo = () => {
 
   return (
     <div className="bg-[url('./wallpaper.png')] w-full min-h-screen bg-cover bg-center bg-no-repeat flex justify-center items-center">
+      <FloatingWhatsApp
+        accountName={"52 1 5616002085"}
+        darkMode={true}
+        allowEsc={true}
+        avatar="./highLightTitle.png"
+        statusMessage="Bienvenido a nuestro servicio."
+        chatMessage="Hola, ¿en qué puedo ayudarle?"
+        phoneNumber={"52 1 5616002085"}
+        onSubmit={(event, formValue) => clickSubmit(event, formValue)}
+      />
       <ToastContainer
         position="bottom-right"
         autoClose={5000}
@@ -142,101 +153,6 @@ const Logo = () => {
             className="w-[50px] h-[50px] ml-8 lg:ml-0 hidden lg:block"
           /> */}
           <div className="gap-4 w-10/12 lg:mr-14">
-            {/* <SignInput
-              label={"Marca de auto"}
-              type={"secondary"}
-              value={brand}
-              onChange={setBrand}
-            />
-            <SignInput
-              x={true}
-              label={"Año del auto"}
-              type={"secondary"}
-              value={year}
-              onChange={setYear}
-            />
-            <SignInput
-              x={true}
-              label={"Version del auto"}
-              type={"secondary"}
-              value={version}
-              onChange={setVirsion}
-            />
-            <SignInput
-              x={true}
-              label={"Kilometraje"}
-              type={"secondary"}
-              value={mileage}
-              onChange={setMileage}
-            />
-            <SignInput
-              x={true}
-              label={"Transmisíon "}
-              type={"secondary"}
-              value={transmission}
-              onChange={setTransmission}
-            />
-            <SignInput
-              x={true}
-              label={"WhatsApp de contacto"}
-              type={"secondary"}
-              value={whatsApp}
-              onChange={setWhatsApp}
-            />
-            <SignInput
-              x={true}
-              label={"Precio "}
-              type={"secondary"}
-              value={price}
-              onChange={setPrice}
-            />
-            <div className="flex flex-col w-full md:w-[300px] mb-4 h-fit md:h-20 md:mb-0 lg:ml-4">
-              <p className="text-sm w-full text-blue-800 h-10">
-                <span className="font-bold">X</span> Forma de pago
-              </p>
-              <label className="w-full flex justify-start container">
-                <input
-                  type="radio"
-                  name="radio"
-                  value="cash"
-                  multiple
-                  checked={payMethod === "cash"}
-                  onChange={handleMethodChange}
-                />
-                <span className="font-bold ml-2">X</span> Contado
-              </label>
-              <label className="w-full flex justify-start container">
-                <input
-                  type="radio"
-                  name="radio"
-                  value="finance"
-                  checked={payMethod === "finance"}
-                  onChange={handleMethodChange}
-                />
-                <span className="font-bold ml-2">X</span> Financiamiento
-              </label>
-              <p className="text-blue-900 font-bold mt-4 z-0 w-full md:w-2/3 lg:w-3/4 text-center lg:text-left">
-                Al selecionar venta en sistema de financiamiento aceptas
-                <span className="text-blue-500 cursor-pointer z-10">
-                  {" "}
-                  Terminos y Condiciones
-                </span>
-              </p>
-            </div> */}
-            {/* <div className="lg:ml-4 col-span-4 md:mt-2">
-              <p className="w-full text-left xl:text-2xl lg:text-xl text-blue-900 font-bold">
-                Informaciondel vehículo
-              </p>
-              <p className="w-full text-left text-md text-blue-800">
-                Completa todos los datos.
-              </p>
-            </div>
-            <textarea
-              className="col-span-4 w-full h-80 p-4 bg-gray-300 mt-4 lg:ml-4"
-              maxLength={"5000"}
-              value={logoInfo}
-              onChange={(e) => setLogoInfo(e.target.value)}
-            /> */}
             <div className="col-span-3 border-gray-600 border-[1px] p-4 lg:ml-4 md:mr-0 mb-4">
               <div className="ml-4 col-span-4">
                 <p className="w-full text-left xl:text-2xl lg:text-xl text-blue-900 font-bold">

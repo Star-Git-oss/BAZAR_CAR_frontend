@@ -14,6 +14,7 @@ import FooterSmall from "../components/FooterSmall";
 import { useDispatch } from "react-redux";
 import { vehicleGroupOpen } from "../action/vehicle";
 import { UPLOAD_URI } from "../utils/api";
+import { FloatingWhatsApp } from "react-floating-whatsapp";
 
 const ViewPort = () => {
   const navigate = useNavigate();
@@ -88,6 +89,16 @@ const ViewPort = () => {
   return (
     <>
       <NavSmall />
+      <FloatingWhatsApp
+        accountName={"52 1 5616002085"}
+        darkMode={true}
+        allowEsc={true}
+        avatar="./highLightTitle.png"
+        statusMessage="Bienvenido a nuestro servicio."
+        chatMessage="Hola, ¿en qué puedo ayudarle?"
+        phoneNumber={"52 1 5616002085"}
+        onSubmit={(event, formValue) => clickSubmit(event, formValue)}
+      />
       <div className="bg-white w-5/6 h-32"></div>
       <div className="flex md:flex-row flex-col justify-between h-full+ w-full gap-8 p-8">
         <div className="w-full md:w-1/2">

@@ -2,9 +2,14 @@ import { useEffect, useState } from "react";
 import Cell from "../components/Cell";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { checkSubscription, createCustomer, createSubscription } from "../action/stripe";
+import {
+  checkSubscription,
+  createCustomer,
+  createSubscription,
+} from "../action/stripe";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FloatingWhatsApp } from "react-floating-whatsapp";
 
 const System = () => {
   const [email, setEmail] = useState();
@@ -73,6 +78,16 @@ const System = () => {
   };
   return (
     <>
+      <FloatingWhatsApp
+        accountName={"52 1 5616002085"}
+        darkMode={true}
+        allowEsc={true}
+        avatar="./highLightTitle.png"
+        statusMessage="Bienvenido a nuestro servicio."
+        chatMessage="Hola, ¿en qué puedo ayudarle?"
+        phoneNumber={"52 1 5616002085"}
+        onSubmit={(event, formValue) => clickSubmit(event, formValue)}
+      />
       <ToastContainer
         position="bottom-right"
         autoClose={5000}
