@@ -98,7 +98,7 @@ const Landing = () => {
   return (
     <>
       <Navbar />
-      <div className="bg-white w-5/6 h-20 md:h-28"></div>
+      <div className="bg-white w-5/6 h-20 md:h-28 relative"></div>
       <ToastContainer
         position="bottom-right"
         autoClose={5000}
@@ -122,10 +122,7 @@ const Landing = () => {
         phoneNumber={"52 1 5616002085"}
         onSubmit={(event, formValue) => clickSubmit(event, formValue)}
       />
-      <div className="w-full relative">
-        <PreownedCarousel />
-        {/* <Calculate /> */}
-        <SearchBox
+      <SearchBox
           brand={brand}
           setBrand={setBrand}
           auto={auto}
@@ -139,6 +136,10 @@ const Landing = () => {
           priceMax={priceMax}
           setPriceMax={setPriceMax}
         />
+      <div className="w-full">
+        <PreownedCarousel />
+        {/* <Calculate /> */}
+        
       </div>
       <MasonrySection />
       {/* <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4 shadow-xl shadow-gray-200"> */}

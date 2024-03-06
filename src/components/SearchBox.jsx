@@ -1,9 +1,10 @@
 import "react-multi-carousel/lib/styles.css";
 import "../components/slick/styles.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import CustomAriaLive from "./CustomAriaLive";
 
 const SearchBox = ({
   brand,
@@ -20,8 +21,28 @@ const SearchBox = ({
   setPriceMax,
 }) => {
   const yearList = [
-    "2024", "2023", "2022", "2021", "2020", "2019", "2017", "2016", "2015", "2014", "2013", "2012",
-    "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002",
+    "2024",
+    "2023",
+    "2022",
+    "2021",
+    "2020",
+    "2019",
+    "2017",
+    "2016",
+    "2015",
+    "2014",
+    "2013",
+    "2012",
+    "2011",
+    "2010",
+    "2009",
+    "2008",
+    "2007",
+    "2006",
+    "2005",
+    "2004",
+    "2003",
+    "2002",
   ];
   const brandList = [
     "Toyota",
@@ -83,6 +104,8 @@ const SearchBox = ({
     "< $90,000",
   ];
 
+  useEffect(() => {}, []);
+
   const [autoListShow, setAutoListShow] = useState(false);
   const [brandListShow, setBrandListShow] = useState(false);
   const [yearListMinShow, setYearMinListShow] = useState(false);
@@ -91,55 +114,112 @@ const SearchBox = ({
   const [priceListMaxShow, setPriceMaxListShow] = useState(false);
   const handleBuscarClick = () => {};
 
+  useEffect(() => {
+    console.log(autoListShow,
+      brandListShow,
+      yearListMinShow,
+      yearListMaxShow,
+      priceListMinShow,
+      priceListMaxShow,);
+  }, [
+    autoListShow,
+    brandListShow,
+    yearListMinShow,
+    yearListMaxShow,
+    priceListMinShow,
+    priceListMaxShow,
+  ]);
+
   const handleClickAutoShow = (value) => {
-    setAutoListShow((prev) => !prev);
-    console.log("setAutoListShow");
+    setAutoListShow(prev => !prev);
+    setBrandListShow(false);
+    setYearMinListShow(false);
+    setYearMaxListShow(false);
+    setPriceMinListShow(false);
+    setPriceMaxListShow(false);
   };
   const handleClickAuto = (value) => {
     setAutoListShow(false);
     setAuto(value);
   };
   const handleClickBrandShow = (value) => {
-    setBrandListShow((prev) => !prev);
+    setBrandListShow(prev => !prev);
+    setAutoListShow(false);
+    setYearMinListShow(false);
+    setYearMaxListShow(false);
+    setPriceMinListShow(false);
+    setPriceMaxListShow(false);
   };
   const handleClickBrand = (value) => {
     setBrandListShow(false);
     setBrand(value);
   };
   const handleYearMinShow = () => {
-    setYearMinListShow((prev) => !prev);
+    setYearMinListShow(prev => !prev);
+    setAutoListShow(false);
+    setBrandListShow(false);
+    setYearMaxListShow(false);
+    setPriceMinListShow(false);
+    setPriceMaxListShow(false);
   };
   const handleClickYearMin = (value) => {
     setYearMinListShow(false);
     setYearMin(value);
   };
   const handleYearMaxShow = () => {
-    setYearMaxListShow((prev) => !prev);
+    setYearMaxListShow(prev => !prev);
+    setAutoListShow(false);
+    setBrandListShow(false);
+    setYearMinListShow(false);
+    setPriceMinListShow(false);
+    setPriceMaxListShow(false);
   };
   const handleClickYearMax = (value) => {
     setYearMaxListShow(false);
     setYearMax(value);
   };
   const handlePriceMinShow = () => {
-    setPriceMinListShow((prev) => !prev);
+    setPriceMinListShow(prev => !prev);
+    setAutoListShow(false);
+    setBrandListShow(false);
+    setYearMinListShow(false);
+    setYearMaxListShow(false);
+    setPriceMaxListShow(false);
   };
   const handleClickPriceMin = (value) => {
     setPriceMinListShow(false);
     setPriceMin(value);
   };
   const handlePriceMaxShow = () => {
-    setPriceMaxListShow((prev) => !prev);
+    setPriceMaxListShow(prev => !prev);
+    setPriceMinListShow(false);
+    setAutoListShow(false);
+    setBrandListShow(false);
+    setYearMinListShow(false);
+    setYearMaxListShow(false);
   };
   const handleClickPriceMax = (value) => {
     setPriceMaxListShow(false);
     setPriceMax(value);
   };
+  const handleMouseLeave = () => {
+    setAutoListShow(false);
+    setBrandListShow(false);
+    setYearMinListShow(false);
+    setYearMaxListShow(false);
+    setPriceMinListShow(false);
+    setPriceMaxListShow(false);
+  };
+
   return (
     <>
-      <div className="absolute -translate-x-1/2 -translate-y-1/2 top-[46%] shadow-lg -right-[20%] xs:-right-[50px] sm:ml-[60px] md:ml-[80px] lg:ml-[100px] mt-[24px] xs2:mt-[20px] xs:mt-[28px] sm:mt-[4px] md:mt-[10px] max-w-[250px] md:max-w-[320px] w-11/12 h-fit rounded-lg bg-white/[0.8] z-50 alert alert-light px-2 xs:px-8 py-2 xs:py-4 border-blue-700 border-2 flex flex-col gap-2">
-        <>
-          {/* <input
-          className="outline-none border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16 col-span-2"
+      <div className="w-screen h-screen absolute top-[62%] right-2 xs2:right-10 xs:right-20 md:top-[65%] md:right-36 z-50 flex justify-end -translate-y-1/2">
+        <div className="w-screen h-screen top-0 left-0" onClick={handleMouseLeave}></div>
+        <div className=" sm:ml-[60px] md:ml-[80px] relative lg:ml-[100px] mt-[24px] xs2:mt-[20px] xs:mt-[28px] sm:mt-[4px] md:mt-[10px] max-w-[250px] md:max-w-[320px] w-11/12 h-fit rounded-lg bg-white/[0.8] z-50 alert alert-light px-2 xs:px-8 py-2 xs:py-4 border-blue-700 border-2 flex flex-col gap-2">
+          <div className="w-screen h-screen -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 absolute" onClick={handleMouseLeave}></div>
+          <>
+            {/* <input
+          className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16 col-span-2"
           type="text"
           id="monto"
           min="0"
@@ -148,8 +228,8 @@ const SearchBox = ({
           value={auto}
           onChange={(e) => setAuto(e.target.value)}
         /> */}
-          {/* <select
-          className="outline-none border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16 col-span-2"
+            {/* <select
+          className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16 col-span-2"
           value={auto}
           onChange={(e) => setAuto(e.target.value)}
         >
@@ -160,29 +240,38 @@ const SearchBox = ({
           <option value={"Otros"}>Otros</option>
           <option value={"Maquinarias"}>Maquinarias</option>
         </select> */}
-        </>
-        <div className="outline-none border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
-          <label className="w-full pl-2" onClick={handleClickAutoShow}>{auto}</label>
-          <FontAwesomeIcon icon={faAngleDown} />
+          </>
+          {/* <CustomAriaLive options={autosList} /> */}
           <div
-            className={`absolute h-24 top-8 shadow-xl bg-white w-full rounded-lg overflow-scroll border-[1px] border-gray-300 z-50 ${
-              autoListShow ? "block" : "hidden"
-            }`}
+            className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative"
+            // onMouseLeave={handleMouseLeave}
           >
-            {autosList.map((item) => (
-              <p
-                key={item}
-                className="w-full h-8 border-b-[1px] border-gray-600 bg-white z-50 cursor-pointer"
-                onClick={() => handleClickAuto(item)}
-              >
-                {item}
-              </p>
-            ))}
+            <label
+              className="w-full cursor-pointer pl-2"
+              onClick={handleClickAutoShow}
+            >
+              {auto}
+            </label>
+            <FontAwesomeIcon icon={faAngleDown} />
+            <div
+              className={`absolute cursor-pointer h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
+                autoListShow ? "block" : "hidden"
+              }`}
+            >
+              {autosList.map((item) => (
+                <p
+                  key={item}
+                  className="w-full pl-2 h-8 border-t-[1px] border-gray-300 flex items-center bg-white hover:bg-blue-200 z-50 cursor-pointer"
+                  onClick={() => handleClickAuto(item)}
+                >
+                  {item}
+                </p>
+              ))}
+            </div>
           </div>
-        </div>
-        <>
-          {/* <input
-          className="outline-none border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16 col-span-2"
+          <>
+            {/* <input
+          className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16 col-span-2"
           type="text"
           id="monto"
           min="0"
@@ -191,8 +280,8 @@ const SearchBox = ({
           value={brand}
           onChange={(e) => setBrand(e.target.value)}
         /> */}
-          {/* <select
-          className="outline-none border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16 col-span-2 mt-[3%]"
+            {/* <select
+          className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16 col-span-2 mt-[3%]"
           value={brand}
           id="brand"
           onChange={(e) => setBrand(e.target.value)}
@@ -237,29 +326,34 @@ const SearchBox = ({
           <option value={"Aston Martin"}>Aston Martin</option>
           <option value={"Bentley"}>Bentley</option>
         </select> */}
-        </>
-        <div className="outline-none border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
-          <label className="w-full pl-2" onClick={handleClickBrandShow}>{brand}</label>
-          <FontAwesomeIcon icon={faAngleDown} />
-          <div
-            className={`absolute h-24 top-8 shadow-xl bg-white w-full rounded-lg overflow-scroll border-[1px] border-gray-300 z-50 ${
-              brandListShow ? "block" : "hidden"
-            }`}
-          >
-            {brandList.map((item) => (
-              <p
-                key={item}
-                className="w-full h-8 border-b-[1px] border-gray-600 bg-white z-50 cursor-pointer"
-                onClick={() => handleClickBrand(item)}
-              >
-                {item}
-              </p>
-            ))}
+          </>
+          <div className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
+            <label
+              className="w-full cursor-pointer pl-2"
+              onClick={handleClickBrandShow}
+            >
+              {brand}
+            </label>
+            <FontAwesomeIcon icon={faAngleDown} />
+            <div
+              className={`absolute cursor-pointer h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
+                brandListShow ? "block" : "hidden"
+              }`}
+            >
+              {brandList.map((item) => (
+                <p
+                  key={item}
+                  className="w-full pl-2 h-8 border-t-[1px] border-gray-300 flex items-center bg-white hover:bg-blue-200 z-50 cursor-pointer"
+                  onClick={() => handleClickBrand(item)}
+                >
+                  {item}
+                </p>
+              ))}
+            </div>
           </div>
-        </div>
-        <>
-          {/* <input
-          className="outline-none border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16"
+          <>
+            {/* <input
+          className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16"
           type="text"
           id="monto"
           min="0"
@@ -268,8 +362,8 @@ const SearchBox = ({
           value={yearMin}
           onChange={(e) => setYearMin(e.target.value)}
         /> */}
-          {/* <select
-          className="outline-none border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16 mt-[6%]"
+            {/* <select
+          className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16 mt-[6%]"
           value={yearMin}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
           onChange={(e) => setYearMin(e.target.value)}
         >
@@ -296,29 +390,34 @@ const SearchBox = ({
           <option value={"2003"}>2003</option>
           <option value={"2002"}>2002</option>
         </select> */}
-        </>
-        <div className="outline-none border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
-          <label className="w-full pl-2 " onClick={handleYearMinShow}>{yearMin}</label>
-          <FontAwesomeIcon icon={faAngleDown} />
-          <div
-            className={`absolute h-24 top-8 shadow-xl bg-white w-full rounded-lg overflow-scroll border-[1px] border-gray-300 z-50 ${
-              yearListMinShow ? "block" : "hidden"
-            }`}
-          >
-            {yearList.map((item) => (
-              <p
-                key={item}
-                className="w-full h-8 border-b-[1px] border-gray-600 bg-white z-50 cursor-pointer"
-                onClick={() => handleClickYearMin(item)}
-              >
-                {item}
-              </p>
-            ))}
+          </>
+          <div className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
+            <label
+              className="w-full cursor-pointer pl-2 "
+              onClick={handleYearMinShow}
+            >
+              {yearMin}
+            </label>
+            <FontAwesomeIcon icon={faAngleDown} />
+            <div
+              className={`absolute cursor-pointer h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
+                yearListMinShow ? "block" : "hidden"
+              }`}
+            >
+              {yearList.map((item) => (
+                <p
+                  key={item}
+                  className="w-full pl-2 h-8 border-t-[1px] border-gray-300 flex items-center bg-white hover:bg-blue-200 z-50 cursor-pointer"
+                  onClick={() => handleClickYearMin(item)}
+                >
+                  {item}
+                </p>
+              ))}
+            </div>
           </div>
-        </div>
-        <>
-          {/* <input
-          className="outline-none border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16"
+          <>
+            {/* <input
+          className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16"
           type="text"
           id="monto"
           min="0"
@@ -327,8 +426,8 @@ const SearchBox = ({
           value={yearMax}
           onChange={(e) => setYearMax(e.target.value)}
         /> */}
-          {/* <select
-          className="outline-none border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16 mt-[6%]"
+            {/* <select
+          className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16 mt-[6%]"
           value={yearMax}
           onChange={(e) => setYearMax(e.target.value)}
         >
@@ -355,29 +454,34 @@ const SearchBox = ({
           <option value={"2003"}>2003</option>
           <option value={"2002"}>2002</option>
         </select> */}
-        </>
-        <div className="outline-none border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
-          <label className="w-full pl-2" onClick={handleYearMaxShow}>{yearMax}</label>
-          <FontAwesomeIcon icon={faAngleDown} />
-          <div
-            className={`absolute h-24 top-8 shadow-xl bg-white w-full rounded-lg overflow-scroll border-[1px] border-gray-300 z-50 ${
-              yearListMaxShow ? "block" : "hidden"
-            }`}
-          >
-            {yearList.map((item) => (
-              <p
-                key={item}
-                className="w-full h-8 border-b-[1px] border-gray-600 bg-white z-50 cursor-pointer"
-                onClick={() => handleClickYearMax(item)}
-              >
-                {item}
-              </p>
-            ))}
+          </>
+          <div className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
+            <label
+              className="w-full cursor-pointer pl-2"
+              onClick={handleYearMaxShow}
+            >
+              {yearMax}
+            </label>
+            <FontAwesomeIcon icon={faAngleDown} />
+            <div
+              className={`absolute cursor-pointer h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
+                yearListMaxShow ? "block" : "hidden"
+              }`}
+            >
+              {yearList.map((item) => (
+                <p
+                  key={item}
+                  className="w-full pl-2 h-8 border-t-[1px] border-gray-300 flex items-center bg-white hover:bg-blue-200 z-50 cursor-pointer"
+                  onClick={() => handleClickYearMax(item)}
+                >
+                  {item}
+                </p>
+              ))}
+            </div>
           </div>
-        </div>
-        <>
-          {/* <input
-          className="outline-none border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16"
+          <>
+            {/* <input
+          className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16"
           type="text"
           id="monto"
           min="0"
@@ -386,8 +490,8 @@ const SearchBox = ({
           value={priceMin}
           onChange={(e) => setPriceMin(e.target.value)}
         /> */}
-          {/* <select
-          className="outline-none border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16 mt-[6%]"
+            {/* <select
+          className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16 mt-[6%]"
           value={priceMin}
           onChange={(e) => setPriceMin(e.target.value)}
         >
@@ -395,29 +499,34 @@ const SearchBox = ({
           <option value={"Sin precio mínimo"}>Sin precio mínimo</option>
           <option value={"$50,000"}>$50,000</option>
         </select> */}
-        </>
-        <div className="outline-none border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
-          <label className="w-full pl-2" onClick={handlePriceMinShow}>{priceMin}</label>
-          <FontAwesomeIcon icon={faAngleDown} />
-          <div
-            className={`absolute h-24 top-8 shadow-xl bg-white w-full rounded-lg overflow-scroll border-[1px] border-gray-300 z-50 ${
-              priceListMinShow ? "block" : "hidden"
-            }`}
-          >
-            {minPriceList.map((item) => (
-              <p
-                key={item}
-                className="w-full h-8 border-b-[1px] border-gray-600 bg-white z-50 cursor-pointer"
-                onClick={() => handleClickPriceMin(item)}
-              >
-                {item}
-              </p>
-            ))}
+          </>
+          <div className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
+            <label
+              className="w-full cursor-pointer pl-2"
+              onClick={handlePriceMinShow}
+            >
+              {priceMin}
+            </label>
+            <FontAwesomeIcon icon={faAngleDown} />
+            <div
+              className={`absolute cursor-pointer h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
+                priceListMinShow ? "block" : "hidden"
+              }`}
+            >
+              {minPriceList.map((item) => (
+                <p
+                  key={item}
+                  className="w-full pl-2 h-8 border-t-[1px] border-gray-300 flex items-center bg-white hover:bg-blue-200 z-50 cursor-pointer"
+                  onClick={() => handleClickPriceMin(item)}
+                >
+                  {item}
+                </p>
+              ))}
+            </div>
           </div>
-        </div>
-        <>
-          {/* <input
-          className="outline-none border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16"
+          <>
+            {/* <input
+          className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16"
           type="text"
           id="monto"
           min="0"
@@ -426,8 +535,8 @@ const SearchBox = ({
           value={priceMax}
           onChange={(e) => setPriceMax(e.target.value)}
         /> */}
-          {/* <select
-          className="outline-none border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16 mt-[6%]"
+            {/* <select
+          className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16 mt-[6%]"
           value={priceMax}
           onChange={(e) => setPriceMax(e.target.value)}
         >
@@ -439,32 +548,38 @@ const SearchBox = ({
           <option value={"$90,000"}>$90,000</option>
           <option value={"&lt; $90,000"}>&lt; $90,000</option>
         </select> */}
-        </>
-        <div className="outline-none border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
-          <label className="w-full pl-2" onClick={handlePriceMaxShow}>{priceMax}</label>
-          <FontAwesomeIcon icon={faAngleDown} />
-          <div
-            className={`absolute h-24 top-8 shadow-xl bg-white w-full rounded-lg overflow-scroll border-[1px] border-gray-300 z-50 ${
-              priceListMaxShow ? "block" : "hidden"
-            }`}
-          >
-            {maxPriceList.map((item) => (
-              <p
-                key={item}
-                className="w-full h-8 border-b-[1px] border-gray-600 bg-white z-50 cursor-pointer"
-                onClick={() => handleClickPriceMax(item)}
-              >
-                {item}
-              </p>
-            ))}
+          </>
+          <div className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
+            <label
+              className="w-full cursor-pointer pl-2"
+              onClick={handlePriceMaxShow}
+            >
+              {priceMax}
+            </label>
+            <FontAwesomeIcon icon={faAngleDown} />
+            <div
+              className={`absolute cursor-pointer h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
+                priceListMaxShow ? "block" : "hidden"
+              }`}
+            >
+              {maxPriceList.map((item) => (
+                <p
+                  key={item}
+                  className="w-full pl-2 h-8 border-t-[1px] border-gray-300 flex items-center bg-white hover:bg-blue-200 z-50 cursor-pointer"
+                  onClick={() => handleClickPriceMax(item)}
+                >
+                  {item}
+                </p>
+              ))}
+            </div>
           </div>
+          <button
+            className="w-full h-[40px] bg-blue-700 rounded-full text-white hover:bg-blue-500 transition-colors duration-300 ease-in-out col-span-2 mt-[10%]"
+            onClick={handleBuscarClick}
+          >
+            BUSCAR
+          </button>
         </div>
-        <button
-          className="w-full h-[40px] bg-blue-700 rounded-full text-white hover:bg-blue-500 transition-colors duration-300 ease-in-out col-span-2 mt-[10%]"
-          onClick={handleBuscarClick}
-        >
-          BUSCAR
-        </button>
       </div>
     </>
   );
