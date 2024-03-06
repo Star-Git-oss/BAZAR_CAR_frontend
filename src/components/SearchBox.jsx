@@ -125,14 +125,14 @@ const SearchBox = ({
   };
   const handleClickPriceMin = (value) => {
     setPriceMinListShow(false);
-    // setPriceMin(value);
+    setPriceMin(value);
   };
   const handlePriceMaxShow = () => {
     setPriceMaxListShow((prev) => !prev);
   };
   const handleClickPriceMax = (value) => {
     setPriceMaxListShow(false);
-    // setPriceMax(value);
+    setPriceMax(value);
   };
   return (
     <>
@@ -172,7 +172,7 @@ const SearchBox = ({
             {autosList.map((item) => (
               <p
                 key={item}
-                className="w-full h-8 border-b-[1px] border-gray-600 bg-white z-50"
+                className="w-full h-8 border-b-[1px] border-gray-600 bg-white z-50 cursor-pointer"
                 onClick={() => handleClickAuto(item)}
               >
                 {item}
@@ -249,7 +249,7 @@ const SearchBox = ({
             {brandList.map((item) => (
               <p
                 key={item}
-                className="w-full h-8 border-b-[1px] border-gray-600 bg-white z-50"
+                className="w-full h-8 border-b-[1px] border-gray-600 bg-white z-50 cursor-pointer"
                 onClick={() => handleClickBrand(item)}
               >
                 {item}
@@ -308,7 +308,7 @@ const SearchBox = ({
             {yearList.map((item) => (
               <p
                 key={item}
-                className="w-full h-8 border-b-[1px] border-gray-600 bg-white z-50"
+                className="w-full h-8 border-b-[1px] border-gray-600 bg-white z-50 cursor-pointer"
                 onClick={() => handleClickYearMin(item)}
               >
                 {item}
@@ -367,7 +367,7 @@ const SearchBox = ({
             {yearList.map((item) => (
               <p
                 key={item}
-                className="w-full h-8 border-b-[1px] border-gray-600 bg-white z-50"
+                className="w-full h-8 border-b-[1px] border-gray-600 bg-white z-50 cursor-pointer"
                 onClick={() => handleClickYearMax(item)}
               >
                 {item}
@@ -407,7 +407,7 @@ const SearchBox = ({
             {minPriceList.map((item) => (
               <p
                 key={item}
-                className="w-full h-8 border-b-[1px] border-gray-600 bg-white z-50"
+                className="w-full h-8 border-b-[1px] border-gray-600 bg-white z-50 cursor-pointer"
                 onClick={() => handleClickPriceMin(item)}
               >
                 {item}
@@ -451,7 +451,7 @@ const SearchBox = ({
             {maxPriceList.map((item) => (
               <p
                 key={item}
-                className="w-full h-8 border-b-[1px] border-gray-600 bg-white z-50"
+                className="w-full h-8 border-b-[1px] border-gray-600 bg-white z-50 cursor-pointer"
                 onClick={() => handleClickPriceMax(item)}
               >
                 {item}
