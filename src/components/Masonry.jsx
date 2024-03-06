@@ -121,7 +121,7 @@ function MasonrySection() {
         <div className="w-full h-auto md:h-[800px] md:flex gap-4 pr-4">
           <div className="w-full md:w-2/3 border bg-gray-300 border-blue-500 rounded-lg mt-1">
             <div className="w-full h-full p-4 flex flex-col justify-around">
-              <div className="w-full h-fit p-4 rounded-lg border-gray-400 border-[1px] mb-4 md:mb-0">
+              <div className="w-full h-fit p-4 rounded-lg border-gray-400 border-[1px] mb-4 md:mb-0" style={{zIndex:"2147483647"}}>
                 <Carousel
                   className="mb-6 pb-4 lg:h-96 md:h-88 sm:h-80 xs:h-72 xs2:h-64 h-56"
                   responsive={responsive1}
@@ -131,6 +131,7 @@ function MasonrySection() {
                   autoPlaySpeed={2500}
                   dotListClass="custom-dot-list-style"
                   slidesToSlide={1}
+                  style={{zIndex:"2147483647"}}
                 >
                   {data.map((item) => (
                     <SellCard

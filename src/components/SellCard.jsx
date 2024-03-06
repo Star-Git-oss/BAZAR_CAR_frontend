@@ -8,7 +8,7 @@ export default function SellCard({ src, title, price }) {
   };
   return (
     // <div>
-      <div className="w-full h-full">
+      <div className="w-full h-full z-50" style={{zIndex:"2147483647"}} onClick={() => console.log("237468237468274297")}>
         <div
           className="sellcard flex flex-col w-auto h-full relative overflow-hidden shadow-md hover:cursor-pointer"
           onClick={handleCardClick}

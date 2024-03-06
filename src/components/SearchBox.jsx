@@ -213,9 +213,9 @@ const SearchBox = ({
 
   return (
     <>
-      <div className="w-screen h-screen absolute top-[62%] right-2 xs2:right-10 xs:right-20 md:top-[65%] md:right-36 z-50 flex justify-end -translate-y-1/2">
-        <div className="w-screen h-screen top-0 left-0" onClick={handleMouseLeave}></div>
-        <div className=" sm:ml-[60px] md:ml-[80px] relative lg:ml-[100px] mt-[24px] xs2:mt-[20px] xs:mt-[28px] sm:mt-[4px] md:mt-[10px] max-w-[250px] md:max-w-[320px] w-11/12 h-fit rounded-lg bg-white/[0.8] z-50 alert alert-light px-2 xs:px-8 py-2 xs:py-4 border-blue-700 border-2 flex flex-col gap-2">
+      <div className="w-screen h-screen absolute top-[62%] right-2 xs2:right-10 xs:right-20 md:top-[65%] md:right-36 z-40 flex justify-end -translate-y-1/2">
+        <div className="w-screen h-screen top-0 left-0 z-40" onClick={handleMouseLeave}></div>
+        <div className=" sm:ml-[60px] md:ml-[80px] relative lg:ml-[100px] mt-[24px] xs2:mt-[20px] xs:mt-[28px] sm:mt-[4px] md:mt-[10px] max-w-[250px] md:max-w-[320px] w-11/12 h-fit rounded-lg bg-white/[0.8] z-40 alert alert-light px-2 xs:px-8 py-2 xs:py-4 border-blue-700 border-2 flex flex-col gap-2">
           <div className="w-screen h-screen -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 absolute" onClick={handleMouseLeave}></div>
           <>
             {/* <input
@@ -246,12 +246,12 @@ const SearchBox = ({
             className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative"
             // onMouseLeave={handleMouseLeave}
           >
-            <label
+            {autoListShow ? <input className="w-full h-full rounded-md px-2 outline-none" /> : <label
               className="w-full cursor-pointer pl-2"
               onClick={handleClickAutoShow}
             >
               {auto}
-            </label>
+            </label>}
             <FontAwesomeIcon icon={faAngleDown} />
             <div
               className={`absolute cursor-pointer h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
@@ -328,12 +328,12 @@ const SearchBox = ({
         </select> */}
           </>
           <div className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
-            <label
+            {brandListShow ? <input className="w-full h-full rounded-md px-2 outline-none" /> : <label
               className="w-full cursor-pointer pl-2"
               onClick={handleClickBrandShow}
             >
               {brand}
-            </label>
+            </label>}
             <FontAwesomeIcon icon={faAngleDown} />
             <div
               className={`absolute cursor-pointer h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
@@ -392,12 +392,12 @@ const SearchBox = ({
         </select> */}
           </>
           <div className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
-            <label
-              className="w-full cursor-pointer pl-2 "
+            {yearListMinShow ? <input className="w-full h-full rounded-md px-2 outline-none" /> : <label
+              className="w-full cursor-pointer pl-2"
               onClick={handleYearMinShow}
             >
               {yearMin}
-            </label>
+            </label>}
             <FontAwesomeIcon icon={faAngleDown} />
             <div
               className={`absolute cursor-pointer h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
@@ -456,12 +456,12 @@ const SearchBox = ({
         </select> */}
           </>
           <div className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
-            <label
+            {yearListMaxShow ? <input className="w-full h-full rounded-md px-2 outline-none" /> : <label
               className="w-full cursor-pointer pl-2"
               onClick={handleYearMaxShow}
             >
               {yearMax}
-            </label>
+            </label>}
             <FontAwesomeIcon icon={faAngleDown} />
             <div
               className={`absolute cursor-pointer h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
@@ -501,12 +501,12 @@ const SearchBox = ({
         </select> */}
           </>
           <div className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
-            <label
+            {priceListMinShow ? <input className="w-full h-full rounded-md px-2 outline-none" /> : <label
               className="w-full cursor-pointer pl-2"
               onClick={handlePriceMinShow}
             >
               {priceMin}
-            </label>
+            </label>}
             <FontAwesomeIcon icon={faAngleDown} />
             <div
               className={`absolute cursor-pointer h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
@@ -550,12 +550,12 @@ const SearchBox = ({
         </select> */}
           </>
           <div className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
-            <label
+            {priceListMaxShow ? <input className="w-full h-full rounded-md px-2 outline-none" /> : <label
               className="w-full cursor-pointer pl-2"
               onClick={handlePriceMaxShow}
             >
               {priceMax}
-            </label>
+            </label>}
             <FontAwesomeIcon icon={faAngleDown} />
             <div
               className={`absolute cursor-pointer h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
