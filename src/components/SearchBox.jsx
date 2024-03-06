@@ -19,6 +19,8 @@ const SearchBox = ({
   setPriceMin,
   priceMax,
   setPriceMax,
+  searchEvent,
+  setSearchEvent,
 }) => {
   const yearList = [
     "2024",
@@ -104,23 +106,29 @@ const SearchBox = ({
     "< $90,000",
   ];
 
-  useEffect(() => {}, []);
-
   const [autoListShow, setAutoListShow] = useState(false);
   const [brandListShow, setBrandListShow] = useState(false);
   const [yearListMinShow, setYearMinListShow] = useState(false);
   const [yearListMaxShow, setYearMaxListShow] = useState(false);
   const [priceListMinShow, setPriceMinListShow] = useState(false);
   const [priceListMaxShow, setPriceMaxListShow] = useState(false);
-  const handleBuscarClick = () => {};
+
+  const [autoListSearch, setAutoListSearch] = useState("");
+  const [brandListSearch, setBrandListSearch] = useState("");
+  const [yearListMinSearch, setYearMinListSearch] = useState("");
+  const [yearListMaxSearch, setYearMaxListSearch] = useState("");
+  const [priceListMinSearch, setPriceMinListSearch] = useState("");
+  const [priceListMaxSearch, setPriceMaxListSearch] = useState("");
 
   useEffect(() => {
-    console.log(autoListShow,
+    console.log(
+      autoListShow,
       brandListShow,
       yearListMinShow,
       yearListMaxShow,
       priceListMinShow,
-      priceListMaxShow,);
+      priceListMaxShow
+    );
   }, [
     autoListShow,
     brandListShow,
@@ -130,8 +138,11 @@ const SearchBox = ({
     priceListMaxShow,
   ]);
 
+  const handleBuscarClick = () => {
+    setSearchEvent(!searchEvent);
+  };
   const handleClickAutoShow = (value) => {
-    setAutoListShow(prev => !prev);
+    setAutoListShow((prev) => !prev);
     setBrandListShow(false);
     setYearMinListShow(false);
     setYearMaxListShow(false);
@@ -141,9 +152,11 @@ const SearchBox = ({
   const handleClickAuto = (value) => {
     setAutoListShow(false);
     setAuto(value);
+    setAutoListSearch("");
   };
   const handleClickBrandShow = (value) => {
-    setBrandListShow(prev => !prev);
+    console.log("handleClickBrandShow");
+    setBrandListShow((prev) => !prev);
     setAutoListShow(false);
     setYearMinListShow(false);
     setYearMaxListShow(false);
@@ -153,9 +166,10 @@ const SearchBox = ({
   const handleClickBrand = (value) => {
     setBrandListShow(false);
     setBrand(value);
+    setBrandListSearch("");
   };
   const handleYearMinShow = () => {
-    setYearMinListShow(prev => !prev);
+    setYearMinListShow((prev) => !prev);
     setAutoListShow(false);
     setBrandListShow(false);
     setYearMaxListShow(false);
@@ -165,9 +179,10 @@ const SearchBox = ({
   const handleClickYearMin = (value) => {
     setYearMinListShow(false);
     setYearMin(value);
+    setYearMinListSearch("");
   };
   const handleYearMaxShow = () => {
-    setYearMaxListShow(prev => !prev);
+    setYearMaxListShow((prev) => !prev);
     setAutoListShow(false);
     setBrandListShow(false);
     setYearMinListShow(false);
@@ -177,9 +192,10 @@ const SearchBox = ({
   const handleClickYearMax = (value) => {
     setYearMaxListShow(false);
     setYearMax(value);
+    setYearMaxListSearch("");
   };
   const handlePriceMinShow = () => {
-    setPriceMinListShow(prev => !prev);
+    setPriceMinListShow((prev) => !prev);
     setAutoListShow(false);
     setBrandListShow(false);
     setYearMinListShow(false);
@@ -189,9 +205,10 @@ const SearchBox = ({
   const handleClickPriceMin = (value) => {
     setPriceMinListShow(false);
     setPriceMin(value);
+    setPriceMinListSearch("");
   };
   const handlePriceMaxShow = () => {
-    setPriceMaxListShow(prev => !prev);
+    setPriceMaxListShow((prev) => !prev);
     setPriceMinListShow(false);
     setAutoListShow(false);
     setBrandListShow(false);
@@ -201,6 +218,7 @@ const SearchBox = ({
   const handleClickPriceMax = (value) => {
     setPriceMaxListShow(false);
     setPriceMax(value);
+    setPriceMaxListSearch("");
   };
   const handleMouseLeave = () => {
     setAutoListShow(false);
@@ -209,14 +227,26 @@ const SearchBox = ({
     setYearMaxListShow(false);
     setPriceMinListShow(false);
     setPriceMaxListShow(false);
+    setAutoListSearch("");
+    setBrandListSearch("");
+    setYearMinListSearch("");
+    setYearMaxListSearch("");
+    setPriceMinListSearch("");
+    setPriceMaxListSearch("");
   };
 
   return (
     <>
       <div className="w-screen h-screen absolute top-[62%] right-2 xs2:right-10 xs:right-20 md:top-[65%] md:right-36 z-40 flex justify-end -translate-y-1/2">
-        <div className="w-screen h-screen top-0 left-0 z-40" onClick={handleMouseLeave}></div>
+        <div
+          className="w-screen h-screen top-0 left-0 z-40"
+          onClick={handleMouseLeave}
+        ></div>
         <div className=" sm:ml-[60px] md:ml-[80px] relative lg:ml-[100px] mt-[24px] xs2:mt-[20px] xs:mt-[28px] sm:mt-[4px] md:mt-[10px] max-w-[250px] md:max-w-[320px] w-11/12 h-fit rounded-lg bg-white/[0.8] z-40 alert alert-light px-2 xs:px-8 py-2 xs:py-4 border-blue-700 border-2 flex flex-col gap-2">
-          <div className="w-screen h-screen -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 absolute" onClick={handleMouseLeave}></div>
+          <div
+            className="w-screen h-screen -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 absolute"
+            onClick={handleMouseLeave}
+          ></div>
           <>
             {/* <input
           className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md pl-2 h-12 lg:h-16 col-span-2"
@@ -242,31 +272,38 @@ const SearchBox = ({
         </select> */}
           </>
           {/* <CustomAriaLive options={autosList} /> */}
-          <div
-            className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative"
-            // onMouseLeave={handleMouseLeave}
-          >
-            {autoListShow ? <input className="w-full h-full rounded-md px-2 outline-none" /> : <label
-              className="w-full cursor-pointer pl-2"
-              onClick={handleClickAutoShow}
-            >
-              {auto}
-            </label>}
+          <div className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
+            {autoListShow ? (
+              <input
+                className="w-full h-full rounded-md px-2 outline-none"
+                value={autoListSearch}
+                onChange={(e) => setAutoListSearch(e.target.value)}
+              />
+            ) : (
+              <label
+                className="w-full h-full flex items-center cursor-pointer pl-2"
+                onClick={handleClickAutoShow}
+              >
+                {auto}
+              </label>
+            )}
             <FontAwesomeIcon icon={faAngleDown} />
             <div
-              className={`absolute cursor-pointer h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
+              className={`absolute cursor-pointer min-h-12 h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
                 autoListShow ? "block" : "hidden"
               }`}
             >
-              {autosList.map((item) => (
-                <p
-                  key={item}
-                  className="w-full pl-2 h-8 border-t-[1px] border-gray-300 flex items-center bg-white hover:bg-blue-200 z-50 cursor-pointer"
-                  onClick={() => handleClickAuto(item)}
-                >
-                  {item}
-                </p>
-              ))}
+              {autosList
+                .filter((item) => item.toLowerCase().includes(autoListSearch.toLowerCase()))
+                .map((item) => (
+                  <p
+                    key={item}
+                    className="w-full pl-2 h-8 border-t-[1px] border-gray-300 flex items-center bg-white hover:bg-blue-200 z-50 cursor-pointer"
+                    onClick={() => handleClickAuto(item)}
+                  >
+                    {item}
+                  </p>
+                ))}
             </div>
           </div>
           <>
@@ -328,27 +365,37 @@ const SearchBox = ({
         </select> */}
           </>
           <div className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
-            {brandListShow ? <input className="w-full h-full rounded-md px-2 outline-none" /> : <label
-              className="w-full cursor-pointer pl-2"
-              onClick={handleClickBrandShow}
-            >
-              {brand}
-            </label>}
+            {brandListShow ? (
+              <input
+                className="w-full h-full rounded-md px-2 outline-none"
+                value={brandListSearch}
+                onChange={(e) => setBrandListSearch(e.target.value)}
+              />
+            ) : (
+              <label
+                className="w-full h-full flex items-center cursor-pointer pl-2"
+                onClick={handleClickBrandShow}
+              >
+                {brand}
+              </label>
+            )}
             <FontAwesomeIcon icon={faAngleDown} />
             <div
-              className={`absolute cursor-pointer h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
+              className={`absolute cursor-pointer min-h-12 h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
                 brandListShow ? "block" : "hidden"
               }`}
             >
-              {brandList.map((item) => (
-                <p
-                  key={item}
-                  className="w-full pl-2 h-8 border-t-[1px] border-gray-300 flex items-center bg-white hover:bg-blue-200 z-50 cursor-pointer"
-                  onClick={() => handleClickBrand(item)}
-                >
-                  {item}
-                </p>
-              ))}
+              {brandList
+                .filter((item) => item.toLowerCase().includes(brandListSearch.toLowerCase()))
+                .map((item) => (
+                  <p
+                    key={item}
+                    className="w-full pl-2 h-8 border-t-[1px] border-gray-300 flex items-center bg-white hover:bg-blue-200 z-50 cursor-pointer"
+                    onClick={() => handleClickBrand(item)}
+                  >
+                    {item}
+                  </p>
+                ))}
             </div>
           </div>
           <>
@@ -392,27 +439,37 @@ const SearchBox = ({
         </select> */}
           </>
           <div className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
-            {yearListMinShow ? <input className="w-full h-full rounded-md px-2 outline-none" /> : <label
-              className="w-full cursor-pointer pl-2"
-              onClick={handleYearMinShow}
-            >
-              {yearMin}
-            </label>}
+            {yearListMinShow ? (
+              <input
+                className="w-full h-full rounded-md px-2 outline-none"
+                value={yearListMinSearch}
+                onChange={(e) => setYearMinListSearch(e.target.value)}
+              />
+            ) : (
+              <label
+                className="w-full h-full flex items-center cursor-pointer pl-2"
+                onClick={handleYearMinShow}
+              >
+                {yearMin}
+              </label>
+            )}
             <FontAwesomeIcon icon={faAngleDown} />
             <div
-              className={`absolute cursor-pointer h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
+              className={`absolute cursor-pointer min-h-12 h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
                 yearListMinShow ? "block" : "hidden"
               }`}
             >
-              {yearList.map((item) => (
-                <p
-                  key={item}
-                  className="w-full pl-2 h-8 border-t-[1px] border-gray-300 flex items-center bg-white hover:bg-blue-200 z-50 cursor-pointer"
-                  onClick={() => handleClickYearMin(item)}
-                >
-                  {item}
-                </p>
-              ))}
+              {yearList
+                .filter((item) => item.toLowerCase().includes(yearListMinSearch.toLowerCase()))
+                .map((item) => (
+                  <p
+                    key={item}
+                    className="w-full pl-2 h-8 border-t-[1px] border-gray-300 flex items-center bg-white hover:bg-blue-200 z-50 cursor-pointer"
+                    onClick={() => handleClickYearMin(item)}
+                  >
+                    {item}
+                  </p>
+                ))}
             </div>
           </div>
           <>
@@ -456,27 +513,37 @@ const SearchBox = ({
         </select> */}
           </>
           <div className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
-            {yearListMaxShow ? <input className="w-full h-full rounded-md px-2 outline-none" /> : <label
-              className="w-full cursor-pointer pl-2"
-              onClick={handleYearMaxShow}
-            >
-              {yearMax}
-            </label>}
+            {yearListMaxShow ? (
+              <input
+                className="w-full h-full rounded-md px-2 outline-none"
+                value={yearListMaxSearch}
+                onChange={(e) => setYearMaxListSearch(e.target.value)}
+              />
+            ) : (
+              <label
+                className="w-full h-full flex items-center cursor-pointer pl-2"
+                onClick={handleYearMaxShow}
+              >
+                {yearMax}
+              </label>
+            )}
             <FontAwesomeIcon icon={faAngleDown} />
             <div
-              className={`absolute cursor-pointer h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
+              className={`absolute cursor-pointer min-h-12 h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
                 yearListMaxShow ? "block" : "hidden"
               }`}
             >
-              {yearList.map((item) => (
-                <p
-                  key={item}
-                  className="w-full pl-2 h-8 border-t-[1px] border-gray-300 flex items-center bg-white hover:bg-blue-200 z-50 cursor-pointer"
-                  onClick={() => handleClickYearMax(item)}
-                >
-                  {item}
-                </p>
-              ))}
+              {yearList
+                .filter((item) => item.toLowerCase().includes(yearListMaxSearch.toLowerCase()))
+                .map((item) => (
+                  <p
+                    key={item}
+                    className="w-full pl-2 h-8 border-t-[1px] border-gray-300 flex items-center bg-white hover:bg-blue-200 z-50 cursor-pointer"
+                    onClick={() => handleClickYearMax(item)}
+                  >
+                    {item}
+                  </p>
+                ))}
             </div>
           </div>
           <>
@@ -501,27 +568,37 @@ const SearchBox = ({
         </select> */}
           </>
           <div className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
-            {priceListMinShow ? <input className="w-full h-full rounded-md px-2 outline-none" /> : <label
-              className="w-full cursor-pointer pl-2"
-              onClick={handlePriceMinShow}
-            >
-              {priceMin}
-            </label>}
+            {priceListMinShow ? (
+              <input
+                className="w-full h-full rounded-md px-2 outline-none"
+                value={priceListMinSearch}
+                onChange={(e) => setPriceMinListSearch(e.target.value)}
+              />
+            ) : (
+              <label
+                className="w-full h-full flex items-center  cursor-pointer pl-2"
+                onClick={handlePriceMinShow}
+              >
+                {priceMin}
+              </label>
+            )}
             <FontAwesomeIcon icon={faAngleDown} />
             <div
-              className={`absolute cursor-pointer h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
+              className={`absolute cursor-pointer min-h-12 h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
                 priceListMinShow ? "block" : "hidden"
               }`}
             >
-              {minPriceList.map((item) => (
-                <p
-                  key={item}
-                  className="w-full pl-2 h-8 border-t-[1px] border-gray-300 flex items-center bg-white hover:bg-blue-200 z-50 cursor-pointer"
-                  onClick={() => handleClickPriceMin(item)}
-                >
-                  {item}
-                </p>
-              ))}
+              {minPriceList
+                .filter((item) => item.toLowerCase().includes(priceListMinSearch.toLowerCase()))
+                .map((item) => (
+                  <p
+                    key={item}
+                    className="w-full pl-2 h-8 border-t-[1px] border-gray-300 flex items-center bg-white hover:bg-blue-200 z-50 cursor-pointer"
+                    onClick={() => handleClickPriceMin(item)}
+                  >
+                    {item}
+                  </p>
+                ))}
             </div>
           </div>
           <>
@@ -550,27 +627,37 @@ const SearchBox = ({
         </select> */}
           </>
           <div className="outline-none cursor-pointer border-[1px] border-gray-500 rounded-lg text-sm md:text-md h-8 pr-2 lg:h-12 flex items-center justify-between relative">
-            {priceListMaxShow ? <input className="w-full h-full rounded-md px-2 outline-none" /> : <label
-              className="w-full cursor-pointer pl-2"
-              onClick={handlePriceMaxShow}
-            >
-              {priceMax}
-            </label>}
+            {priceListMaxShow ? (
+              <input
+                className="w-full h-full rounded-md px-2 outline-none"
+                value={priceListMaxSearch}
+                onChange={(e) => setPriceMaxListSearch(e.target.value)}
+              />
+            ) : (
+              <label
+                className="w-full h-full flex items-center  cursor-pointer pl-2"
+                onClick={handlePriceMaxShow}
+              >
+                {priceMax}
+              </label>
+            )}
             <FontAwesomeIcon icon={faAngleDown} />
             <div
-              className={`absolute cursor-pointer h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
+              className={`absolute cursor-pointer min-h-12 h-fit max-h-48 top-[48px] shadow-xl bg-white w-full overflow-auto border-[2px] border-gray-400 rounded-sm pt-2 z-50 ${
                 priceListMaxShow ? "block" : "hidden"
               }`}
             >
-              {maxPriceList.map((item) => (
-                <p
-                  key={item}
-                  className="w-full pl-2 h-8 border-t-[1px] border-gray-300 flex items-center bg-white hover:bg-blue-200 z-50 cursor-pointer"
-                  onClick={() => handleClickPriceMax(item)}
-                >
-                  {item}
-                </p>
-              ))}
+              {maxPriceList
+                .filter((item) => item.toLowerCase().includes(priceListMaxSearch.toLowerCase()))
+                .map((item) => (
+                  <p
+                    key={item}
+                    className="w-full pl-2 h-8 border-t-[1px] border-gray-300 flex items-center bg-white hover:bg-blue-200 z-50 cursor-pointer"
+                    onClick={() => handleClickPriceMax(item)}
+                  >
+                    {item}
+                  </p>
+                ))}
             </div>
           </div>
           <button

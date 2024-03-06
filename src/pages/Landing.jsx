@@ -18,12 +18,13 @@ import PromotionCarCarouselLanding from "../components/PromotionCarCarouselLandi
 
 const Landing = () => {
   const [username, setUsername] = useState("");
-  const [brand, setBrand] = useState("Toyota");
-  const [auto, setAuto] = useState("Auto");
-  const [yearMin, setYearMin] = useState("2002");
-  const [yearMax, setYearMax] = useState("2024");
-  const [priceMin, setPriceMin] = useState("Precio desde");
-  const [priceMax, setPriceMax] = useState("< $90,000");
+  const [brand, setBrand] = useState("");
+  const [auto, setAuto] = useState("");
+  const [yearMin, setYearMin] = useState("");
+  const [yearMax, setYearMax] = useState("");
+  const [priceMin, setPriceMin] = useState("");
+  const [priceMax, setPriceMax] = useState("");
+  const [searchEvent, setSearchEvent] = useState(true);
   // const handleKeyDown = (e) => {
   //   console.log(e.target.value);
   //   if (e.key === "Enter") setSearch(e.target.value);
@@ -135,6 +136,8 @@ const Landing = () => {
           setPriceMin={setPriceMin}
           priceMax={priceMax}
           setPriceMax={setPriceMax}
+          searchEvent={searchEvent}
+          setSearchEvent={setSearchEvent}
         />
       <div className="w-full">
         <PreownedCarousel />
@@ -169,6 +172,7 @@ const Landing = () => {
           yearMax={yearMax}
           priceMin={priceMin}
           priceMax={priceMax}
+          searchEvent={searchEvent}
         />
       </div>
       {/* <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4">

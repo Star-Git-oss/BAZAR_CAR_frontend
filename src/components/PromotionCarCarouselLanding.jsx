@@ -16,6 +16,7 @@ const PromotionCarCarouselLanding = ({
   yearMax,
   priceMin,
   priceMax,
+  searchEvent
 }) => {
   const dispatch = useDispatch();
   const responsive = {
@@ -58,12 +59,15 @@ const PromotionCarCarouselLanding = ({
       yearMaxValue = yearMax,
       priceMinValue = priceMin,
       priceMaxValue = priceMax;
+    if (yearMinValue === "") yearMinValue = '0';
+    if (yearMaxValue === "") yearMaxValue = '100000';
     if (
       priceMinValue === "Precio desde" ||
       priceMinValue === "Sin precio mínimo"
     )
       priceMinValue = "0";
     else if (priceMinValue === "$50,000") priceMinValue = "50000";
+    else priceMinValue = "0";
     if (
       priceMaxValue === "Precio hasta" ||
       priceMaxValue === "Sin precio máximo."
@@ -74,6 +78,7 @@ const PromotionCarCarouselLanding = ({
     else if (priceMaxValue === "$80,000") priceMaxValue = "80000";
     else if (priceMaxValue === "$90,000") priceMaxValue = "90000";
     else if (priceMaxValue === "< $90,000") priceMaxValue = "90000";
+    else priceMaxValue = "100000000000";
 
     console.log(
       "   brandValue: ", brandValue,
@@ -113,7 +118,7 @@ const PromotionCarCarouselLanding = ({
           }
         );
       });
-  }, [brand, auto, yearMin, yearMax, priceMin, priceMax]);
+  }, [searchEvent]);
   return (
     <>
       <ToastContainer
