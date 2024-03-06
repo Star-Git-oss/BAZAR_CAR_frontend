@@ -13,6 +13,7 @@ import FeaturedCarCarousel from "../components/FeaturedCarCarousel";
 import { vehicleOpen } from "../action/vehicle";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "../components/Footer";
 
 const Finance = () => {
   const src = [
@@ -190,7 +191,7 @@ const Finance = () => {
         <FeaturedCarCarousel search={search} featuredData={featuredData} />
         {/* </div> */}
       </div>
-      <FooterSmall />
+      <Footer />
     </>
   );
 };

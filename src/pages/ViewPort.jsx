@@ -85,13 +85,6 @@ const ViewPort = () => {
   const handleImgClick = (item) => {
     setMainImg(item);
   };
-  // useEffect(() => {
-  //   let isLogged = localStorage.getItem("isLogged");
-  //   let freetime = localStorage.getItem("freetime");
-  //   let status = localStorage.getItem("membership");
-  //   if(isLogged !== "true") navigate("/signin");
-  //   else if(freetime !== "true" && status !== "active") navigate("/system");
-  // }, []);
   return (
     <>
       <NavSmall />
@@ -195,7 +188,7 @@ const ViewPort = () => {
         </div>
       </div>
 
-      <FooterSmall />
+      <Footer />
     </>
   );
 };

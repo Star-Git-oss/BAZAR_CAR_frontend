@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function SellCard({ src, title, price }) {
   const navigate = useNavigate();
   const handleCardClick = () => {
+    window.scrollTo(0, 0);
     navigate("/view?" + " " + src);
   };
   return (

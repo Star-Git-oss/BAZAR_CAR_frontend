@@ -1,7 +1,7 @@
 import { Carousel } from "@material-tailwind/react";
 
-function PreownedCarousel() {
-  const src = ["./inicio1.png", "./inicio2.png", "./inicio3.png"];
+function PreownedCarousel({src}) {
+  // const src = ["./inicio1.png", "./inicio2.png", "./inicio3.png"];
   return (
     <>
       <Carousel

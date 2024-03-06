@@ -12,6 +12,7 @@ import FeaturedCarCarousel from "../components/FeaturedCarCarousel";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { vehicleOpen } from "../action/vehicle";
+import Footer from "../components/Footer";
 
 const Garantia = () => {
   const responsive = {
@@ -201,7 +202,7 @@ const Garantia = () => {
           <FeaturedCarCarousel search={search} featuredData={featuredData} />
         </div>
       </div>
-      <FooterSmall />
+      <Footer />
     </>
   );
 };

@@ -10,6 +10,7 @@ import FeaturedCarCarousel from "../components/FeaturedCarCarousel";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { vehicleOpen } from "../action/vehicle";
+import Footer from "../components/Footer";
 
 const Semi = () => {
   const responsive = {
@@ -253,7 +254,7 @@ const Semi = () => {
       <div className="flex justify-between items-center mx-8 mb-4">
         <FeaturedCarCarousel search={search} featuredData={featuredData} />
       </div>
-      <FooterSmall />
+      <Footer />
     </>
   );
 };

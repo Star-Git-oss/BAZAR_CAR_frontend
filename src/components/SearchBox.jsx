@@ -20,7 +20,7 @@ const SearchBox = ({
   priceMax,
   setPriceMax,
   searchEvent,
-  setSearchEvent,
+  setSearchEvent
 }) => {
   const yearList = [
     "2024",
@@ -140,6 +140,7 @@ const SearchBox = ({
 
   const handleBuscarClick = () => {
     setSearchEvent(!searchEvent);
+    handleSearch();
   };
   const handleClickAutoShow = (value) => {
     setAutoListShow((prev) => !prev);

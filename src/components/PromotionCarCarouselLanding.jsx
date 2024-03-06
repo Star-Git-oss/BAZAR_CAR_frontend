@@ -9,16 +9,7 @@ import { UPLOAD_URI } from "../utils/api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const PromotionCarCarouselLanding = ({
-  brand,
-  auto,
-  yearMin,
-  yearMax,
-  priceMin,
-  priceMax,
-  searchEvent
-}) => {
-  const dispatch = useDispatch();
+const PromotionCarCarouselLanding = ({ data }) => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1580 },
@@ -51,75 +42,6 @@ const PromotionCarCarouselLanding = ({
       slidesToSlide: 1, // optional, default to 1.
     },
   };
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    let brandValue = brand,
-      autoValue = auto,
-      yearMinValue = yearMin,
-      yearMaxValue = yearMax,
-      priceMinValue = priceMin,
-      priceMaxValue = priceMax;
-    if(brandValue === "Marcas") brandValue = "";
-    if (yearMinValue.length > 4) yearMinValue = '0';
-    if (yearMaxValue.length > 4) yearMaxValue = '100000';
-    if (
-      priceMinValue === "Precio desde" ||
-      priceMinValue === "Sin precio mínimo"
-    )
-      priceMinValue = "0";
-    else if (priceMinValue === "$50,000") priceMinValue = "50000";
-    else priceMinValue = "0";
-    if (
-      priceMaxValue === "Precio hasta" ||
-      priceMaxValue === "Sin precio máximo."
-    )
-      priceMaxValue = "100000000000";
-    else if (priceMaxValue === "$60,000") priceMaxValue = "60000";
-    else if (priceMaxValue === "$70,000") priceMaxValue = "70000";
-    else if (priceMaxValue === "$80,000") priceMaxValue = "80000";
-    else if (priceMaxValue === "$90,000") priceMaxValue = "90000";
-    else if (priceMaxValue === "< $90,000") priceMaxValue = "90000";
-    else priceMaxValue = "100000000000";
-
-    console.log(
-      "   brandValue: ", brandValue,
-      "   autoValue: ", autoValue,
-      "   yearMinValue: ", yearMinValue,
-      "   yearMaxValue: ", yearMaxValue,
-      "   priceMinValue: ", priceMinValue,
-      "   priceMaxValue: ", priceMaxValue,
-    );
-
-    dispatch(
-      vehicleOpenLanding({
-        brand: brandValue,
-        auto: autoValue,
-        yearMin: yearMinValue,
-        yearMax: yearMaxValue,
-        priceMin: priceMinValue,
-        priceMax: priceMaxValue,
-      })
-    )
-      .then((res) => {
-        setData([...res.data]);
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-        toast.error(
-          "No se puede comunicar con el servidor. Por favor, compruebe su conexión.",
-          {
-            position: "bottom-right",
-            autoClose: 5000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            theme: "colored",
-            draggable: true,
-          }
-        );
-      });
-  }, [searchEvent]);
   return (
     <>
       <ToastContainer

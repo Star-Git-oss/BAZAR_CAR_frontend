@@ -22,18 +22,22 @@ const Navbar = () => {
     }
   }, []);
   const handleVehicleClick = () => {
+    window.scrollTo(0, 0);
     navigate("/vehicle");
   };
   const handleLogoLandingClick = () => {
+    window.scrollTo(0, 0);
     navigate("/");
   };
   const handleLogoClick = () => {
+    window.scrollTo(0, 0);
     navigate("/logo");
   };
   const handleMenuClick = () => {
     setMenu((prev) => !prev);
   };
   const handleUsadosClick = () => {
+    window.scrollTo(0, 0);
     // if (isLoggedIn) {
     navigate("/semi");
     // } else
@@ -53,6 +57,7 @@ const Navbar = () => {
     //   );
   };
   const handleFinanceClick = () => {
+    window.scrollTo(0, 0);
     // if (isLoggedIn) {
     navigate("/finance");
     // } else
@@ -72,6 +77,7 @@ const Navbar = () => {
     //   );
   };
   const handleGarantClick = () => {
+    window.scrollTo(0, 0);
     // if (isLoggedIn) {
     navigate("/garantia");
     // } else
@@ -91,6 +97,7 @@ const Navbar = () => {
     //   );
   };
   const handleIniciarClick = () => {
+    window.scrollTo(0, 0);
     if (!isLoggedIn) navigate("/signin");
     else {
       localStorage.setItem("id", "");
@@ -115,6 +122,7 @@ const Navbar = () => {
     }
   };
   const handleCotizadoresClick = () => {
+    window.scrollTo(0, 0);
     navigate("/cotizadores");
   };
 
@@ -138,7 +146,7 @@ const Navbar = () => {
       >
         <img
           src="./Logo bazar 1.png"
-          className="w-[170px] h-[40px] xs:w-[200px] xs:h-[48px] md:w-[230px] md:h-[55px] cursor-pointer sm:mb-4 hover:scale-105 transition-all duration-300 hover:brightness-150"
+          className="w-[170px] h-[40px] xs:w-[200px] xs:h-[48px] md:w-[280px] md:h-[60px] cursor-pointer sm:mb-4 hover:scale-105 transition-all duration-300 hover:brightness-150"
           alt="logo"
           onClick={handleLogoLandingClick}
         />
@@ -220,20 +228,20 @@ const Navbar = () => {
               Solicitud de presupuesto.
             </button> */}
 
-            {/* <div className="w-full h-full flex flex-col md:flex-row gap-4">
+            <div className="w-full h-full flex flex-col md:flex-row gap-4">
               <button
                 className="w-full h-[40px] ml-[6px] bg-red-800 hover:bg-red-600 text-sm rounded-md text-white transition-colors duration-300 ease-in-out"
                 onClick={handleVehicleClick}
               >
                 Cargar vehículo.
               </button>
-              <button
+              {/* <button
                 className="w-full h-[40px] ml-[6px] bg-red-800 hover:bg-red-600 text-sm rounded-md text-white transition-colors duration-300 ease-in-out"
                 onClick={handleLogoClick}
               >
                 Cargar logotipo.
-              </button>
-            </div> */}
+              </button> */}
+            </div>
             
             {/* <img
               src="./Boton-Whatsapp.png"
