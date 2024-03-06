@@ -18,12 +18,12 @@ import PromotionCarCarouselLanding from "../components/PromotionCarCarouselLandi
 
 const Landing = () => {
   const [username, setUsername] = useState("");
-  const [brand, setBrand] = useState("");
-  const [auto, setAuto] = useState("");
-  const [yearMin, setYearMin] = useState("");
-  const [yearMax, setYearMax] = useState("");
-  const [priceMin, setPriceMin] = useState("");
-  const [priceMax, setPriceMax] = useState("");
+  const [brand, setBrand] = useState("Marcas");
+  const [auto, setAuto] = useState("Auto");
+  const [yearMin, setYearMin] = useState("Ano desde");
+  const [yearMax, setYearMax] = useState("Ano hasta");
+  const [priceMin, setPriceMin] = useState("Precio desde");
+  const [priceMax, setPriceMax] = useState("Precio hasta");
   const [searchEvent, setSearchEvent] = useState(true);
   // const handleKeyDown = (e) => {
   //   console.log(e.target.value);
@@ -117,13 +117,16 @@ const Landing = () => {
         onClick={handleWhatsAppClick}
         darkMode={true}
         allowEsc={true}
-        avatar="./logo icono1.png"
+        avatar="./highLightTitle.png"
         statusMessage="Bienvenido a nuestro servicio."
         chatMessage="Hola, ¿en qué puedo ayudarle?"
         phoneNumber={"52 1 5616002085"}
         onSubmit={(event, formValue) => clickSubmit(event, formValue)}
       />
-      <SearchBox
+      <div className="w-full h-fit overflow-hidden relative">
+        <PreownedCarousel />
+        {/* <Calculate /> */}
+        <SearchBox
           brand={brand}
           setBrand={setBrand}
           auto={auto}
@@ -139,10 +142,6 @@ const Landing = () => {
           searchEvent={searchEvent}
           setSearchEvent={setSearchEvent}
         />
-      <div className="w-full">
-        <PreownedCarousel />
-        {/* <Calculate /> */}
-        
       </div>
       <MasonrySection />
       {/* <div className="h-16 flex justify-between items-center mx-8 mt-2 px-4 shadow-xl shadow-gray-200"> */}

@@ -6,12 +6,8 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { vehicleOpen } from "../action/vehicle";
 import { UPLOAD_URI } from "../utils/api";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
-const PromotionCarCarousel = ({ search }) => {
-  console.log(search);
-  const dispatch = useDispatch();
+const PromotionCarCarousel = ({ promotionData }) => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1580 },
@@ -44,61 +40,8 @@ const PromotionCarCarousel = ({ search }) => {
       slidesToSlide: 1, // optional, default to 1.
     },
   };
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    dispatch(
-      vehicleOpen({ search: search !== undefined ? search : "", num: 12 })
-    )
-      .then((res) => {
-        setData([...res.data]);
-        if (search.length > 0)
-          toast.info(
-            <>
-              <p>AUTOS EN PROMOCION:</p>
-              <p>&nbsp;&nbsp;&nbsp;Totales: {res.result.total}</p>
-              <p>&nbsp;&nbsp;&nbsp;Resultado: {res.result.count}</p>
-            </>,
-            {
-              position: "bottom-right",
-              autoClose: 5000,
-              hideProgressBar: true,
-              closeOnClick: true,
-              pauseOnHover: true,
-              theme: "colored",
-              draggable: true,
-            }
-          );
-      })
-      .catch((err) => {
-        console.log(err);
-        toast.error(
-          "No se puede comunicar con el servidor. Por favor, compruebe su conexión.",
-          {
-            position: "bottom-right",
-            autoClose: 5000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            theme: "colored",
-            draggable: true,
-          }
-        );
-      });
-  }, [search]);
   return (
     <>
-      <ToastContainer
-        position="bottom-right"
-        autoClose={5000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss={false}
-        draggable
-        pauseOnHover={false}
-        theme="colored"
-      />
       <div className="w-full px-6 mb-8 rounded-lg border-gray-400 border-[1px]">
         <Carousel
           className="pb-6 lg:h-96 md:h-88 sm:h-80 xs:h-72 xs2:h-64 h-56"
@@ -110,7 +53,7 @@ const PromotionCarCarousel = ({ search }) => {
           dotListClass="custom-dot-list-style"
           slidesToSlide={1}
         >
-          {data.map((item) => {
+          {promotionData.map((item) => {
             return (
               <SellCard
                 src={UPLOAD_URI + item.uploads}

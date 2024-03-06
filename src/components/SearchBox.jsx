@@ -237,14 +237,14 @@ const SearchBox = ({
 
   return (
     <>
-      <div className="w-screen h-screen absolute top-[62%] right-2 xs2:right-10 xs:right-20 md:top-[65%] md:right-36 z-40 flex justify-end -translate-y-1/2">
+      {/* <div className="w-screen h-screen absolute top-[62%] right-2 xs2:right-10 xs:right-20 md:top-[65%] md:right-36 z-30 flex justify-end -translate-y-1/2"> */}
         <div
-          className="w-screen h-screen top-0 left-0 z-40"
+          className="absolute w-screen h-screen top-0 left-0 z-20"
           onClick={handleMouseLeave}
         ></div>
-        <div className=" sm:ml-[60px] md:ml-[80px] relative lg:ml-[100px] mt-[24px] xs2:mt-[20px] xs:mt-[28px] sm:mt-[4px] md:mt-[10px] max-w-[250px] md:max-w-[320px] w-11/12 h-fit rounded-lg bg-white/[0.8] z-40 alert alert-light px-2 xs:px-8 py-2 xs:py-4 border-blue-700 border-2 flex flex-col gap-2">
+        <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:mt-4 md:mt-2 sm:left-[83%] max-w-[250px] md:max-w-[320px] w-11/12 h-fit rounded-lg bg-white/[0.8] z-40 px-2 xs:px-8 py-2 xs:py-4 border-blue-700 border-2 flex flex-col gap-2">
           <div
-            className="w-screen h-screen -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 absolute"
+            className="w-screen h-screen -translate-x-1/2 -translate-y-1/2 top-1/2 left-[100%] absolute"
             onClick={handleMouseLeave}
           ></div>
           <>
@@ -667,7 +667,7 @@ const SearchBox = ({
             BUSCAR
           </button>
         </div>
-      </div>
+      {/* </div> */}
     </>
   );
 };

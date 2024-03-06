@@ -134,8 +134,7 @@ const Navbar = () => {
         theme="colored"
       /> */}
       <div
-        className="bg-white fixed w-full h-24 sm:h-28 md:h-32 mx-auto flex flex-row justify-between md:justify-evenly px-8 sm:px-20 md:px-4 pt-6 items-center border-sky-950  border-t-0 rounded-b-2xl shadow-2xl shadow-gray-400"
-        style={{ zIndex: 9999 }}
+        className="bg-white fixed w-full h-24 sm:h-28 md:h-32 mx-auto flex flex-row justify-between md:justify-evenly px-8 sm:px-20 md:px-4 pt-6 items-center border-sky-950  border-t-0 rounded-b-2xl shadow-2xl shadow-gray-400 z-50"
       >
         <img
           src="./Logo bazar 1.png"
@@ -180,7 +179,7 @@ const Navbar = () => {
         <div
           className={`absolute right-0 drop-shadow-xl scale-75 sm:scale-100 ${
             menu ? "" : "translate-x-96"
-          } top-4 -right-10 sm:right-0 sm:top-24 transition transform ease-in-out  gap-3 delay-200 bg-white p-8 rounded-b-xl md:rounded-none md:p-0 md:bg-inherit md:relative flex flex-col md:flex-row md:w-4/5 w-fit md:justify-evenly items-center md:contents`}
+          } top-4 -right-8 sm:right-0 sm:top-24 transition transform ease-in-out gap-3 delay-200 bg-white p-8 rounded-b-xl md:rounded-none md:p-0 md:bg-inherit md:relative flex flex-col md:flex-row md:w-4/5 w-fit md:justify-evenly items-center md:contents`}
         >
           <div className="nav-btn w-[100px] h-[100px] cursor-pointer navbutton flex justify-center items-center">
             <img

@@ -59,8 +59,9 @@ const PromotionCarCarouselLanding = ({
       yearMaxValue = yearMax,
       priceMinValue = priceMin,
       priceMaxValue = priceMax;
-    if (yearMinValue === "") yearMinValue = '0';
-    if (yearMaxValue === "") yearMaxValue = '100000';
+    if(brandValue === "Marcas") brandValue = "";
+    if (yearMinValue.length > 4) yearMinValue = '0';
+    if (yearMaxValue.length > 4) yearMaxValue = '100000';
     if (
       priceMinValue === "Precio desde" ||
       priceMinValue === "Sin precio mínimo"
@@ -72,7 +73,7 @@ const PromotionCarCarouselLanding = ({
       priceMaxValue === "Precio hasta" ||
       priceMaxValue === "Sin precio máximo."
     )
-      priceMaxValue = "0";
+      priceMaxValue = "100000000000";
     else if (priceMaxValue === "$60,000") priceMaxValue = "60000";
     else if (priceMaxValue === "$70,000") priceMaxValue = "70000";
     else if (priceMaxValue === "$80,000") priceMaxValue = "80000";
